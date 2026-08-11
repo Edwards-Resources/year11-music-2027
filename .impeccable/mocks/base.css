@@ -1,0 +1,19 @@
+@font-face{font-family:'Anton';src:url('fonts/anton-400.woff2') format('woff2');font-weight:400;font-display:block}
+@font-face{font-family:'Literata';src:url('fonts/literata-400.woff2') format('woff2');font-weight:300 700;font-display:block}
+@font-face{font-family:'Roboto Mono';src:url('fonts/roboto-mono-400.woff2') format('woff2');font-weight:300 700;font-display:block}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1280px;height:900px;overflow:hidden}
+body{font-family:'Literata',Georgia,serif;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+
+.stage{width:1280px;height:900px;position:relative;display:flex;flex-direction:column}
+
+/* type roles shared across all three comps */
+.billing{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-0.015em;line-height:0.88}
+.cat{font-family:'Roboto Mono',ui-monospace,monospace;text-transform:uppercase;letter-spacing:0.12em;font-size:11px;font-weight:500}
+.cat-lg{font-family:'Roboto Mono',ui-monospace,monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:13px;font-weight:500}
+.prose{font-family:'Literata',Georgia,serif;font-size:16px;line-height:1.55}
+.num{font-family:'Roboto Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:500}
+
+/* comp caption bar, not part of the design */
+.plate{position:absolute;left:0;top:0;z-index:99;font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;padding:6px 12px;background:#000;color:#fff}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<title>Comp B</title>
+<style>
+body{background:#E6E7E3;color:#14161C}
+.band{flex:0 0 250px;background:#1B2FB0;color:#F3F4F8;padding:20px 34px 22px;position:relative;display:flex;flex-direction:column}
+.bandtop{display:flex;justify-content:space-between;align-items:center}
+.wordmark{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:18px;letter-spacing:.02em}
+.navs{display:flex;gap:24px;color:rgba(243,244,248,.7)}
+.navs .on{color:#fff;box-shadow:0 6px 0 -4px #E8232A}
+.bandmain{margin-top:auto;display:grid;grid-template-columns:1fr 372px;gap:30px;align-items:end}
+.bandmain h1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:96px;line-height:.82;letter-spacing:-.025em;margin-left:-5px}
+.bandmain h1 small{display:block;font-size:15px;letter-spacing:.14em;line-height:1;
+  font-family:'Roboto Mono',monospace;font-weight:500;color:rgba(243,244,248,.72);margin-bottom:14px}
+.nowcard{background:#E8232A;color:#fff;padding:15px 18px 17px}
+.nowcard .k{display:block;margin-bottom:8px;opacity:.9}
+.nowcard .t{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:24px;line-height:1.02;letter-spacing:-.01em}
+.nowcard .s{margin-top:8px;font-size:14px;line-height:1.4;opacity:.95}
+
+.catalogue{flex:1;padding:18px 34px 0;min-height:0;display:flex;flex-direction:column}
+.chead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2.5px solid #14161C;padding-bottom:8px}
+.chead h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:23px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;overflow:hidden}
+.w{display:grid;grid-template-columns:46px 1fr 112px 44px;gap:10px;align-items:baseline;
+  padding:14px 0;border-bottom:1px solid rgba(20,22,28,.15)}
+.w .no{color:rgba(20,22,28,.45)}
+.w .ttl{font-size:15px;line-height:1.25}
+.w .ttl b{font-weight:600}
+.w .cx{color:rgba(20,22,28,.5);text-align:left}
+.w .wk{text-align:right;color:rgba(20,22,28,.45)}
+.w.on{background:#E8232A;color:#fff;margin:0 -12px;padding:15px 12px;border-bottom:none}
+.w.on .no,.w.on .cx,.w.on .wk{color:rgba(255,255,255,.85)}
+.w.on .ttl{font-size:16px}
+.rule{grid-column:1/-1;margin-top:11px;padding-top:5px}
+
+.foot{flex:0 0 80px;display:grid;grid-template-columns:repeat(3,1fr) 300px;border-top:2.5px solid #14161C;align-items:center;margin:0 34px}
+.fc{padding:0 24px 0 0;display:flex;flex-direction:column;gap:4px}
+.fc .ft{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:17px}
+.fc .fk{color:rgba(20,22,28,.5)}
+.fc.on .ft{color:#1B2FB0}
+.exam{background:#14161C;color:#E6E7E3;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 22px;margin-right:-34px}
+.exam .n{font-family:'Anton',sans-serif;font-size:34px;color:#E8232A;line-height:1}
+</style></head>
+<body>
+<div class="stage">
+
+  <div class="band">
+    <div class="bandtop">
+      <div class="wordmark">Preliminary Music 1</div>
+      <div class="navs cat-lg"><span>Term 1</span><span class="on">Term 2</span><span>Term 3</span><span>The Works</span><span>Canvas</span></div>
+    </div>
+    <div class="bandmain">
+      <h1><small>Year 11 &nbsp;·&nbsp; 2027 &nbsp;·&nbsp; The catalogue</small>Twenty works,<br>one year</h1>
+      <div class="nowcard">
+        <span class="k cat">We are up to &nbsp;/&nbsp; Term 2, Week 3</span>
+        <span class="t">Electronic music as repertoire</span>
+        <span class="s">Digital processes on timbre. Listening to M&nbsp;08.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="catalogue">
+    <div class="chead">
+      <h2>The works we study</h2>
+      <div class="cat">Catalogue &nbsp;·&nbsp; ordered by the week it is taught</div>
+    </div>
+    <div class="cols">
+      <div class="w"><span class="no cat">M 01</span><span class="ttl"><b>Eine kleine Nachtmusik</b>, i &nbsp;Mozart</span><span class="cx cat">Art music</span><span class="wk cat">1.1</span></div>
+      <div class="w"><span class="no cat">M 11</span><span class="ttl"><b>Watermelon Man</b> &nbsp;Hancock</span><span class="cx cat">Jazz</span><span class="wk cat">2.6</span></div>
+
+      <div class="w"><span class="no cat">M 02</span><span class="ttl"><b>Oye Como Va</b> &nbsp;Puente</span><span class="cx cat">Global</span><span class="wk cat">1.1</span></div>
+      <div class="w"><span class="no cat">M 12</span><span class="ttl"><b>Electric Counterpoint</b>, iii &nbsp;Reich</span><span class="cx cat">Art music</span><span class="wk cat">2.7</span></div>
+
+      <div class="w"><span class="no cat">M 03</span><span class="ttl"><b>Libertango</b> &nbsp;Piazzolla</span><span class="cx cat">Global</span><span class="wk cat">1.2</span></div>
+      <div class="w"><span class="no cat">M 13</span><span class="ttl"><b>The Ecstasy of Gold</b> &nbsp;Morricone</span><span class="cx cat">Art music</span><span class="wk cat">3.1</span></div>
+
+      <div class="w"><span class="no cat">M 04</span><span class="ttl"><b>Chan Chan</b> &nbsp;Buena Vista Social Club</span><span class="cx cat">Global</span><span class="wk cat">1.2</span></div>
+      <div class="w"><span class="no cat">M 14</span><span class="ttl"><b>Concerning Hobbits</b> &nbsp;Shore</span><span class="cx cat">Art music</span><span class="wk cat">3.2</span></div>
+
+      <div class="w"><span class="no cat">M 05</span><span class="ttl"><b>Ain&rsquo;t No Sunshine</b> &nbsp;Withers</span><span class="cx cat">Popular</span><span class="wk cat">1.3</span></div>
+      <div class="w"><span class="no cat">M 15</span><span class="ttl"><b>Main Titles</b>, Blade Runner &nbsp;Vangelis</span><span class="cx cat">Electronic</span><span class="wk cat">3.3</span></div>
+
+      <div class="w"><span class="no cat">M 06</span><span class="ttl"><b>Dreams</b> &nbsp;Fleetwood Mac</span><span class="cx cat">Popular</span><span class="wk cat">1.3</span></div>
+      <div class="w"><span class="no cat">M 16</span><span class="ttl"><b>In Motion</b> &nbsp;Reznor and Ross</span><span class="cx cat">Electronic</span><span class="wk cat">3.3</span></div>
+
+      <div class="w"><span class="no cat">M 07</span><span class="ttl"><b>Took the Children Away</b> &nbsp;Roach</span><span class="cx cat">First Nations</span><span class="wk cat">1.5</span></div>
+      <div class="w"><span class="no cat">M 17</span><span class="ttl"><b>Merry Christmas, Mr Lawrence</b> &nbsp;Sakamoto</span><span class="cx cat">Electronic</span><span class="wk cat">3.4</span></div>
+
+      <div class="w on"><span class="no cat">M 08</span><span class="ttl"><b>Since I Left You</b> &nbsp;The Avalanches</span><span class="cx cat">Electronic</span><span class="wk cat">2.3</span></div>
+      <div class="w"><span class="no cat">M 18</span><span class="ttl"><b>Bathroom Dance</b> &nbsp;Gu&eth;nad&oacute;ttir</span><span class="cx cat">Art music</span><span class="wk cat">3.4</span></div>
+
+      <div class="w"><span class="no cat">M 09</span><span class="ttl"><b>Never Be Like You</b> &nbsp;Flume ft. Kai</span><span class="cx cat">Electronic</span><span class="wk cat">2.3</span></div>
+      <div class="w"><span class="no cat">M 19</span><span class="ttl"><b>Organ Symphony</b>, finale &nbsp;Saint-Sa&euml;ns</span><span class="cx cat">Art music</span><span class="wk cat">3.5</span></div>
+
+      <div class="w"><span class="no cat">M 10</span><span class="ttl"><b>Young Person&rsquo;s Guide to the Orchestra</b> &nbsp;Britten</span><span class="cx cat">Art music</span><span class="wk cat">2.6</span></div>
+      <div class="w"><span class="no cat">M 20</span><span class="ttl"><b>Main theme</b>, Babe &nbsp;Westlake</span><span class="cx cat">Art music</span><span class="wk cat">3.5</span></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="fc"><span class="fk cat">Term 1 &nbsp;·&nbsp; 11 lessons</span><span class="ft">Contexts of Music</span></div>
+    <div class="fc on"><span class="fk cat">Term 2 &nbsp;·&nbsp; 21 lessons</span><span class="ft">Creative Practice</span></div>
+    <div class="fc"><span class="fk cat">Term 3 &nbsp;·&nbsp; 18 lessons</span><span class="ft">Music in Focus</span></div>
+    <div class="exam"><span class="cat">Lessons until<br>the aural examination</span><span class="n">29</span></div>
+  </div>
+
+</div></body></html>

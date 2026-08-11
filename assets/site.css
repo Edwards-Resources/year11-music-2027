@@ -1,0 +1,353 @@
+/* The Liner Notes, rendition "The Billing". Approved comp: comp-c-billing.html
+   (home and lesson pages), comp-b-catalogue.html recoloured (The Works page).
+   One ground, one ink, no third colour. State is carried by inversion, never
+   by a second hue. Anton bills, Literata reads, Roboto Mono numbers. */
+
+@font-face {
+  font-family: "Anton";
+  src: url("fonts/anton-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Literata";
+  src: url("fonts/literata-400.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Literata";
+  src: url("fonts/literata-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("fonts/roboto-mono-400.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("fonts/roboto-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  --ground: #7e1428;
+  --ink: #f0e9de;
+  --ink-90: rgba(240, 233, 222, 0.92);
+  --ink-75: rgba(240, 233, 222, 0.78);
+  --ink-55: rgba(240, 233, 222, 0.58);
+  --ink-40: rgba(240, 233, 222, 0.4);
+  --rule: rgba(240, 233, 222, 0.4);
+  --bill: "Anton", Impact, sans-serif;
+  --read: "Literata", Georgia, serif;
+  --cat: "Roboto Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--read);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--ground);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; }
+h1, h2, h3 { line-height: 1; text-wrap: balance; }
+
+a { color: inherit; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap { max-width: 78rem; margin: 0 auto; padding: 0 1.5rem; }
+
+.skip {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: var(--ground);
+  padding: 0.75rem 1.25rem; font-family: var(--cat); z-index: 100;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* --------------------------------------------------------------- billing */
+
+.billing, .cat-bill { font-family: var(--bill); text-transform: uppercase; letter-spacing: -0.015em; line-height: 0.88; }
+.kicker { font-family: var(--cat); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8125rem; font-weight: 500; }
+.catword { font-family: var(--cat); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.6875rem; font-weight: 500; }
+.numeral { font-family: var(--cat); font-variant-numeric: tabular-nums; font-weight: 500; }
+
+/* ------------------------------------------------------------- masthead */
+
+.masthead {
+  border-bottom: 1.5px solid var(--rule);
+  padding: 1.1rem 0;
+}
+.masthead .wrap {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.wordmark {
+  font-family: var(--bill); text-transform: uppercase; font-size: 1.05rem;
+  letter-spacing: 0.02em; text-decoration: none;
+}
+.wordmark .div { opacity: 0.45; padding: 0 0.5em; }
+.site-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.site-nav a {
+  font-family: var(--cat); text-transform: uppercase; letter-spacing: 0.1em;
+  font-size: 0.8125rem; font-weight: 500; text-decoration: none;
+  color: var(--ink-75);
+  padding-bottom: 0.35rem;
+}
+.site-nav a[aria-current="page"], .site-nav a.on {
+  color: var(--ink); box-shadow: 0 6px 0 -4px var(--ink);
+}
+
+.crumbs { border-bottom: 1.5px solid var(--rule); padding: 0.65rem 0; }
+.crumbs ol { display: flex; gap: 0.5rem; list-style: none; flex-wrap: wrap; }
+.crumbs li { font-family: var(--cat); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-55); }
+.crumbs li:not(:last-child)::after { content: "/"; margin-left: 0.5rem; opacity: 0.5; }
+.crumbs a { text-decoration: none; color: var(--ink-75); }
+.crumbs a:hover { color: var(--ink); }
+
+main { display: block; padding: 2.5rem 0 3.5rem; }
+
+.foot {
+  border-top: 1.5px solid var(--rule); padding: 1.5rem 0 2.5rem;
+}
+.foot p { font-family: var(--cat); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-55); }
+.foot p + p { margin-top: 0.4rem; }
+
+/* ----------------------------------------------------------------- bill */
+/* The lesson-headliner layout, shared by the home page and every lesson page. */
+
+.bill { padding-top: 1.25rem; }
+
+.kick {
+  display: flex; justify-content: space-between; align-items: baseline;
+  color: var(--ink-75); flex-wrap: wrap; gap: 0.5rem;
+}
+
+.head { margin: 0.5rem 0 0 -0.1rem; }
+.head .l1, .head .l2 {
+  font-family: var(--bill); text-transform: uppercase;
+  font-size: clamp(2.75rem, 8vw, 7.375rem);
+  line-height: 0.82; letter-spacing: -0.028em; display: block;
+}
+.head .inv {
+  background: var(--ink); color: var(--ground);
+  padding: 0 0.35em 0.12em; margin-left: -0.1em; display: inline-block;
+}
+
+.sub {
+  margin-top: 1.4rem; display: grid; grid-template-columns: 1fr 1fr 16rem;
+  gap: 2rem; align-items: start; border-top: 1.5px solid var(--rule); padding-top: 1rem;
+}
+.sub .k { display: block; color: var(--ink-75); margin-bottom: 0.5rem; }
+.sub .v { font-family: var(--bill); text-transform: uppercase; font-size: 1.6rem; line-height: 1.05; letter-spacing: -0.012em; }
+.sub p { font-size: 0.95rem; line-height: 1.5; color: var(--ink-90); max-width: 38ch; }
+
+.steps { margin-top: 1.6rem; border-top: 1.5px solid var(--rule); padding-top: 1rem; }
+.steps .k { display: block; color: var(--ink-75); margin-bottom: 0.75rem; }
+.stepgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem; list-style: none; }
+.st { display: flex; gap: 0.7rem; align-items: flex-start; }
+.st .n { font-family: var(--bill); font-size: 1.6rem; line-height: 0.9; color: var(--ink-40); flex: none; }
+.st p { font-size: 0.95rem; line-height: 1.5; color: var(--ink-90); }
+
+.support {
+  border-top: 1.5px solid var(--rule); padding-top: 1rem; margin-top: 1.6rem;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem;
+}
+.sp .t { font-family: var(--bill); text-transform: uppercase; font-size: 1.9rem; line-height: 1; letter-spacing: -0.015em; }
+.sp.on .t { background: var(--ink); color: var(--ground); padding: 0.06em 0.3em 0.18em; margin-left: -0.3em; display: inline-block; }
+.sp .m { display: block; color: var(--ink-75); margin-top: 0.5rem; font-size: 0.8125rem; }
+.sp a { text-decoration: none; }
+.sp a:hover .t { text-decoration: underline; text-underline-offset: 4px; }
+
+.tail { margin-top: 1.4rem; border-top: 1.5px solid var(--rule); padding: 0.9rem 0 0.5rem; }
+.tailk { color: var(--ink-75); margin-bottom: 0.6rem; display: block; }
+.tailblock {
+  font-family: var(--bill); text-transform: uppercase; font-size: 1.05rem;
+  line-height: 1.4; letter-spacing: 0.004em; text-align: justify; color: var(--ink-90);
+}
+.tailblock a { text-decoration: none; color: inherit; }
+.tailblock .div { color: var(--ink-40); padding: 0 0.35em; }
+.tailblock .now {
+  background: var(--ink); color: var(--ground); font-weight: 400; padding: 0.06em 0.3em 0.15em;
+}
+.tailblock .held { color: var(--ink-40); font-style: normal; }
+
+.here-flag {
+  margin-top: 1.4rem; padding: 0.8rem 1rem; background: var(--ink); color: var(--ground);
+  font-family: var(--bill); text-transform: uppercase; font-size: 1.05rem; letter-spacing: -0.01em;
+  display: inline-block;
+}
+
+/* lesson body: criteria, activities, media, teacher notes */
+
+.crit-list { list-style: none; margin-top: 0.75rem; }
+.crit-list li { display: flex; gap: 0.6rem; padding: 0.35rem 0; font-size: 0.95rem; }
+.crit-list input[type="checkbox"] { margin-top: 0.3rem; flex: none; accent-color: var(--ink); }
+
+.blk { margin-top: 1.8rem; border-top: 1.5px solid var(--rule); padding-top: 1rem; }
+.blk h2.tab {
+  font-family: var(--cat); text-transform: uppercase; letter-spacing: 0.1em;
+  font-size: 0.8125rem; font-weight: 500; color: var(--ink-75); margin-bottom: 0.9rem;
+}
+.blk table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.blk th, .blk td { text-align: left; padding: 0.55rem 0.8rem 0.55rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.blk th { font-family: var(--cat); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-75); font-weight: 500; }
+.blk ol, .blk ul { padding-left: 1.2rem; }
+.blk ol li, .blk ul li { margin: 0.35rem 0; font-size: 0.95rem; }
+.blk p { font-size: 0.95rem; }
+.blk .example {
+  background: rgba(240, 233, 222, 0.08); border-left: 3px solid var(--ink-40);
+  padding: 0.9rem 1.1rem; font-size: 0.9375rem;
+}
+
+.video { position: relative; padding-top: 56.25%; margin-top: 0.5rem; background: rgba(0,0,0,0.25); }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.media-brief { margin-top: 0.6rem; font-size: 0.875rem; color: var(--ink-75); }
+.blk-empty { border-top: 1.5px solid var(--rule); }
+.empty-mark { font-family: var(--cat); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-55); }
+
+.teach { margin-top: 1.8rem; border-top: 1.5px solid var(--rule); padding-top: 1rem; }
+.teach ul { padding-left: 1.2rem; }
+.teach li { font-size: 0.9375rem; margin: 0.3rem 0; }
+
+.prevnext { margin-top: 2.2rem; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.pn { text-decoration: none; max-width: 22rem; }
+.pn span { display: block; font-family: var(--cat); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-55); margin-bottom: 0.3rem; }
+.pn strong { font-family: var(--bill); text-transform: uppercase; font-size: 1.1rem; letter-spacing: -0.01em; }
+.pn-next { text-align: right; margin-left: auto; }
+
+/* -------------------------------------------------------------- outcomes */
+
+.outcomes-list { list-style: none; margin-top: 0.5rem; }
+.outcomes-list li { font-size: 0.9rem; padding: 0.4rem 0; border-bottom: 1px solid var(--rule); }
+.outcomes-list code { font-family: var(--cat); font-size: 0.8rem; color: var(--ink-75); margin-right: 0.5rem; }
+
+/* --------------------------------------------------------- home fallback */
+
+.pre-start {
+  padding: 3rem 0;
+}
+.pre-start h1 { font-family: var(--bill); text-transform: uppercase; font-size: clamp(2.5rem, 7vw, 5rem); letter-spacing: -0.02em; margin-bottom: 1rem; }
+.pre-start p { max-width: 42ch; font-size: 1rem; color: var(--ink-90); }
+
+/* ------------------------------------------------------------- term hub */
+
+.term-head { padding-bottom: 1.5rem; border-bottom: 1.5px solid var(--rule); }
+.term-head h1 { font-family: var(--bill); text-transform: uppercase; font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.02em; }
+.term-head p { margin-top: 0.6rem; font-size: 1rem; color: var(--ink-90); max-width: 50ch; }
+
+.lesson-rows { list-style: none; margin-top: 1.5rem; }
+.lrow {
+  display: grid; grid-template-columns: 3.5rem 1fr auto; gap: 1rem; align-items: baseline;
+  padding: 0.85rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; color: inherit;
+}
+.lrow .no { font-family: var(--cat); color: var(--ink-55); }
+.lrow .ttl { font-size: 1rem; }
+.lrow .wk { font-family: var(--cat); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-55); text-align: right; }
+.lrow.now { background: var(--ink); color: var(--ground); margin: 0 -1rem; padding: 0.85rem 1rem; border-bottom: none; }
+.lrow.now .no, .lrow.now .wk { color: rgba(126, 20, 40, 0.65); }
+.lrow.missing { opacity: 0.55; }
+
+/* --------------------------------------------------------------- works */
+/* The Works page: catalogue layout from comp-b-catalogue.html, recoloured
+   into the one ground / one ink grammar. The comp's ultramarine and red were
+   a comp-round variable; here the whole page is oxblood and bone. */
+
+.catband {
+  border-bottom: 1.5px solid var(--rule); padding-bottom: 1.5rem; margin-bottom: 1.5rem;
+}
+.catmain { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: end; margin-top: 1.5rem; }
+.catmain h1 {
+  font-family: var(--bill); text-transform: uppercase; font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 0.85; letter-spacing: -0.025em;
+}
+.catmain h1 small {
+  display: block; font-family: var(--cat); font-size: 0.8125rem; letter-spacing: 0.14em;
+  font-weight: 500; color: var(--ink-75); margin-bottom: 0.8rem; text-transform: uppercase;
+}
+.nowcard { background: var(--ink); color: var(--ground); padding: 0.9rem 1.1rem; max-width: 30rem; }
+.nowcard .k { display: block; margin-bottom: 0.4rem; opacity: 0.85; }
+.nowcard .t { font-family: var(--bill); text-transform: uppercase; font-size: 1.35rem; line-height: 1.05; letter-spacing: -0.01em; }
+.nowcard .s { margin-top: 0.5rem; font-size: 0.85rem; line-height: 1.4; }
+
+.chead { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--ink); padding-bottom: 0.6rem; flex-wrap: wrap; gap: 0.5rem; }
+.chead h2 { font-family: var(--bill); text-transform: uppercase; font-size: 1.4rem; }
+
+.worklist { list-style: none; margin-top: 0.5rem; column-count: 1; }
+.wk-row {
+  display: grid; grid-template-columns: 3rem 1fr 8rem 3rem; gap: 0.7rem; align-items: baseline;
+  padding: 0.9rem 0; border-bottom: 1px solid var(--rule); break-inside: avoid;
+  text-decoration: none;
+}
+.wk-row:hover .ttl { text-decoration: underline; text-underline-offset: 3px; }
+.wk-row .no { color: var(--ink-55); }
+.wk-row .ttl { font-size: 0.95rem; line-height: 1.3; }
+.wk-row .ttl b { font-weight: 600; }
+.wk-row .cx { color: var(--ink-55); text-align: left; }
+.wk-row .w { text-align: right; color: var(--ink-55); }
+.wk-row.on { background: var(--ink); color: var(--ground); margin: 0 -0.7rem; padding: 0.9rem 0.7rem; border-bottom: none; }
+.wk-row.on .no, .wk-row.on .cx, .wk-row.on .w { color: rgba(126, 20, 40, 0.75); }
+.wk-row.held .ttl { color: var(--ink-55); }
+
+.catfoot {
+  display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--ink);
+  margin-top: 1.5rem; padding-top: 1rem; gap: 1rem;
+}
+.fc { display: flex; flex-direction: column; gap: 0.25rem; }
+.fc .ft { font-family: var(--bill); text-transform: uppercase; font-size: 1.1rem; }
+.fc .fk { color: var(--ink-55); }
+.fc.on .ft { text-decoration: underline; text-underline-offset: 4px; }
+
+/* --------------------------------------------------------------- canvas */
+
+.canvas-out {
+  margin-top: 1.5rem; padding-top: 1rem; border-top: 1.5px solid var(--rule);
+  font-size: 0.9rem;
+}
+.canvas-out a { font-weight: 600; text-decoration-thickness: 2px; }
+
+/* -------------------------------------------------------------- iframes */
+
+.robots-note { display: none; }
+
+/* -------------------------------------------------------------- mobile */
+
+@media (max-width: 40rem) {
+  .sub { grid-template-columns: 1fr; gap: 1.2rem; }
+  .stepgrid { grid-template-columns: 1fr 1fr; }
+  .support { grid-template-columns: 1fr; }
+  .catmain { grid-template-columns: 1fr; }
+  .catfoot { grid-template-columns: 1fr; }
+  .wk-row { grid-template-columns: 2.5rem 1fr; }
+  .wk-row .cx, .wk-row .w { display: none; }
+  .lrow { grid-template-columns: 2.5rem 1fr; }
+  .lrow .wk { display: none; }
+}
+
+@media (min-width: 40.01rem) and (max-width: 64rem) {
+  .stepgrid { grid-template-columns: 1fr 1fr; }
+}
+
+@media print {
+  body { background: #fff; color: #000; }
+}

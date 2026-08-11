@@ -1,0 +1,39 @@
+{
+ "id": "term2",
+ "number": 2,
+ "name": "Term 2: Creative Practice",
+ "focusArea": "Creative practice",
+ "weeks": 10,
+ "built": false,
+ "source": "21 lesson resources drafted as .docx by Tools/y11_term2_teaching_resources_builder.py, not yet poured into this site.",
+ "assessment": {
+  "name": "AT2",
+  "when": "Term 2",
+  "weighting": null,
+  "detail": "Task detail is in Canvas, not yet mirrored here."
+ },
+ "lessonNumberStart": 12,
+ "lessons": [
+  {"number": 12, "title": "Model works: how a musical idea is built", "week": "Week 1"},
+  {"number": 13, "title": "Aural drill: melodic patterns and cadences", "week": "Week 1"},
+  {"number": 14, "title": "Improvisation as a way of generating material", "week": "Week 2"},
+  {"number": 15, "title": "Performance workshop: style, genre and convention", "week": "Week 2"},
+  {"number": 16, "title": "Electronic music as repertoire, and digital processes on timbre", "week": "Week 3"},
+  {"number": 17, "title": "DAWs, virtual instruments and effects as sound sources", "week": "Week 3"},
+  {"number": 18, "title": "Aural drill: Dorian, Lydian and Mixolydian", "week": "Week 3"},
+  {"number": 19, "title": "Songwriting: building a work from a hook", "week": "Week 4"},
+  {"number": 20, "title": "Performance workshop: expression through articulation, dynamics and phrasing", "week": "Week 4"},
+  {"number": 21, "title": "Timbre study: one idea across contrasting media", "week": "Week 5"},
+  {"number": 22, "title": "Aural drill: ii and V7 in progressions and cadences", "week": "Week 5"},
+  {"number": 23, "title": "Composition workshop: developing the draft", "week": "Week 5"},
+  {"number": 24, "title": "Conventions and variation", "week": "Week 6"},
+  {"number": 25, "title": "Theme and variations: a worked case in Western art music", "week": "Week 6"},
+  {"number": 26, "title": "Harmonic and textural devices, and expressive depth", "week": "Week 7"},
+  {"number": 27, "title": "Performance workshop: adjusting expression to the context", "week": "Week 7"},
+  {"number": 28, "title": "Graphic scores and DAW visualisations", "week": "Week 8"},
+  {"number": 29, "title": "Creating ideas that reflect a style", "week": "Week 8"},
+  {"number": 30, "title": "Aural consolidation: first taste of examination format", "week": "Week 8"},
+  {"number": 31, "title": "Loop-based against through-composed structures", "week": "Week 10"},
+  {"number": 32, "title": "Unit review and vocabulary check", "week": "Week 10"}
+ ]
+}

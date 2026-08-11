@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<title>Comp C</title>
+<style>
+:root{--ink:#F0E9DE;--ground:#7E1428}
+body{background:var(--ground);color:var(--ink)}
+.stage{padding:0 40px}
+
+.top{flex:0 0 54px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1.5px solid rgba(240,233,222,.4)}
+.wordmark{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:17px;letter-spacing:.03em}
+.navs{display:flex;gap:24px;color:rgba(240,233,222,.68)}
+.navs .on{color:var(--ink);box-shadow:0 6px 0 -4px var(--ink)}
+
+.bill{flex:1;display:flex;flex-direction:column;min-height:0;padding-top:14px;justify-content:space-between}
+
+.kick{display:flex;justify-content:space-between;align-items:baseline;color:rgba(240,233,222,.72)}
+
+.head{margin:6px 0 0 -8px}
+.head .l1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:118px;line-height:.82;letter-spacing:-.028em;display:block}
+.head .l2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:118px;line-height:.82;letter-spacing:-.028em;display:block}
+.head .inv{background:var(--ink);color:var(--ground);padding:0 12px 6px;margin-left:-4px;display:inline-block}
+
+.sub{margin-top:16px;display:grid;grid-template-columns:1fr 1fr 260px;gap:34px;align-items:start;
+  border-top:1.5px solid rgba(240,233,222,.4);padding-top:13px}
+.sub .k{display:block;color:rgba(240,233,222,.7);margin-bottom:7px}
+.sub .v{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:27px;line-height:1.02;letter-spacing:-.012em}
+.sub p{font-size:14.5px;line-height:1.5;color:rgba(240,233,222,.9);max-width:38ch}
+
+.steps{margin-top:22px;border-top:1.5px solid rgba(240,233,222,.4);padding-top:13px}
+.steps .k{display:block;color:rgba(240,233,222,.7);margin-bottom:11px}
+.stepgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.st{display:flex;gap:11px;align-items:flex-start}
+.st .n{font-family:'Anton',sans-serif;font-size:27px;line-height:.9;color:rgba(240,233,222,.45)}
+.st p{font-size:15px;line-height:1.5;color:rgba(240,233,222,.92)}
+
+.support{border-top:1.5px solid rgba(240,233,222,.4);padding-top:12px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.sp .t{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:33px;line-height:1;letter-spacing:-.015em}
+.sp.on .t{background:var(--ink);color:var(--ground);padding:1px 9px 4px;margin-left:-9px;display:inline-block}
+.sp .m{display:block;color:rgba(240,233,222,.7);margin-top:8px}
+
+.tail{flex:0 0 auto;margin-top:14px;border-top:1.5px solid rgba(240,233,222,.4);padding:11px 0 16px}
+.tailk{color:rgba(240,233,222,.7);margin-bottom:8px;display:block}
+.tailblock{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:19.5px;line-height:1.34;
+  letter-spacing:.004em;text-align:justify;color:rgba(240,233,222,.94)}
+.tailblock::after{content:"";display:inline-block;width:100%}
+.tailblock i{font-style:normal;color:rgba(240,233,222,.5);padding:0 5px}
+.tailblock b{background:var(--ink);color:var(--ground);font-weight:400;padding:0 6px 2px}
+</style></head>
+<body>
+<div class="stage">
+
+  <div class="top">
+    <div class="wordmark">Preliminary Music 1 &nbsp;&nbsp;<span style="opacity:.45">/</span>&nbsp;&nbsp; 2027</div>
+    <div class="navs cat-lg"><span class="on">This week</span><span>Term 1</span><span>Term 2</span><span>Term 3</span><span>The Works</span><span>Canvas</span></div>
+  </div>
+
+  <div class="bill">
+    <div class="kick cat-lg">
+      <span>Term 2 &nbsp;·&nbsp; Week 3 &nbsp;·&nbsp; Lesson 16 of 50</span>
+      <span>Creative Practice</span>
+    </div>
+
+    <div class="head">
+      <span class="l1">Electronic music</span>
+      <span class="l2"><span class="inv">as repertoire</span></span>
+    </div>
+
+    <div class="sub">
+      <div><span class="k cat">Listening</span><span class="v">Since I Left You</span>
+        <span class="k cat" style="margin-top:7px">The Avalanches, 2000</span></div>
+      <div><span class="k cat">What you will be able to do</span>
+        <p>Name a digital process by ear, and name an acoustic technique that does the same job to timbre.</p></div>
+      <div><span class="k cat">Outcomes</span><span class="v" style="font-size:21px">MU1-11L-01<br>MU1-11L-02</span></div>
+    </div>
+
+    <div class="steps">
+      <span class="k cat">In class this week</span>
+      <div class="stepgrid">
+        <div class="st"><span class="n">01</span><p>Listen to an electronic work without any visual reference first.</p></div>
+        <div class="st"><span class="n">02</span><p>Identify by ear where looping, sampling, delay, pitch shifting or reverb is used.</p></div>
+        <div class="st"><span class="n">03</span><p>For each one, name an acoustic technique that gets a comparable timbral effect.</p></div>
+        <div class="st"><span class="n">04</span><p>Write one well-formed dot point: the process heard, and the change in timbre.</p></div>
+      </div>
+    </div>
+
+    <div class="support">
+      <div class="sp"><span class="t">Last time</span><span class="m cat">B4 &nbsp;·&nbsp; Performance workshop: style, genre and convention</span></div>
+      <div class="sp on"><span class="t">Next up</span><span class="m cat">B6 &nbsp;·&nbsp; DAWs, virtual instruments and effects as sound sources</span></div>
+      <div class="sp"><span class="t">29 lessons</span><span class="m cat">until the aural examination in Term 3. Composition log due Week 8.</span></div>
+    </div>
+  </div>
+
+  <div class="tail">
+    <span class="tailk cat">The twenty works of the year, in the order we meet them</span>
+    <div class="tailblock">
+      Eine kleine Nachtmusik <i>/</i> Oye Como Va <i>/</i> Libertango <i>/</i> Chan Chan <i>/</i> Ain&rsquo;t No Sunshine <i>/</i> Dreams <i>/</i> Took the Children Away <i>/</i> <b>Since I Left You</b> <i>/</i> Never Be Like You <i>/</i> Young Person&rsquo;s Guide to the Orchestra <i>/</i> Watermelon Man <i>/</i> Electric Counterpoint <i>/</i> The Ecstasy of Gold <i>/</i> Concerning Hobbits <i>/</i> Blade Runner Main Titles <i>/</i> In Motion <i>/</i> Merry Christmas, Mr Lawrence <i>/</i> Bathroom Dance <i>/</i> Organ Symphony Finale <i>/</i> Babe Main Theme
+    </div>
+  </div>
+
+</div></body></html>

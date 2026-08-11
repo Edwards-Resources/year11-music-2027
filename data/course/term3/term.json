@@ -1,0 +1,36 @@
+{
+ "id": "term3",
+ "number": 3,
+ "name": "Term 3: Music in Focus",
+ "focusArea": "Music in focus (film and screen)",
+ "weeks": 10,
+ "built": false,
+ "source": "18 lesson resources drafted as .docx by Tools/y11_term3_teaching_resources_builder.py, not yet poured into this site. The five weekly aural practice papers are deliberately not full lesson pages: they carry real HSC audio and NESA marking guidelines, so those weeks get a stub page describing what the paper covers, never the paper itself.",
+ "assessment": {
+  "name": "AT3: Music in Focus Examination",
+  "when": "Term 3",
+  "weighting": null,
+  "detail": "The written aural examination. Task detail, the paper and marking guidelines are in Canvas."
+ },
+ "lessonNumberStart": 33,
+ "lessons": [
+  {"number": 33, "title": "Unit launch: how screen music works", "week": "Week 1"},
+  {"number": 34, "title": "Performance: choosing from the screen literature", "week": "Week 1"},
+  {"number": 35, "title": "Leitmotif and thematic transformation", "week": "Week 2"},
+  {"number": 36, "title": "Notation for screen", "week": "Week 2"},
+  {"number": 37, "title": "Electronic and hybrid screen scoring", "week": "Week 3"},
+  {"number": 38, "title": "Composing: scoring a short scene", "week": "Week 3"},
+  {"number": 39, "title": "Screen music beyond Hollywood", "week": "Week 4"},
+  {"number": 40, "title": "Performance workshop: interpretative decisions", "week": "Week 4"},
+  {"number": 41, "title": "Improvising and experimenting on a cue", "week": "Week 4"},
+  {"number": 42, "title": "The same scene scored two ways, and an Australian work", "week": "Week 5"},
+  {"number": 43, "title": "Performance workshop: refining from recordings", "week": "Week 5"},
+  {"number": 44, "title": "Individual study: research and analysis", "week": "Week 6"},
+  {"number": 45, "title": "Documenting the individual study", "week": "Week 6"},
+  {"number": 46, "title": "Individual study share-back", "week": "Week 7"},
+  {"number": 47, "title": "Examination feedback and error analysis", "week": "Week 8"},
+  {"number": 48, "title": "The term's creative product: a short screen cue", "week": "Week 8"},
+  {"number": 49, "title": "Introducing the Year 12 course", "week": "Week 9"},
+  {"number": 50, "title": "Unit review, vocabulary check, and a first Year 12 listen", "week": "Week 10"}
+ ]
+}

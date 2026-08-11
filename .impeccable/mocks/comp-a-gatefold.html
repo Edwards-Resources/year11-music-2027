@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<title>Comp A</title>
+<style>
+body{background:#0E2029;color:#F2EEE4}
+.masthead{height:58px;flex:0 0 58px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 34px;border-bottom:1px solid rgba(242,238,228,.22)}
+.wordmark{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:19px;letter-spacing:.02em}
+.wordmark em{font-style:normal;color:#FF5B04}
+.navs{display:flex;gap:26px}
+.navs span{color:rgba(242,238,228,.72)}
+.navs span.on{color:#F2EEE4;box-shadow:0 6px 0 -4px #FF5B04}
+
+.gate{flex:1;display:grid;grid-template-columns:474px 1fr;min-height:0}
+
+/* left: the sleeve */
+.sleeve{position:relative;padding:34px;display:flex;flex-direction:column;
+  border-right:1px solid rgba(242,238,228,.22);overflow:hidden}
+.rel{color:#FF5B04}
+.sleeve h1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:104px;line-height:.84;
+  letter-spacing:-.022em;margin:16px 0 0 -6px}
+.sleeve h1 .q{color:#FF5B04}
+.blurb{max-width:34ch;margin-top:20px;color:rgba(242,238,228,.8);font-size:15.5px;line-height:1.5}
+.onrel{margin-top:26px;padding-top:13px;border-top:1px solid rgba(242,238,228,.28)}
+.onrel .k{display:block;color:rgba(242,238,228,.55);margin-bottom:9px}
+.wr{display:grid;grid-template-columns:46px 1fr;gap:10px;align-items:baseline;padding:5.5px 0;font-size:14.5px}
+.wr span:first-child{color:rgba(242,238,228,.45)}
+.wr em{font-style:normal;color:rgba(242,238,228,.6)}
+.sleeve-foot{margin-top:auto;display:flex;gap:26px;align-items:flex-end;
+  padding-top:16px;border-top:1px solid rgba(242,238,228,.28)}
+.stat .k{display:block;color:rgba(242,238,228,.55);margin-bottom:5px}
+.stat .v{font-family:'Anton',sans-serif;font-size:38px;line-height:1}
+.stat .v.hot{color:#FF5B04}
+
+/* right: the liner panel */
+.liner{background:#F2EEE4;color:#0E2029;padding:26px 34px 0;display:flex;flex-direction:column;min-height:0}
+.liner-top{display:flex;justify-content:space-between;align-items:baseline;
+  border-bottom:2.5px solid #0E2029;padding-bottom:9px}
+.side{font-family:'Anton',sans-serif;font-size:26px;text-transform:uppercase}
+.tracks{margin-top:2px;overflow:hidden}
+.tr{display:grid;grid-template-columns:44px 1fr 62px;gap:14px;align-items:baseline;
+  padding:8.5px 0;border-bottom:1px solid rgba(14,32,41,.16)}
+.tr .tnum{color:rgba(14,32,41,.5)}
+.tr .ttl{font-size:16.5px;line-height:1.25}
+.tr .wk{text-align:right;color:rgba(14,32,41,.5)}
+.tr.done .ttl{color:rgba(14,32,41,.44)}
+.tr.done .tnum::after{content:' ▪';color:#0E2029}
+
+.tr.now{background:#FF5B04;margin:0 -34px;padding:13px 34px;border-bottom:none;
+  grid-template-columns:44px 1fr auto;color:#0E2029}
+.tr.now .tnum{color:#0E2029}
+.tr.now .ttl{font-family:'Anton',sans-serif;font-size:23px;text-transform:uppercase;
+  letter-spacing:-.01em;line-height:1.02}
+.nowtag{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.eq{display:flex;align-items:flex-end;gap:2px;height:15px}
+.eq i{width:3px;background:#0E2029;display:block}
+.nowsub{grid-column:2/4;margin-top:5px;font-size:14.5px;line-height:1.4}
+.more{margin-top:auto;padding:12px 0 14px;color:rgba(14,32,41,.5);border-top:1px solid rgba(14,32,41,.16)}
+
+/* the three releases */
+.releases{flex:0 0 92px;display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(242,238,228,.22)}
+.rl{padding:15px 22px;border-right:1px solid rgba(242,238,228,.22);display:flex;flex-direction:column;justify-content:center}
+.rl:last-child{border-right:none}
+.rl .rt{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:22px;margin-top:5px}
+.rl.cur{background:#F2EEE4;color:#0E2029}
+.rl.cur .k{color:rgba(14,32,41,.6)}
+.rl .k{color:rgba(242,238,228,.55)}
+.rl .bar{height:5px;background:rgba(242,238,228,.25);margin-top:9px;position:relative}
+.rl.cur .bar{background:rgba(14,32,41,.2)}
+.rl .bar i{position:absolute;left:0;top:0;bottom:0;background:#FF5B04;display:block}
+</style></head>
+<body>
+<div class="stage">
+
+  <div class="masthead">
+    <div class="wordmark">Preliminary Music <em>1</em></div>
+    <div class="navs cat-lg">
+      <span class="on">Releases</span><span>The Works</span><span>Examination</span><span>Canvas</span>
+    </div>
+  </div>
+
+  <div class="gate">
+    <div class="sleeve">
+      <div class="cat rel">Release 02 &nbsp;/&nbsp; Side B &nbsp;/&nbsp; Term 2, 2027</div>
+      <h1>Creative<br><span class="q">Practice</span></h1>
+      <p class="blurb">Ten weeks making music of your own: improvising, songwriting, working in a DAW, and turning a sketch into a finished piece with a log to show how it got there.</p>
+
+      <div class="onrel">
+        <span class="k cat">Works on this release</span>
+        <div class="wr"><span class="cat">M 08</span><span>Since I Left You <em>The Avalanches</em></span></div>
+        <div class="wr"><span class="cat">M 09</span><span>Never Be Like You <em>Flume ft. Kai</em></span></div>
+        <div class="wr"><span class="cat">M 10</span><span>Young Person&rsquo;s Guide <em>Britten</em></span></div>
+        <div class="wr"><span class="cat">M 11</span><span>Watermelon Man <em>Hancock</em></span></div>
+        <div class="wr"><span class="cat">M 12</span><span>Electric Counterpoint <em>Reich</em></span></div>
+      </div>
+
+      <div class="sleeve-foot">
+        <div class="stat"><span class="k cat">Tracks</span><span class="v">21</span></div>
+        <div class="stat"><span class="k cat">Works</span><span class="v">5</span></div>
+        <div class="stat"><span class="k cat">To AT3</span><span class="v hot">29</span></div>
+      </div>
+    </div>
+
+    <div class="liner">
+      <div class="liner-top">
+        <div class="side">Side B &nbsp;<span style="opacity:.4">/</span>&nbsp; Track listing</div>
+        <div class="cat">Weeks 1&ndash;10</div>
+      </div>
+
+      <div class="tracks">
+        <div class="tr done"><span class="tnum cat">B1</span><span class="ttl">Model works: how an idea is built</span><span class="wk cat">Wk 1</span></div>
+        <div class="tr done"><span class="tnum cat">B2</span><span class="ttl">Aural drill: melodic patterns and cadences</span><span class="wk cat">Wk 1</span></div>
+        <div class="tr done"><span class="tnum cat">B3</span><span class="ttl">Improvisation: generating material</span><span class="wk cat">Wk 2</span></div>
+        <div class="tr done"><span class="tnum cat">B4</span><span class="ttl">Performance workshop: style, genre, convention</span><span class="wk cat">Wk 2</span></div>
+
+        <div class="tr now">
+          <span class="tnum cat">B5</span>
+          <span class="ttl">Electronic music as repertoire</span>
+          <span class="nowtag cat">Now playing <span class="eq"><i style="height:6px"></i><i style="height:14px"></i><i style="height:9px"></i><i style="height:15px"></i></span></span>
+          <span class="nowsub">Digital processes on timbre &nbsp;·&nbsp; The Avalanches, &ldquo;Since I Left You&rdquo; (2000) &nbsp;·&nbsp; MU1-11L-01, MU1-11L-02</span>
+        </div>
+
+        <div class="tr"><span class="tnum cat">B6</span><span class="ttl">DAWs, virtual instruments and effects as sound sources</span><span class="wk cat">Wk 3</span></div>
+        <div class="tr"><span class="tnum cat">B7</span><span class="ttl">Aural drill: Dorian, Lydian, Mixolydian</span><span class="wk cat">Wk 4</span></div>
+        <div class="tr"><span class="tnum cat">B8</span><span class="ttl">Songwriting: building from a hook</span><span class="wk cat">Wk 4</span></div>
+        <div class="tr"><span class="tnum cat">B9</span><span class="ttl">Performance workshop: articulation, dynamics, phrasing</span><span class="wk cat">Wk 5</span></div>
+        <div class="tr"><span class="tnum cat">B10</span><span class="ttl">Timbre study: one idea across contrasting media</span><span class="wk cat">Wk 5</span></div>
+        <div class="tr"><span class="tnum cat">B11</span><span class="ttl">Aural drill: ii&ndash;V7 progressions and cadences</span><span class="wk cat">Wk 6</span></div>
+        <div class="tr"><span class="tnum cat">B12</span><span class="ttl">Composition workshop: developing the draft</span><span class="wk cat">Wk 6</span></div>
+        <div class="tr"><span class="tnum cat">B13</span><span class="ttl">Conventions and variation</span><span class="wk cat">Wk 6</span></div>
+        <div class="tr"><span class="tnum cat">B14</span><span class="ttl">Theme and variations in Western art music</span><span class="wk cat">Wk 7</span></div>
+        <div class="tr"><span class="tnum cat">B15</span><span class="ttl">Harmonic and textural devices for expressive depth</span><span class="wk cat">Wk 7</span></div>
+        <div class="tr"><span class="tnum cat">B16</span><span class="ttl">Performance workshop: adjusting expression to context</span><span class="wk cat">Wk 8</span></div>
+      </div>
+      <div class="more cat">B16 &ndash; B21 &nbsp;·&nbsp; Weeks 8 to 10 &nbsp;·&nbsp; scroll for the rest of the side</div>
+    </div>
+  </div>
+
+  <div class="releases">
+    <div class="rl"><span class="k cat">Release 01 &nbsp;/&nbsp; Term 1</span><span class="rt">Contexts of Music</span>
+      <span class="bar"><i style="width:100%"></i></span></div>
+    <div class="rl cur"><span class="k cat">Release 02 &nbsp;/&nbsp; Term 2</span><span class="rt">Creative Practice</span>
+      <span class="bar"><i style="width:24%"></i></span></div>
+    <div class="rl"><span class="k cat">Release 03 &nbsp;/&nbsp; Term 3</span><span class="rt">Music in Focus</span>
+      <span class="bar"></span></div>
+  </div>
+
+</div></body></html>
