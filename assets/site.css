@@ -216,7 +216,7 @@ main { display: block; padding: 2.5rem 0 3.5rem; }
 .blk ol li, .blk ul li { margin: 0.35rem 0; font-size: 0.95rem; }
 .blk p { font-size: 0.95rem; }
 .blk .example {
-  background: rgba(240, 233, 222, 0.08); border-left: 3px solid var(--ink-40);
+  background: rgba(240, 233, 222, 0.08);
   padding: 0.9rem 1.1rem; font-size: 0.9375rem;
 }
 
