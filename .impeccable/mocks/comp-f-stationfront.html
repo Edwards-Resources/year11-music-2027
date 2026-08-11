@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><link rel="stylesheet" href="base-onair.css">
+<title>Comp F, On Air, The Station Front</title>
+<style>
+.stage{padding:0}
+
+.top{flex:0 0 58px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--ink);padding:0 28px}
+.mark{font-size:19px}
+.mark .yr{font-stretch:76%;font-weight:650;letter-spacing:.06em;margin-left:10px}
+.nav{display:flex;gap:20px;align-items:center}
+.nav .on{background:var(--ink);color:var(--paper);padding:5px 8px 4px;margin:-5px -8px -4px}
+.nav .off{color:var(--ink-60)}
+
+.body{flex:1;display:grid;grid-template-columns:296px 1fr;min-height:0}
+
+/* the rail: the whole term, always there */
+.rail{border-right:1px solid var(--ink);padding:14px 0 0;display:flex;flex-direction:column;min-height:0}
+.railhead{padding:0 20px 10px;border-bottom:1px solid var(--ink)}
+.railhead .t{font-stretch:112%;font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:-.01em;line-height:1;margin-top:5px}
+.rlist{list-style:none;overflow:hidden;flex:1}
+.rl{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:8px 20px 9px;border-bottom:1px solid var(--hair);align-items:baseline}
+.rl .n{font-stretch:76%;font-weight:650;font-size:10.5px;letter-spacing:.08em;color:var(--ink-60)}
+.rl .t{font-stretch:88%;font-weight:550;font-size:13.5px;line-height:1.2}
+.rl .w{grid-column:2;font-stretch:76%;font-weight:650;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60);margin-top:3px}
+.rl.done .t{color:var(--ink-60)}
+.rl.on{background:var(--s1);border-bottom-color:var(--ink)}
+.rl.on .n,.rl.on .w{color:var(--ink)}
+.rl.on .t{font-weight:750}
+.rl.at1{background:var(--s2)}
+.rl.at1 .t{font-weight:700}
+.railfoot{padding:11px 20px 14px;border-top:1px solid var(--ink)}
+.key{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.key div{display:flex;align-items:center;gap:8px;font-size:11.5px}
+.key i{width:13px;height:13px;flex:none;display:block;font-style:normal}
+
+/* the content column */
+.main{padding:16px 28px 0;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.now{display:flex;align-items:center;margin-bottom:9px}
+.main h1{font-size:41px;font-stretch:110%;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.94}
+
+.strip{display:grid;grid-template-columns:1fr 1fr 168px;gap:0;margin-top:15px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.sc{padding:11px 20px 13px 0}
+.sc + .sc{padding-left:20px;border-left:1px solid var(--hair)}
+.sc .work{font-stretch:100%;font-weight:700;font-size:19px;line-height:1.1;margin-top:6px;letter-spacing:-.01em}
+.sc .by{font-size:13px;color:var(--ink-60);margin-top:3px}
+.sc p{font-size:14px;line-height:1.42;margin-top:6px}
+.sc .oc{font-stretch:84%;font-weight:650;font-size:16px;margin-top:6px}
+
+.two{display:grid;grid-template-columns:1fr 300px;gap:26px;margin-top:15px;min-height:0}
+
+.tbl{width:100%;border-collapse:collapse;margin-top:8px}
+.tbl th{text-align:left;font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.09em;
+  font-size:10px;color:var(--ink-60);padding:0 12px 7px 0;border-bottom:1px solid var(--ink)}
+.tbl td{padding:8px 12px 8px 0;border-bottom:1px solid var(--hair);font-size:13px;line-height:1.36;vertical-align:top}
+.tbl td:first-child{font-weight:650;font-stretch:88%;white-space:nowrap}
+.sect .h{font-stretch:112%;font-weight:800;text-transform:uppercase;font-size:15px;letter-spacing:-.005em}
+.sect + .sect{margin-top:15px}
+.sect p.body-t{font-size:14px;line-height:1.5;margin-top:7px;max-width:68ch}
+
+.acts{list-style:none;margin-top:8px}
+.acts li{display:flex;gap:9px;padding:5px 0;border-bottom:1px solid var(--hair);font-size:13.5px;line-height:1.4}
+.acts b{font-stretch:76%;font-weight:700;font-size:11px;letter-spacing:.06em;flex:none;padding-top:2px;color:var(--ink-60)}
+.crit{list-style:none;margin-top:8px}
+.crit li{display:flex;gap:9px;font-size:13px;line-height:1.4;padding:4px 0}
+.crit .box{flex:none;width:13px;height:13px;border:1.5px solid var(--ink);margin-top:2px}
+.note{background:var(--s2);padding:11px 13px 13px;margin-top:14px}
+.note p{font-size:13px;line-height:1.45;margin-top:6px}
+
+/* archive band across the full width */
+.arch{flex:0 0 auto;border-top:1px solid var(--ink);padding:11px 28px 14px}
+.archhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{display:flex;align-items:baseline;gap:6px;border:1px solid var(--hair);padding:3px 8px 4px}
+.chip b{font-stretch:76%;font-weight:650;font-size:9.5px;letter-spacing:.08em;color:var(--ink-60)}
+.chip span{font-stretch:88%;font-weight:550;font-size:12px}
+.chip.on{background:var(--s1);border-color:var(--ink)}
+.chip.on b{color:var(--ink)}
+</style></head>
+<body><div class="stage">
+<div class="plate">Comp F &middot; On Air &middot; The Station Front</div>
+
+  <div class="top">
+    <div class="mark stn">Preliminary Music 1<span class="yr">2027</span></div>
+    <div class="nav tag"><span class="on">This week</span><span>Term 1</span><span class="off">Term 2</span><span class="off">Term 3</span><span>The Works</span><span class="off">Canvas</span></div>
+  </div>
+
+  <div class="body">
+    <div class="rail">
+      <div class="railhead">
+        <span class="tag">Strand 01 &nbsp;·&nbsp; 11 lessons</span>
+        <div class="t">Contexts of music</div>
+      </div>
+      <ul class="rlist">
+        <li class="rl done"><span class="n">L 01</span><span class="t">Style, genre and conventions</span><span class="w">Weeks 1&ndash;2</span></li>
+        <li class="rl done"><span class="n">L 02</span><span class="t">Compositional devices</span><span class="w">Week 3</span></li>
+        <li class="rl on"><span class="n">L 03</span><span class="t">Tonality by ear: pentatonic, major, minor, Aeolian</span><span class="w"><span class="live" style="width:7px;height:7px;margin-right:5px"></span>On air &nbsp;·&nbsp; Week 3</span></li>
+        <li class="rl"><span class="n">L 04</span><span class="t">Harmony by ear: chords I, IV, V and vi</span><span class="w">Week 4</span></li>
+        <li class="rl"><span class="n">L 05</span><span class="t">Motifs and development in the DAW</span><span class="w">Weeks 2, 4, 8 &amp; 10</span></li>
+        <li class="rl"><span class="n">L 06</span><span class="t">Interpreting music in context</span><span class="w">Weeks 5 &amp; 9</span></li>
+        <li class="rl"><span class="n">L 07</span><span class="t">Performance: technique and expression for style</span><span class="w">Weeks 2, 4, 6 &amp; 10</span></li>
+        <li class="rl"><span class="n">L 08</span><span class="t">Technologies and the development of styles</span><span class="w">Week 7</span></li>
+        <li class="rl at1"><span class="n">AT 1</span><span class="t">Viva Voce</span><span class="w">Week 8 &nbsp;·&nbsp; 30% &nbsp;·&nbsp; in Canvas</span></li>
+        <li class="rl"><span class="n">L 09</span><span class="t">Notation in context: lead sheets, tab, drum and staff</span><span class="w">Week 8</span></li>
+        <li class="rl"><span class="n">L 10</span><span class="t">Aural and theory drills: metre, tempo and rhythm</span><span class="w">Weeks 1, 6 &amp; 10</span></li>
+        <li class="rl"><span class="n">L 11</span><span class="t">Unit review and vocabulary check</span><span class="w">Weeks 9&ndash;10</span></li>
+      </ul>
+      <div class="railfoot">
+        <span class="tag">The three strands</span>
+        <div class="key">
+          <div><i style="background:var(--s1)"></i>Term 1 &nbsp;Contexts of music</div>
+          <div><i style="background:var(--s2)"></i>Term 2 &nbsp;Creative practice</div>
+          <div><i style="background:var(--s3)"></i>Term 3 &nbsp;Music in focus</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="now"><span class="live"></span><span class="tag-lg">On air &nbsp;·&nbsp; Week 3 &nbsp;·&nbsp; Lesson 3 of 50</span></div>
+      <h1>Tonality by ear: pentatonic,<br>major, minor, Aeolian</h1>
+
+      <div class="strip">
+        <div class="sc">
+          <span class="tag">Now listening</span>
+          <div class="work">Dreams</div>
+          <div class="by">Fleetwood Mac &nbsp;·&nbsp; M 06</div>
+        </div>
+        <div class="sc">
+          <span class="tag">By the end you can</span>
+          <p>Hear major versus minor reliably, identify pentatonic and Aeolian, and say what you heard that told you.</p>
+        </div>
+        <div class="sc">
+          <span class="tag">Outcomes</span>
+          <div class="oc">MU1-11L-02</div>
+        </div>
+      </div>
+
+      <div class="two">
+        <div>
+          <div class="sect">
+            <div class="h">Four tonalities to know this term</div>
+            <table class="tbl">
+              <thead><tr><th>Tonality</th><th>How it is built</th><th>How it tends to feel</th><th>Listen for</th></tr></thead>
+              <tbody>
+                <tr><td>Pentatonic</td><td>Five notes, no semitone clashes (for example C D E G A).</td><td>Open, folk-like, easy on the ear.</td><td>Tunes that sound like they fit the black keys.</td></tr>
+                <tr><td>Major</td><td>Diatonic major scale (tone&ndash;tone&ndash;semitone pattern).</td><td>Bright, settled.</td><td>A confident resolution to the tonic.</td></tr>
+                <tr><td>Minor</td><td>Diatonic minor scale.</td><td>Darker, more serious.</td><td>A lowered third compared with major.</td></tr>
+                <tr><td>Aeolian</td><td>The natural minor mode (white notes A to A).</td><td>Minor but plain, no raised leading note.</td><td>A minor feel with a flat seventh.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="sect">
+            <div class="h">Tell major from minor first</div>
+            <p class="body-t">Start by deciding bright or dark. The clue is the third degree of the scale. A major third sounds bright and open; a minor third sounds darker. Once you hear minor, check the seventh: if the note below the tonic is a whole tone away, you are likely hearing Aeolian rather than harmonic minor.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="sect">
+            <div class="h">In class this fortnight</div>
+            <ul class="acts">
+              <li><b>01</b>Play C major, then C minor on keyboard. Name the note that changed (the third).</li>
+              <li><b>02</b>Play the black keys only to hear a pentatonic scale.</li>
+              <li><b>03</b>Play A to A on white keys to hear Aeolian.</li>
+              <li><b>04</b>Sing each scale up and down, then identify a teacher-played example by ear.</li>
+            </ul>
+          </div>
+          <div class="sect">
+            <div class="h">Success criteria</div>
+            <ul class="crit">
+              <li><span class="box"></span>Hear major versus minor reliably.</li>
+              <li><span class="box"></span>Identify pentatonic and Aeolian.</li>
+              <li><span class="box"></span>Say what you heard that told you.</li>
+            </ul>
+          </div>
+          <div class="note">
+            <span class="tag">Where this fits</span>
+            <p>The first step of the Year 11 aural progression. Dorian, Lydian and Mixolydian come later, in Creative practice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arch">
+    <div class="archhead">
+      <span class="tag-lg">The archive &nbsp;/&nbsp; twenty works, every one of them a page</span>
+      <span class="tag">Ordered by the week we meet them</span>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>M01</b><span>Eine kleine Nachtmusik</span></span>
+      <span class="chip"><b>M02</b><span>Oye Como Va</span></span>
+      <span class="chip"><b>M03</b><span>Libertango</span></span>
+      <span class="chip"><b>M04</b><span>Chan Chan</span></span>
+      <span class="chip"><b>M05</b><span>Ain&rsquo;t No Sunshine</span></span>
+      <span class="chip on"><b>M06</b><span>Dreams</span></span>
+      <span class="chip"><b>M07</b><span>Took the Children Away</span></span>
+      <span class="chip"><b>M08</b><span>Since I Left You</span></span>
+      <span class="chip"><b>M09</b><span>Never Be Like You</span></span>
+      <span class="chip"><b>M10</b><span>Young Person&rsquo;s Guide</span></span>
+      <span class="chip"><b>M11</b><span>Watermelon Man</span></span>
+      <span class="chip"><b>M12</b><span>Electric Counterpoint</span></span>
+      <span class="chip"><b>M13</b><span>The Ecstasy of Gold</span></span>
+      <span class="chip"><b>M14</b><span>Concerning Hobbits</span></span>
+      <span class="chip"><b>M15</b><span>Blade Runner</span></span>
+      <span class="chip"><b>M16</b><span>In Motion</span></span>
+      <span class="chip"><b>M17</b><span>Merry Christmas, Mr Lawrence</span></span>
+      <span class="chip"><b>M18</b><span>Bathroom Dance</span></span>
+      <span class="chip"><b>M19</b><span>Organ Symphony</span></span>
+      <span class="chip"><b>M20</b><span>Babe</span></span>
+    </div>
+  </div>
+
+</div></body></html>

@@ -1,0 +1,55 @@
+/* On Air: shared world for comps D, E, F.
+   Fixed across all three: palette, type, material. Only composition varies. */
+
+@font-face{font-family:'Archivo';src:url('fonts/archivo-var.woff2') format('woff2');
+  font-weight:100 900;font-stretch:62% 125%;font-style:normal;font-display:block}
+@font-face{font-family:'Archivo';src:url('fonts/archivo-var-italic.woff2') format('woff2');
+  font-weight:100 900;font-stretch:62% 125%;font-style:italic;font-display:block}
+
+:root{
+  --paper:#FAFAF7;
+  --ink:#101014;
+  --ink-60:#6C6C74;
+  --hair:#D5D5CE;
+  --s1:#3DDC97;   /* Term 1, Contexts of music */
+  --s2:#FFD23F;   /* Term 2, Creative practice */
+  --s3:#FF6B6B;   /* Term 3, Music in focus */
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1280px;height:900px;overflow:hidden}
+body{background:var(--paper);color:var(--ink);
+  font-family:'Archivo',system-ui,sans-serif;font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+.stage{width:1280px;height:900px;position:relative;display:flex;flex-direction:column}
+
+/* --- type roles. One family; character comes from the width axis. --- */
+
+/* station wordmark and plate titles: expanded, heavy */
+.stn{font-stretch:118%;font-weight:800;text-transform:uppercase;letter-spacing:-.012em;line-height:.94}
+/* schedule labels and field tags: condensed, tracked, small */
+.tag{font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.10em;font-size:11px;line-height:1}
+.tag-lg{font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.08em;font-size:13px;line-height:1}
+/* slot titles in the grid: condensed, medium */
+.slot{font-stretch:84%;font-weight:600;line-height:1.15;letter-spacing:-.004em}
+/* reading copy */
+.read{font-stretch:100%;font-weight:400;font-size:15px;line-height:1.5}
+.read-lg{font-stretch:100%;font-weight:400;font-size:16.5px;line-height:1.45}
+/* the caption voice */
+.cap{font-stretch:100%;font-weight:400;font-style:italic;color:var(--ink-60);font-size:13.5px;line-height:1.4}
+
+/* --- material: flat fields, hard hairlines, no radius, no shadow --- */
+.rule{border-top:1px solid var(--ink)}
+.hair{border-top:1px solid var(--hair)}
+.fieldA{background:var(--s1);color:var(--ink)}
+.fieldB{background:var(--s2);color:var(--ink)}
+.fieldC{background:var(--s3);color:var(--ink)}
+.inv{background:var(--ink);color:var(--paper)}
+
+/* the live dot: the one moving part in the world */
+.live{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--ink);
+  margin-right:7px;vertical-align:baseline;position:relative;top:0}
+
+/* comp caption bar, not part of the design */
+.plate{position:absolute;left:0;top:0;z-index:99;font-stretch:76%;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;padding:6px 12px;background:#000;color:#fff;font-weight:650}

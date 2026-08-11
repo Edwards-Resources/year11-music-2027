@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><link rel="stylesheet" href="base-onair.css">
+<title>Comp D, On Air, The Schedule</title>
+<style>
+.stage{padding:0 36px}
+
+.top{flex:0 0 58px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink)}
+.mark{font-size:19px}
+.mark .yr{font-stretch:76%;font-weight:650;letter-spacing:.06em;margin-left:10px}
+.nav{display:flex;gap:20px;align-items:center}
+.nav .on{background:var(--ink);color:var(--paper);padding:5px 8px 4px;margin:-5px -8px -4px}
+.nav .off{color:var(--ink-60)}
+
+/* the on-air bar: one flat field, edge to edge inside the stage */
+.air{margin:14px 0 0;background:var(--s1);padding:15px 20px 17px;display:flex;align-items:flex-end;
+  justify-content:space-between;gap:30px}
+.air .l{min-width:0}
+.air .now{display:flex;align-items:center;gap:0;margin-bottom:9px}
+.air h1{font-size:39px;font-stretch:112%;font-weight:800;text-transform:uppercase;letter-spacing:-.018em;line-height:.94}
+.air .r{text-align:right;flex:0 0 auto}
+.air .r .big{font-stretch:84%;font-weight:650;font-size:17px;line-height:1.2;margin-top:5px}
+
+/* the schedule: the hero of this comp */
+.schedhead{display:flex;align-items:baseline;justify-content:space-between;margin:22px 0 0;padding-bottom:7px;border-bottom:1px solid var(--ink)}
+.schedhead h2{font-size:20px;font-stretch:112%;font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
+
+.grid{width:100%;border-collapse:collapse}
+.grid th{text-align:left;font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.1em;
+  font-size:10.5px;color:var(--ink-60);padding:9px 12px 9px 0;border-bottom:1px solid var(--hair)}
+.grid td{padding:0;border-bottom:1px solid var(--hair);vertical-align:middle;height:44px}
+.grid td .cell{padding:0 12px 0 0}
+.grid .wk{width:74px;font-stretch:76%;font-weight:650;font-size:12px;letter-spacing:.06em;color:var(--ink-60)}
+.grid .no{width:52px;font-stretch:76%;font-weight:650;font-size:12px;letter-spacing:.06em;color:var(--ink-60)}
+.grid .ti{font-stretch:88%;font-weight:600;font-size:16.5px;letter-spacing:-.006em}
+.grid .wo{width:250px;font-size:13.5px;color:var(--ink-60)}
+.grid .oc{width:112px;font-stretch:76%;font-weight:650;font-size:11px;letter-spacing:.06em;color:var(--ink-60)}
+.grid .st{width:96px;text-align:right}
+.grid .st span{font-stretch:76%;font-weight:650;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60)}
+
+.grid tr.on td{background:var(--s1);height:46px}
+.grid tr.on .wk,.grid tr.on .no,.grid tr.on .wo,.grid tr.on .oc{color:var(--ink)}
+.grid tr.on .ti{font-weight:750}
+.grid tr.on td:first-child .cell{padding-left:12px}
+.grid tr.on .st span{color:var(--ink);display:inline-flex;align-items:center}
+.grid tr.done .ti{color:var(--ink-60);font-weight:500}
+
+/* archive strip */
+.arch{margin-top:auto;padding:12px 0 16px;border-top:1px solid var(--ink)}
+.archhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{display:flex;align-items:baseline;gap:6px;border:1px solid var(--hair);padding:4px 8px 5px}
+.chip b{font-stretch:76%;font-weight:650;font-size:10px;letter-spacing:.08em;color:var(--ink-60)}
+.chip span{font-stretch:88%;font-weight:550;font-size:12.5px}
+.chip.on{background:var(--s1);border-color:var(--ink)}
+.chip.on b{color:var(--ink)}
+.chip.t2{border-color:var(--hair)}
+</style></head>
+<body><div class="stage">
+<div class="plate">Comp D &middot; On Air &middot; The Schedule</div>
+
+  <div class="top">
+    <div class="mark stn">Preliminary Music 1<span class="yr">2027</span></div>
+    <div class="nav tag"><span class="on">This week</span><span>Term 1</span><span class="off">Term 2</span><span class="off">Term 3</span><span>The Works</span><span class="off">Canvas</span></div>
+  </div>
+
+  <div class="air">
+    <div class="l">
+      <div class="now"><span class="live"></span><span class="tag-lg">On air &nbsp;·&nbsp; Term 1 &nbsp;·&nbsp; Week 3 &nbsp;·&nbsp; Lesson 3 of 50</span></div>
+      <h1>Tonality by ear:<br>pentatonic, major, minor, Aeolian</h1>
+    </div>
+    <div class="r">
+      <span class="tag">Now listening</span>
+      <div class="big">M 06 &nbsp; Dreams<br>Fleetwood Mac</div>
+    </div>
+  </div>
+
+  <div class="schedhead">
+    <h2>Term 1 schedule &nbsp;/&nbsp; Contexts of music</h2>
+    <span class="tag">11 lessons &nbsp;·&nbsp; AT1 Viva Voce, Week 8</span>
+  </div>
+
+  <table class="grid">
+    <thead><tr>
+      <th>Week</th><th>Slot</th><th>Lesson</th><th>Set work</th><th>Outcomes</th><th style="text-align:right">Status</th>
+    </tr></thead>
+    <tbody>
+      <tr class="done"><td class="wk"><div class="cell">Wks 1&ndash;2</div></td><td class="no"><div class="cell">L 01</div></td><td><div class="cell ti">Style, genre and conventions</div></td><td class="wo"><div class="cell">M 01 Eine kleine Nachtmusik</div></td><td class="oc"><div class="cell">11L-01</div></td><td class="st"><div class="cell"><span>Aired</span></div></td></tr>
+      <tr class="done"><td class="wk"><div class="cell">Week 3</div></td><td class="no"><div class="cell">L 02</div></td><td><div class="cell ti">Compositional devices</div></td><td class="wo"><div class="cell">M 05 Ain&rsquo;t No Sunshine</div></td><td class="oc"><div class="cell">11C-01</div></td><td class="st"><div class="cell"><span>Aired</span></div></td></tr>
+      <tr class="on"><td class="wk"><div class="cell">Week 3</div></td><td class="no"><div class="cell">L 03</div></td><td><div class="cell ti">Tonality by ear: pentatonic, major, minor, Aeolian</div></td><td class="wo"><div class="cell">M 06 Dreams</div></td><td class="oc"><div class="cell">11L-02</div></td><td class="st"><div class="cell"><span><span class="live"></span>On air</span></div></td></tr>
+      <tr><td class="wk"><div class="cell">Week 4</div></td><td class="no"><div class="cell">L 04</div></td><td><div class="cell ti">Harmony by ear: chords I, IV, V and vi</div></td><td class="wo"><div class="cell">M 06 Dreams</div></td><td class="oc"><div class="cell">11L-02</div></td><td class="st"><div class="cell"><span>Next</span></div></td></tr>
+      <tr><td class="wk"><div class="cell">Wks 2, 4, 8, 10</div></td><td class="no"><div class="cell">L 05</div></td><td><div class="cell ti">Motifs and development in the DAW</div></td><td class="wo"><div class="cell">M 03 Libertango</div></td><td class="oc"><div class="cell">11C-01</div></td><td class="st"><div class="cell"><span></span></div></td></tr>
+      <tr><td class="wk"><div class="cell">Wks 5 &amp; 9</div></td><td class="no"><div class="cell">L 06</div></td><td><div class="cell ti">Interpreting music in context</div></td><td class="wo"><div class="cell">M 07 Took the Children Away</div></td><td class="oc"><div class="cell">11L-01</div></td><td class="st"><div class="cell"><span></span></div></td></tr>
+      <tr><td class="wk"><div class="cell">Wks 2, 4, 6, 10</div></td><td class="no"><div class="cell">L 07</div></td><td><div class="cell ti">Performance: technique and expression for style</div></td><td class="wo"><div class="cell">M 04 Chan Chan</div></td><td class="oc"><div class="cell">11P-01</div></td><td class="st"><div class="cell"><span></span></div></td></tr>
+      <tr><td class="wk"><div class="cell">Week 7</div></td><td class="no"><div class="cell">L 08</div></td><td><div class="cell ti">Technologies and the development of styles</div></td><td class="wo"><div class="cell">M 02 Oye Como Va</div></td><td class="oc"><div class="cell">11L-01</div></td><td class="st"><div class="cell"><span></span></div></td></tr>
+      <tr><td class="wk"><div class="cell">Week 8</div></td><td class="no"><div class="cell">L 09</div></td><td><div class="cell ti">Notation in context: lead sheets, tab, drum and staff</div></td><td class="wo"><div class="cell">M 01 Eine kleine Nachtmusik</div></td><td class="oc"><div class="cell">11C-02</div></td><td class="st"><div class="cell"><span>AT1 week</span></div></td></tr>
+      <tr><td class="wk"><div class="cell">Wks 1, 6, 10</div></td><td class="no"><div class="cell">L 10</div></td><td><div class="cell ti">Aural and theory drills: metre, tempo and rhythm</div></td><td class="wo"><div class="cell">Teacher&rsquo;s choice</div></td><td class="oc"><div class="cell">11L-02</div></td><td class="st"><div class="cell"><span></span></div></td></tr>
+      <tr><td class="wk"><div class="cell">Wks 9&ndash;10</div></td><td class="no"><div class="cell">L 11</div></td><td><div class="cell ti">Unit review and vocabulary check</div></td><td class="wo"><div class="cell">All Term 1 works</div></td><td class="oc"><div class="cell">11L-01</div></td><td class="st"><div class="cell"><span></span></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="arch">
+    <div class="archhead">
+      <span class="tag-lg">The archive &nbsp;/&nbsp; twenty works, every one of them a page</span>
+      <span class="tag">Ordered by the week we meet them</span>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>M01</b><span>Eine kleine Nachtmusik</span></span>
+      <span class="chip"><b>M02</b><span>Oye Como Va</span></span>
+      <span class="chip"><b>M03</b><span>Libertango</span></span>
+      <span class="chip"><b>M04</b><span>Chan Chan</span></span>
+      <span class="chip"><b>M05</b><span>Ain&rsquo;t No Sunshine</span></span>
+      <span class="chip on"><b>M06</b><span>Dreams</span></span>
+      <span class="chip"><b>M07</b><span>Took the Children Away</span></span>
+      <span class="chip"><b>M08</b><span>Since I Left You</span></span>
+      <span class="chip"><b>M09</b><span>Never Be Like You</span></span>
+      <span class="chip"><b>M10</b><span>Young Person&rsquo;s Guide</span></span>
+      <span class="chip"><b>M11</b><span>Watermelon Man</span></span>
+      <span class="chip"><b>M12</b><span>Electric Counterpoint</span></span>
+      <span class="chip"><b>M13</b><span>The Ecstasy of Gold</span></span>
+      <span class="chip"><b>M14</b><span>Concerning Hobbits</span></span>
+      <span class="chip"><b>M15</b><span>Blade Runner</span></span>
+      <span class="chip"><b>M16</b><span>In Motion</span></span>
+      <span class="chip"><b>M17</b><span>Merry Christmas, Mr Lawrence</span></span>
+      <span class="chip"><b>M18</b><span>Bathroom Dance</span></span>
+      <span class="chip"><b>M19</b><span>Organ Symphony</span></span>
+      <span class="chip"><b>M20</b><span>Babe</span></span>
+    </div>
+  </div>
+
+</div></body></html>

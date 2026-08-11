@@ -1,32 +1,38 @@
 # Direction contract
 
-Paste this verbatim as an HTML comment, as the first child of `<body>` in the built page template, so it survives the build and can be audited later. Do not reword it to match what got built; if the build diverges, the build is wrong.
+The contract below is emitted verbatim as an HTML comment, as the first child of `<body>`, by `build.py`'s `layout()`. It survives the build and can be audited in any page under `docs/`. Do not reword it to match what got built; if the build diverges, the build is wrong.
 
 ```html
 <!--
-THESIS: The current lesson is the headliner on a lineup sheet, at a scale nothing else competes with. It refuses the course-site default of equal-weight cards in a grid, where this week and week nine look identical.
-OWN-WORLD: One saturated oxblood ground (#7E1428) edge to edge, one bone ink (#F0E9DE), no panels, no cards, no second accent. Anton for all billing, Literata for reading, Roboto Mono for catalogue numbers. State is carried by inversion: the active thing is a bone block with oxblood type. Rules are 1.5px bone at 40% opacity.
-STORY: A student sees what this lesson is, what to listen to, and what they must be able to do by the end of it, then sees the twenty works of the year with the current one lit.
-FIRST VIEWPORT: Thin masthead, then the kicker line (term, week, lesson n of 50), then the lesson title in Anton at 118px over two lines with the second line inverted. Below: listening, learning intention, outcomes in three columns. Then this week's numbered activities. Then last time / next up / lessons until the examination. The twenty works justified into a block at the foot.
-FORM: The Liner Notes, rendition "The Billing". World pinned by the user, not rolled. Roll key b1bd6caf assigned grounded index 3; the user's pin beats the roll, and the roll's festival-lineup challenger informed the rendition.
+THESIS: The year is a music station's schedule and the class is what is on air right now. It refuses the course-site default of equal-weight lesson cards in a grid, where this week and week nine look identical, and it refuses the drenched display-type poster it replaces.
+OWN-WORLD: Near-white paper (#FAFAF7), black ink (#101014), one flat strand colour per term (#3DDC97, #FFD23F, #FF6B6B) always carrying black ink. One family, Archivo variable, character from the width axis, never a second face. Square corners, no shadows, no gradients, two line weights. State is a filled strand field plus the words "On air" plus a live dot.
+STORY: A student sees what is on air, what to listen to and what they must be able to do, never loses the whole term from the left rail, and reaches any of the twenty works from the archive at the foot of every page.
+FIRST VIEWPORT: Masthead, then a 19rem rail holding every lesson of the term with the current one filled and AT1 in its real week, and beside it the ON AIR line, the lesson title, a listening / by-the-end / outcomes strip, then the lesson's real content in two columns. The archive band runs across the foot.
+FORM: On Air, rendition "The Station Front". Candidate 5 of the grounded list, seed key 78a3d3a4, after one user re-roll steered "more fun and music inspired". Approved comp F with the term hub taken from comp D.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->
 ```
 
 ## What was approved, and what was not
 
-- **Comp C (`.impeccable/mocks/comp-c-billing.html`) is the governing composition** for the home surface and, by inheritance, for lesson pages.
-- **Comp B (`.impeccable/mocks/comp-b-catalogue.html`) is approved for the "The Works" page only.** Take its two-column catalogue grid, its catalogue numbering (M 01 to M 20), and its category and week columns. **Do not take its ultramarine band.** The blue was a comp-round variable for testing colour strategy, not a second palette; recolour the page into oxblood and bone.
-- **Comp A is not approved.** Do not borrow from it.
+- **Comp F (`.impeccable/mocks/comp-f-stationfront.html`) is the governing composition** for the home surface and every lesson page. Approved by Matthew on 11 August 2026 as "F with elements from D".
+- **Comp D (`.impeccable/mocks/comp-d-schedule.html`) is approved for the term hub pages.** Its schedule grid is the Term 1/2/3 page, and its status wording (Aired / On air / Next / Assessment) folds into comp F's rail.
+- **Comp E is not approved.** Do not borrow from it.
+- The comp read as a design system, and the implementation inventory, live in `.impeccable/surfaces/docs-index-html.md`. Anything the comps do not show is built from that record.
 
-## Rules the comps established
+## Rules this world establishes
 
 1. **Twenty works on the site, never twenty-two.** The register's examination column and its two held-back works (Simone, Ravel) are internal. Putting them on a public site leaks AT3.
-2. **One ground, one ink.** A third colour is a defect, not an enhancement. State comes from inversion.
-3. **Anton never sets a sentence.** It bills. Anything a student reads with a pen in hand is Literata.
-4. **The position marker is the biggest thing on the page.** If a redesign makes it a badge or a card, the thesis is gone.
-5. **Every surface keeps the works block at the foot.** It is the course's spine made permanently visible, and it is why this world was chosen over the other two.
+2. **One strand colour per term, and black ink on every one of them.** Never white text on a strand colour, never coloured text on paper. A fourth hue is a defect.
+3. **"On air" is reserved for the lesson the class is actually up to.** Every other lesson page states its own position plainly (Aired / Coming up). The rail marks the page you are reading by inversion, which is a different thing from the on-air fill.
+4. **Position is never carried by colour alone.** The filled field always travels with the words "On air" and the live dot.
+5. **One family, Archivo.** Character comes from the width axis. A second typeface is a defect, and so is a monospace face standing in for "catalogue".
+6. **Every surface keeps the archive band at the foot.** It is the course's spine made permanently visible, and it is the one job PRODUCT.md says only this site can do.
+
+## Superseded
+
+`.impeccable/mocks/superseded/` holds the previous world, **The Liner Notes / The Billing** (comps A, B and C, the oxblood palette, Anton / Literata / Roboto Mono). Matthew rejected it outright on 11 August 2026: too shouty, too dark and heavy, and hard to use. It is an anti-reference now, alongside Year 10's Marker Zine and Year 8's Tour Tee. Do not mine it for parts.
 
 ## Fonts
 
-Self-host, as the sibling sites do. Latin subsets already downloaded to `.impeccable/mocks/fonts/`: `anton-400.woff2`, `literata-400.woff2`, `roboto-mono-400.woff2`. Move them into `assets/fonts/` on build. Nothing loads from a CDN.
+Self-host, as the sibling sites do. `assets/fonts/archivo-var.woff2` and `archivo-var-italic.woff2` are the Google Fonts latin-subset variable files (weight 100-900, width 62-125), preloaded in the head. Nothing loads from a CDN.

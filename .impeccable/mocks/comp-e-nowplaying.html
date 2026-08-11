@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><link rel="stylesheet" href="base-onair.css">
+<title>Comp E, On Air, Now Playing</title>
+<style>
+.stage{padding:0 36px}
+
+.top{flex:0 0 58px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink)}
+.mark{font-size:19px}
+.mark .yr{font-stretch:76%;font-weight:650;letter-spacing:.06em;margin-left:10px}
+.nav{display:flex;gap:20px;align-items:center}
+.nav .on{background:var(--ink);color:var(--paper);padding:5px 8px 4px;margin:-5px -8px -4px}
+.nav .off{color:var(--ink-60)}
+
+/* the on-air panel is the hero: two thirds field, one third paper */
+.panel{flex:1;min-height:0;margin-top:14px;display:grid;grid-template-columns:1fr 328px;border-bottom:1px solid var(--ink)}
+.pl{background:var(--s1);padding:20px 26px 24px;display:flex;flex-direction:column}
+.pr{padding:20px 0 24px 24px;display:flex;flex-direction:column}
+
+.now{display:flex;align-items:center;margin-bottom:13px}
+.pl h1{font-size:62px;font-stretch:110%;font-weight:800;text-transform:uppercase;letter-spacing:-.022em;line-height:.92}
+.will{margin-top:auto;padding-top:14px;border-top:1px solid rgba(16,16,20,.28);max-width:60ch}
+.will .t{font-size:19px;font-stretch:100%;font-weight:500;line-height:1.35}
+
+.acts{margin-top:17px;display:grid;grid-template-columns:1fr 1fr;gap:13px 26px}
+.act{display:flex;gap:9px;align-items:flex-start}
+.act b{font-stretch:76%;font-weight:700;font-size:12px;letter-spacing:.06em;flex:none;padding-top:2px;opacity:.55}
+.act p{font-size:14px;line-height:1.42}
+
+.pr .blk{padding-bottom:13px;margin-bottom:13px;border-bottom:1px solid var(--hair)}
+.pr .blk:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.pr .work{font-stretch:100%;font-weight:700;font-size:22px;line-height:1.1;margin-top:6px;letter-spacing:-.01em}
+.pr .by{font-size:14px;color:var(--ink-60);margin-top:4px}
+.pr .cat{font-stretch:76%;font-weight:650;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60);margin-top:7px;display:block}
+.pr .oc{font-stretch:84%;font-weight:650;font-size:17px;margin-top:6px}
+.crit{margin-top:8px;list-style:none}
+.crit li{display:flex;gap:9px;font-size:13.5px;line-height:1.4;padding:3px 0}
+.crit .box{flex:none;width:13px;height:13px;border:1.5px solid var(--ink);margin-top:3px}
+
+/* coming up */
+.up{margin-top:16px}
+.uphead{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:7px;border-bottom:1px solid var(--ink)}
+.uprow{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.upc{padding:11px 16px 13px 0;border-right:1px solid var(--hair)}
+.upc:last-child{border-right:0}
+.upc .wk{font-stretch:76%;font-weight:650;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60)}
+.upc .ti{font-stretch:88%;font-weight:600;font-size:15.5px;line-height:1.18;margin-top:6px;letter-spacing:-.005em}
+.upc .wo{font-size:12.5px;color:var(--ink-60);margin-top:6px}
+.upc.next .ti{font-weight:750}
+.upc.next .wk{color:var(--ink)}
+.upc.at1{background:var(--s2);margin-right:0;padding-left:12px;border-right:0}
+
+.pr .last{margin-top:auto;padding-top:13px;border-top:1px solid var(--ink)}
+.pr .last .ti{font-stretch:88%;font-weight:600;font-size:15px;line-height:1.18;margin-top:6px}
+.pr .last .wo{font-size:12.5px;color:var(--ink-60);margin-top:4px}
+
+/* archive */
+.arch{padding:12px 0 16px;border-top:1px solid var(--ink)}
+.archhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{display:flex;align-items:baseline;gap:6px;border:1px solid var(--hair);padding:4px 8px 5px}
+.chip b{font-stretch:76%;font-weight:650;font-size:10px;letter-spacing:.08em;color:var(--ink-60)}
+.chip span{font-stretch:88%;font-weight:550;font-size:12.5px}
+.chip.on{background:var(--s1);border-color:var(--ink)}
+.chip.on b{color:var(--ink)}
+</style></head>
+<body><div class="stage">
+<div class="plate">Comp E &middot; On Air &middot; Now Playing</div>
+
+  <div class="top">
+    <div class="mark stn">Preliminary Music 1<span class="yr">2027</span></div>
+    <div class="nav tag"><span class="on">This week</span><span>Term 1</span><span class="off">Term 2</span><span class="off">Term 3</span><span>The Works</span><span class="off">Canvas</span></div>
+  </div>
+
+  <div class="panel">
+    <div class="pl">
+      <div class="now"><span class="live"></span><span class="tag-lg">On air &nbsp;·&nbsp; Term 1, Contexts of music &nbsp;·&nbsp; Week 3 &nbsp;·&nbsp; Lesson 3 of 50</span></div>
+      <h1>Tonality by ear:<br>pentatonic, major,<br>minor, Aeolian</h1>
+      <div class="will">
+        <span class="tag">By the end of this lesson you can</span>
+        <p class="t" style="margin-top:7px">Hear major versus minor reliably, identify pentatonic and Aeolian, and say what you heard that told you.</p>
+      </div>
+      <div class="acts">
+        <div class="act"><b>01</b><p>Play C major, then C minor on keyboard. Name the note that changed (the third).</p></div>
+        <div class="act"><b>02</b><p>Play the black keys only to hear a pentatonic scale.</p></div>
+        <div class="act"><b>03</b><p>Play A to A on white keys to hear Aeolian.</p></div>
+        <div class="act"><b>04</b><p>Sing each scale up and down, then identify a teacher-played example by ear.</p></div>
+      </div>
+    </div>
+    <div class="pr">
+      <div class="blk">
+        <span class="tag">Now listening</span>
+        <div class="work">Dreams</div>
+        <div class="by">Fleetwood Mac</div>
+        <span class="cat">M 06 &nbsp;·&nbsp; Contemporary popular &nbsp;·&nbsp; 1.3</span>
+      </div>
+      <div class="blk">
+        <span class="tag">Outcomes</span>
+        <div class="oc">MU1-11L-02</div>
+      </div>
+      <div class="blk">
+        <span class="tag">Success criteria</span>
+        <ul class="crit">
+          <li><span class="box"></span>Hear major versus minor reliably.</li>
+          <li><span class="box"></span>Identify pentatonic and Aeolian.</li>
+          <li><span class="box"></span>Say what you heard that told you.</li>
+        </ul>
+      </div>
+      <div class="last">
+        <span class="tag">Last aired</span>
+        <div class="ti">L 02 &nbsp; Compositional devices</div>
+        <div class="wo">Week 3 &nbsp;·&nbsp; M 05 Ain&rsquo;t No Sunshine</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="up">
+    <div class="uphead">
+      <span class="tag-lg">Coming up on Term 1</span>
+      <span class="tag">Full schedule &rarr;</span>
+    </div>
+    <div class="uprow">
+      <div class="upc next"><div class="wk">Week 4 &nbsp;·&nbsp; L 04</div><div class="ti">Harmony by ear: chords I, IV, V and vi</div><div class="wo">M 06 Dreams</div></div>
+      <div class="upc"><div class="wk">Wks 2, 4, 8, 10 &nbsp;·&nbsp; L 05</div><div class="ti">Motifs and development in the DAW</div><div class="wo">M 03 Libertango</div></div>
+      <div class="upc"><div class="wk">Wks 5 &amp; 9 &nbsp;·&nbsp; L 06</div><div class="ti">Interpreting music in context</div><div class="wo">M 07 Took the Children Away</div></div>
+      <div class="upc at1"><div class="wk">Week 8</div><div class="ti">AT1: Viva Voce</div><div class="wo">30% &nbsp;·&nbsp; task and rubric in Canvas</div></div>
+    </div>
+  </div>
+
+  <div class="arch">
+    <div class="archhead">
+      <span class="tag-lg">The archive &nbsp;/&nbsp; twenty works, every one of them a page</span>
+      <span class="tag">Ordered by the week we meet them</span>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>M01</b><span>Eine kleine Nachtmusik</span></span>
+      <span class="chip"><b>M02</b><span>Oye Como Va</span></span>
+      <span class="chip"><b>M03</b><span>Libertango</span></span>
+      <span class="chip"><b>M04</b><span>Chan Chan</span></span>
+      <span class="chip"><b>M05</b><span>Ain&rsquo;t No Sunshine</span></span>
+      <span class="chip on"><b>M06</b><span>Dreams</span></span>
+      <span class="chip"><b>M07</b><span>Took the Children Away</span></span>
+      <span class="chip"><b>M08</b><span>Since I Left You</span></span>
+      <span class="chip"><b>M09</b><span>Never Be Like You</span></span>
+      <span class="chip"><b>M10</b><span>Young Person&rsquo;s Guide</span></span>
+      <span class="chip"><b>M11</b><span>Watermelon Man</span></span>
+      <span class="chip"><b>M12</b><span>Electric Counterpoint</span></span>
+      <span class="chip"><b>M13</b><span>The Ecstasy of Gold</span></span>
+      <span class="chip"><b>M14</b><span>Concerning Hobbits</span></span>
+      <span class="chip"><b>M15</b><span>Blade Runner</span></span>
+      <span class="chip"><b>M16</b><span>In Motion</span></span>
+      <span class="chip"><b>M17</b><span>Merry Christmas, Mr Lawrence</span></span>
+      <span class="chip"><b>M18</b><span>Bathroom Dance</span></span>
+      <span class="chip"><b>M19</b><span>Organ Symphony</span></span>
+      <span class="chip"><b>M20</b><span>Babe</span></span>
+    </div>
+  </div>
+
+</div></body></html>

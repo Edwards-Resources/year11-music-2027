@@ -1,0 +1,11 @@
+{
+  "comp": "comp-f-stationfront",
+  "world": "On Air",
+  "seedKey": "78a3d3a4",
+  "surface": "docs/index.html (home), lesson pages, term hubs, The Works",
+  "frame": "1280x900 desktop landscape",
+  "medium": "hand-authored HTML/CSS rendered headless at 2x, not generated imagery",
+  "approved": true,
+  "approvedBy": "Matthew, 11 August 2026, in chat rather than on the decision page",
+  "approvalNote": "Chosen as 'F with elements from D'. D's schedule grid becomes the term hub page; D's status column (Aired / On air / Next / AT1 week) folds into F's rail."
+}

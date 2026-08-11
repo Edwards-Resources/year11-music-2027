@@ -1,14 +1,19 @@
 {
- "id": "music1-y11-2027",
- "name": "Preliminary Music 1",
- "wordmark": "Preliminary Music 1",
- "year": "2027",
- "blurb": "The Year 11 Music 1 course, one release per term, twenty works across the year.",
- "terms": ["term1", "term2", "term3"],
- "canvasNote": "Assessment, submissions and marks stay in Canvas.",
- "canvasUrl": null,
- "totalLessons": 50,
- "examLesson": null,
- "examDate": null,
- "examWhen": "The written aural examination sits in Term 3, date to be confirmed once the 2027 timetable is set."
+  "id": "music1-y11-2027",
+  "name": "Preliminary Music 1",
+  "wordmark": "Preliminary Music 1",
+  "year": "2027",
+  "blurb": "The Year 11 Music 1 course, one release per term, twenty works across the year.",
+  "terms": [
+    "term1",
+    "term2",
+    "term3"
+  ],
+  "canvasNote": "Assessment, submissions and marks stay in Canvas.",
+  "canvasUrl": null,
+  "totalLessons": 50,
+  "currentLesson": 1,
+  "examLesson": null,
+  "examDate": null,
+  "examWhen": "The written aural examination sits in Term 3, date to be confirmed once the 2027 timetable is set."
 }
