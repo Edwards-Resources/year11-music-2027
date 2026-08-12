@@ -1,6 +1,8 @@
 # Next session: Year 11 site
 
-**Where things stand (12 August 2026):** The **On Air** world is built, reviewed, documented, and all three terms are poured — 50 lessons, real content, zero stubs. This session sourced and verified YouTube ids for every listening slot across all three terms: 17 of the 20 works now have a real, verified video embedded on the right lesson page (13 lessons, 18 media blocks). Each id was checked two ways before it went in — the track's explicitness through the Apple catalogue (`trackExplicitness`, "cleaned" flagged where relevant, e.g. the Flume track), then the video id and its channel through YouTube oEmbed, preferring label/VEVO/artist/auto-generated Topic channels over fan reuploads. One work, **M16 (Trent Reznor and Atticus Ross, "In Motion", from The Social Network), could not be sourced to an authoritative channel** — every candidate was a fan reupload — so Lesson 37 still shows the honest "Not sourced yet" stub next to Blade Runner's Main Titles rather than a low-confidence guess. `PRODUCT.md` and `.impeccable/surfaces/docs-index-html.md` were updated to record this. Built and spot-checked in a real browser (symlink + `http.server` trick, see below) across Lessons 1, 2, 3, 6, 16, 24, 25, 26, 33, 35, 37, 39 and 42 — all embeds render, the pending stub renders honestly. Not yet committed.
+**Where things stand (12 August 2026):** The **On Air** world is built, reviewed, documented, and all three terms are poured — 50 lessons, real content, zero stubs. This session sourced and verified YouTube ids for every listening slot across all three terms: 17 of the 20 works now have a real, verified video embedded on the right lesson page (13 lessons, 18 media blocks). Each id was checked two ways before it went in — the track's explicitness through the Apple catalogue (`trackExplicitness`, "cleaned" flagged where relevant, e.g. the Flume track), then the video id and its channel through YouTube oEmbed, preferring label/VEVO/artist/auto-generated Topic channels over fan reuploads. One work, **M16 (Trent Reznor and Atticus Ross, "In Motion", from The Social Network), could not be sourced to an authoritative channel** — every candidate was a fan reupload — so Lesson 37 still shows the honest "Not sourced yet" stub next to Blade Runner's Main Titles rather than a low-confidence guess. `PRODUCT.md` and `.impeccable/surfaces/docs-index-html.md` were updated to record this. Built and spot-checked in a real browser (symlink + `http.server` trick, see below) across Lessons 1, 2, 3, 6, 16, 24, 25, 26, 33, 35, 37, 39 and 42 — all embeds render, the pending stub renders honestly.
+
+**Then, on Matthew's ask, the repo was created and pushed.** `Edwards-Resources/year11-music-2027` didn't exist as a remote at all. Checking the two sibling sites first showed both `year10-music-2026` and `year8-music` are public repos, which is what lets GitHub Pages serve them free without a paid plan — the same reasoning Matthew gave when he asked. Created public, matching the pattern, and pushed `main`. **GitHub Pages itself is not yet enabled** — that needs a manual step in the GitHub UI (Settings → Pages → Deploy from a branch → `main` / `/docs`), since the `gh api` call to do it was blocked by this session's auto-mode classifier.
 
 `DESIGN.md` and `.impeccable/design.json` are the system of record for how this site looks. Read `DESIGN.md` before changing anything visual; read `DIRECTION.md` for the contract and the six rules the world establishes.
 
@@ -8,9 +10,9 @@
 
 ## The next task, in order
 
-1. **Find an authoritative-channel id for M16** ("In Motion", Trent Reznor and Atticus Ross, The Social Network), or accept the honest stub and move on — it is not worth another long search unless a Null Corporation/Sony-affiliated upload surfaces.
-2. **Rebuild the corrupted Lesson 11 source** (`Music1_Y11_T1_Canvas_11_UnitReview_Vocabulary.html` holds only a header comment and a stray character). The site currently shows an honest stub, not an invented lesson.
-3. **Create the GitHub repo** `year11-music-2027` under `Edwards-Resources` and push. **Ask Matthew before pushing.**
+1. **Enable GitHub Pages** on the new repo (Settings → Pages → Deploy from a branch → `main` / `/docs`) — the one manual step left from this session. Once on, the site is live at `https://edwards-resources.github.io/year11-music-2027/`.
+2. **Find an authoritative-channel id for M16** ("In Motion", Trent Reznor and Atticus Ross, The Social Network), or accept the honest stub and move on — it is not worth another long search unless a Null Corporation/Sony-affiliated upload surfaces.
+3. **Rebuild the corrupted Lesson 11 source** (`Music1_Y11_T1_Canvas_11_UnitReview_Vocabulary.html` holds only a header comment and a stray character). The site currently shows an honest stub, not an invented lesson.
 4. **Wire the real Canvas course URL** once it exists (`course.json`'s `canvasUrl` is `null`).
 5. **A real 2027 exam date** (`course.json`'s `examLesson` and `examDate` are `null`).
 6. **Two works still carry `"lesson": null`** in `works.json` (M03 Libertango, M04 Chan Chan, both Term 1 Week 2) — a pre-existing gap, unrelated to this session. Both already have verified YouTube ids on file (`yvtpT1ARF1o` for Libertango via Carosello Records, `o5cELP06Mik` for Chan Chan via World Circuit Records) if a lesson is added for them: assign the lesson, then add the media block the same way as the other 13.
@@ -36,7 +38,7 @@
 
 ## Model and effort
 
-**Sonnet, medium** for the YouTube/audio id pass — mechanical, but each id needs real verification (explicitness check, oEmbed), so it is not zero-judgement. **Opus** if the Lesson 11 rebuild turns out to need real content invention rather than an honest stub, since that's a content-authorship call, not assembly.
+**Haiku, low** for enabling GitHub Pages — a settings click, no judgement involved. **Sonnet, medium** for the M16 search, if it's picked up again — mechanical, but real verification (explicitness check, oEmbed) makes it not zero-judgement. **Opus** if the Lesson 11 rebuild turns out to need real content invention rather than an honest stub, since that's a content-authorship call, not assembly.
 
 ## One thing deliberately left for a later pass
 
@@ -44,4 +46,4 @@
 
 ## Last commit
 
-`ed8ef51` "Point next session at YouTube/audio ids and the Lesson 11 rebuild" (local repo, not pushed).
+`5f9d143` "Source and verify YouTube ids for all 13 listening slots" — pushed to `main` on `https://github.com/Edwards-Resources/year11-music-2027` (public).
