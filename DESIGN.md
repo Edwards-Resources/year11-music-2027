@@ -9,6 +9,7 @@ colors:
   strand-term1: "#3DDC97"
   strand-term2: "#FFD23F"
   strand-term3: "#FF6B6B"
+  paper-print: "#fff"
 typography:
   display:
     fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
@@ -43,6 +44,69 @@ typography:
     letterSpacing: "0.1em"
     fontVariation: "font-stretch 76%"
     textTransform: "uppercase"
+  display-hub:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "clamp(1.5rem, 2.9vw, 2.25rem)"
+    fontWeight: 800
+    lineHeight: 0.98
+    letterSpacing: "-0.02em"
+    fontVariation: "font-stretch 110%"
+  display-page:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "clamp(1.5rem, 3vw, 2rem)"
+    fontWeight: 800
+    lineHeight: 1.02
+    letterSpacing: "-0.012em"
+    fontVariation: "font-stretch 112%"
+  wordmark:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "1.1875rem"
+    fontWeight: 800
+    letterSpacing: "-0.012em"
+    fontVariation: "font-stretch 118%"
+    textTransform: "uppercase"
+  lead:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    fontVariation: "font-stretch 112%"
+  outcome-code:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 650
+    lineHeight: 1.25
+    fontVariation: "font-stretch 84%"
+  row-title:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "0.84375rem"
+    fontWeight: 550
+    lineHeight: 1.25
+    fontVariation: "font-stretch 88%"
+  chip-title:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "0.78125rem"
+    fontWeight: 550
+    fontVariation: "font-stretch 88%"
+  label-lg:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "0.8125rem"
+    fontWeight: 650
+    lineHeight: 1.15
+    letterSpacing: "0.08em"
+    fontVariation: "font-stretch 76%"
+    textTransform: "uppercase"
+  meta:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    lineHeight: 1.4
+  meta-tabular:
+    fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
+    fontSize: "0.71875rem"
+    fontWeight: 650
+    letterSpacing: "0.06em"
+    fontVariation: "font-stretch 76%"
 rounded:
   none: "0px"
   full: "50%"
@@ -111,7 +175,8 @@ A two-colour system (paper and ink) with exactly three interchangeable accents, 
 - **Strand Red** (`#FF6B6B`, Term 3, Music in focus: film and screen): Term 3's strand colour, same role as the other two.
 
 ### Neutral
-- **Paper** (`#FAFAF7`): the page background everywhere, including print.
+- **Paper** (`#FAFAF7`): the page background everywhere on screen.
+- **Paper, print** (`#fff`): the page background inside `@media print` only, and the one colour in the system that is not part of the screen palette. A near-white ground is a screen decision; asking a printer to lay down ink across a whole page to reproduce it is not. Nothing else changes for print beyond dropping the rail, the nav and the prev/next.
 - **Ink** (`#101014`): body text, borders, headings, and the "reading" state fill (page-being-read inversion in the rail and nav).
 - **Ink 60** (`#6C6C74`): secondary/muted text, meta labels, "aired" lesson titles, table captions. Never used as a fill; only as text, and only where it clears AA contrast against paper or hair.
 - **Hair** (`#D5D5CE`): the hairline border colour for internal dividers (row separators, table body rules, hover fields), one step lighter than a full ink rule, used where a full ink border would be too heavy.
@@ -136,6 +201,10 @@ A two-colour system (paper and ink) with exactly three interchangeable accents, 
 - **Body** (weight 400, 0.875rem, line-height 1.5, normal width): running prose in section paragraphs, capped at 70ch max-width.
 - **Label** (weight 650, 0.6875–0.8125rem, letter-spacing 0.08–0.1em, font-stretch 76%, uppercase): every tracked-caps utility string, nav links, "On air"/"Coming up"/"Aired" status words, table column headers, footer text, permalink text. This is the system's most-used register by instance count.
 - **Outcome code** (weight 650, 1rem, font-stretch 84%): NESA outcome codes (e.g. `MU1-11L-01`), a register of its own between Title and Label, used nowhere else.
+
+**The full shipped ramp**, in one place, because the six registers above overlap and a reader needs to know which steps actually exist: `0.6875` / `0.71875` / `0.75` / `0.78125` / `0.8125` / `0.84375` / `0.875` / `0.9375` / `1` / `1.0625` / `1.1875rem`, plus three display clamps (`1.75-2.5625`, `1.5-2.25`, `1.5-2rem`). Fourteen steps.
+
+That is a dense scale at the small end: `0.6875`, `0.71875`, `0.75` and `0.78125rem` are 11, 11.5, 12 and 12.5px, and the roles they separate are not four clearly different jobs. It shipped this way and passed the finish review, so it is recorded as built rather than quietly tidied. **Collapsing the small end to three steps is a reasonable future pass**, but it is a visual change and belongs in a reviewed one, not in a documentation edit.
 
 ### Named Rules
 **The One Family Rule.** Archivo, always. A second typeface anywhere in the system is a defect, and so is a monospace face standing in for a "catalogue" or "data" register, the width axis does that job instead.
