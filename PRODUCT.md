@@ -84,7 +84,7 @@ All under `Year 11 Music Planning (New Syllabus)/`:
 - **The scope and sequence v2.1**, three unit programs, and the assessment bundle (three tasks with notifications and rubrics), all registered documents.
 - **The AT3 aural examination** and its marking guidelines, in `04 Assessment (Year 11)/AT3 - Music in Focus/Part A Examination/`.
 
-**Absent, and not to be invented:** **no audio and no YouTube ids exist for any of the 50 lesson topics.** None were sourced during the content build, deliberately. Every one has to be found and verified at build time, and verification is a hard requirement, not a courtesy: check the track's explicitness flag through the Apple catalogue first, then confirm the video id through oEmbed for a live id on the right channel. Both checks have caught real faults on the sibling sites. Also absent: any claim about student performance or engagement.
+**YouTube ids for all 13 listening slots (17 of the 20 works) were sourced and verified on 12 August 2026**, each checked for explicitness through the Apple catalogue and confirmed live on the right channel through oEmbed. **One work, M16 (Trent Reznor and Atticus Ross, "In Motion", from The Social Network), is still an honest "Not sourced yet" stub** — no upload of it could be confirmed on an authoritative channel (label, VEVO, artist, or auto-generated Topic channel); every candidate found was a fan reupload. Two works, M03 (Piazzolla, "Libertango") and M04 (Buena Vista Social Club, "Chan Chan"), have verified ids in the session record but no lesson to attach them to yet, since both carry `"lesson": null` in `works.json` (see the next-session note). Also absent: any claim about student performance or engagement.
 
 ## Product Principles
 

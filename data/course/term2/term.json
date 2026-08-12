@@ -228,6 +228,16 @@
       ],
       "blocks": [
         {
+          "type": "media",
+          "embed": "wpqm-05R2Jk",
+          "brief": "The Avalanches' Since I Left You — sample-based electronic music as repertoire."
+        },
+        {
+          "type": "media",
+          "embed": "-KPnyf8vwXI",
+          "brief": "Flume's Never Be Like You, featuring Kai — a second Australian electronic work, digital processes on timbre."
+        },
+        {
           "type": "table",
           "title": "Digital processes on timbre",
           "columns": [
@@ -609,6 +619,11 @@
       ],
       "blocks": [
         {
+          "type": "media",
+          "embed": "ppJQKfqhFfE",
+          "brief": "Herbie Hancock's Watermelon Man — the set jazz example for this fortnight's style comparison."
+        },
+        {
           "type": "prose",
           "title": "Why this matters",
           "text": "Conventions decide what counts as development in a style. A jazz solo developing a head and a pop song developing a verse into a chorus are both 'variation', but the moves available, and what a listener expects, are governed by completely different conventions."
@@ -646,6 +661,11 @@
       ],
       "blocks": [
         {
+          "type": "media",
+          "embed": "JGxQVxgacSI",
+          "brief": "Britten's Young Person's Guide to the Orchestra — the theme is Purcell's; each variation reassigns it to a different section."
+        },
+        {
           "type": "prose",
           "title": "Why this matters",
           "text": "This extends the Term 1 Western art music repertoire category. A theme and variations makes the logic of variation explicit and countable: the same theme is presented, then reworked a fixed number of times, which is why it is a useful worked case before applying the same thinking to freer forms."
@@ -677,6 +697,11 @@
         "Explain the expressive effect each creates."
       ],
       "blocks": [
+        {
+          "type": "media",
+          "embed": "UStCXLNVtGY",
+          "brief": "Steve Reich's Electric Counterpoint, third movement — the electronic pairing for this fortnight's acoustic/electronic comparison."
+        },
         {
           "type": "table",
           "title": "Harmonic and textural devices",

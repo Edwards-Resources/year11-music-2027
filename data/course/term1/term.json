@@ -12,22 +12,41 @@
   "detail": "A Viva Voce with an aural focus and a short performance checkpoint. Presented live, recorded or written, student's choice. Full task and rubric are in Canvas."
  },
  "outcomesReferenced": [
-  ["MU1-11L-01", "describes the ways Music context and Music language shape music"],
-  ["MU1-11L-02", "uses aural skills to identify and describe features of music"],
-  ["MU1-11P-01", "interprets and communicates musical ideas in performance"],
-  ["MU1-11P-02", "performs repertoire with stylistic awareness and technical control"],
-  ["MU1-11C-01", "uses Compositional language to create musical ideas"],
-  ["MU1-11C-02", "applies Music context and Music language to realise musical intent in composition"]
+  [
+   "MU1-11L-01",
+   "describes the ways Music context and Music language shape music"
+  ],
+  [
+   "MU1-11L-02",
+   "uses aural skills to identify and describe features of music"
+  ],
+  [
+   "MU1-11P-01",
+   "interprets and communicates musical ideas in performance"
+  ],
+  [
+   "MU1-11P-02",
+   "performs repertoire with stylistic awareness and technical control"
+  ],
+  [
+   "MU1-11C-01",
+   "uses Compositional language to create musical ideas"
+  ],
+  [
+   "MU1-11C-02",
+   "applies Music context and Music language to realise musical intent in composition"
+  ]
  ],
  "lessons": [
-
   {
    "number": 1,
    "slug": "style-genre-conventions",
    "title": "Style, genre and conventions",
    "week": "Weeks 1–2",
    "contentGroup": "Listening, analysing and responding",
-   "outcomes": ["MU1-11L-01"],
+   "outcomes": [
+    "MU1-11L-01"
+   ],
    "intention": "Define style, genre and musical conventions, and tell them apart. Name conventions you can hear in a work and say what era, place or culture they point to.",
    "whatYouWillDo": "Name the style and genre of a work, point to two conventions you can hear, and explain one way its context shapes the sound, using correct terminology.",
    "listening": 1,
@@ -44,27 +63,64 @@
     "Explain one way context shapes the sound, using correct terminology."
    ],
    "blocks": [
-    {"type": "table", "title": "The three ideas inside \"Music context\"",
-     "columns": ["Term", "Plain meaning", "A question to ask of a work"],
+    {
+     "type": "media",
+     "embed": "UhPBT0dA_oA",
+     "brief": "Mozart's Eine kleine Nachtmusik, first movement — Classical-era serenade, sonata-form conventions on full display."
+    },
+    {
+     "type": "media",
+     "embed": "ka5coY5jYF8",
+     "brief": "Tito Puente's Oye Como Va — same three ideas (style, genre, convention), a completely different tradition."
+    },
+    {
+     "type": "table",
+     "title": "The three ideas inside \"Music context\"",
+     "columns": [
+      "Term",
+      "Plain meaning",
+      "A question to ask of a work"
+     ],
      "rows": [
-      ["Style", "The characteristic manner in which music is composed, performed or understood.", "What makes this sound like the thing it is?"],
-      ["Genre", "A category of music based on formal and cultural criteria.", "What family of music does this belong to?"],
-      ["Musical conventions", "The established practices, norms and rules that govern a genre, culture or period.", "What 'rules' is this music following?"]
-     ]},
-    {"type": "prose", "title": "Worked example: hearing conventions",
-     "text": "Take a 12-bar blues. The conventions you can point to include a repeating 12-bar chord pattern built on chords I, IV and V, a swung rhythmic feel, blue notes in the melody, and a call-and-response shape between voice and instrument. Those conventions are what make it recognisable as blues rather than, say, a march or a pop ballad."},
-    {"type": "note", "title": "ICIP protocol",
-     "text": "Where any activity uses Aboriginal or Torres Strait Islander music or cultural material, follow NESA ICIP protocols. Work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG, and do not present sacred or restricted material."}
+      [
+       "Style",
+       "The characteristic manner in which music is composed, performed or understood.",
+       "What makes this sound like the thing it is?"
+      ],
+      [
+       "Genre",
+       "A category of music based on formal and cultural criteria.",
+       "What family of music does this belong to?"
+      ],
+      [
+       "Musical conventions",
+       "The established practices, norms and rules that govern a genre, culture or period.",
+       "What 'rules' is this music following?"
+      ]
+     ]
+    },
+    {
+     "type": "prose",
+     "title": "Worked example: hearing conventions",
+     "text": "Take a 12-bar blues. The conventions you can point to include a repeating 12-bar chord pattern built on chords I, IV and V, a swung rhythmic feel, blue notes in the melody, and a call-and-response shape between voice and instrument. Those conventions are what make it recognisable as blues rather than, say, a march or a pop ballad."
+    },
+    {
+     "type": "note",
+     "title": "ICIP protocol",
+     "text": "Where any activity uses Aboriginal or Torres Strait Islander music or cultural material, follow NESA ICIP protocols. Work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG, and do not present sacred or restricted material."
+    }
    ]
   },
-
   {
    "number": 2,
    "slug": "compositional-devices",
    "title": "Compositional devices",
    "week": "Week 3",
    "contentGroup": "Listening, analysing and responding",
-   "outcomes": ["MU1-11L-01", "MU1-11C-01"],
+   "outcomes": [
+    "MU1-11L-01",
+    "MU1-11C-01"
+   ],
    "intention": "Identify rhythmic, melodic, textural and structural compositional devices in repertoire, and explain the effect a device has on the music.",
    "whatYouWillDo": "Name a device by ear, use the correct term, and explain its effect in one clear sentence.",
    "listening": 5,
@@ -81,34 +137,89 @@
     "Explain its effect in one clear sentence."
    ],
    "blocks": [
-    {"type": "table", "title": "Compositional language by family",
-     "columns": ["Family", "Devices you should know now", "What it does"],
+    {
+     "type": "media",
+     "embed": "YuKfiH0Scao",
+     "brief": "Bill Withers' Ain't No Sunshine — listen for the compositional devices (ostinato bass, the wordless \"I know\" repetitions as a built-in device, not an ad-lib)."
+    },
+    {
+     "type": "table",
+     "title": "Compositional language by family",
+     "columns": [
+      "Family",
+      "Devices you should know now",
+      "What it does"
+     ],
      "rows": [
-      ["Rhythmic", "ostinato, syncopation, swing, backbeat, groove, triplets", "Drives the music and gives it feel."],
-      ["Melodic", "riff, hook, sequence, imitation, melisma", "Shapes the tune and makes it memorable."],
-      ["Textural", "unison, layering, countermelody, doubling, looping", "Controls how many layers you hear and how they combine."],
-      ["Structural", "motif, theme, verse–chorus, call and response, binary, ternary", "Organises the music over time."]
-     ]},
-    {"type": "table", "title": "Listen for these four first",
-     "columns": ["Device", "Quick definition", "Listen for"],
+      [
+       "Rhythmic",
+       "ostinato, syncopation, swing, backbeat, groove, triplets",
+       "Drives the music and gives it feel."
+      ],
+      [
+       "Melodic",
+       "riff, hook, sequence, imitation, melisma",
+       "Shapes the tune and makes it memorable."
+      ],
+      [
+       "Textural",
+       "unison, layering, countermelody, doubling, looping",
+       "Controls how many layers you hear and how they combine."
+      ],
+      [
+       "Structural",
+       "motif, theme, verse–chorus, call and response, binary, ternary",
+       "Organises the music over time."
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Listen for these four first",
+     "columns": [
+      "Device",
+      "Quick definition",
+      "Listen for"
+     ],
      "rows": [
-      ["Ostinato", "A short pattern repeated through a passage.", "A riff or rhythm that keeps coming back unchanged."],
-      ["Syncopation", "Accents placed off the main beat.", "The push or surprise when a note lands between beats."],
-      ["Riff", "A short, catchy repeated melodic or rhythmic idea.", "A guitar or keyboard hook that anchors the song."],
-      ["Sequence", "A melodic idea repeated higher or lower.", "The same shape moving up or down in steps."]
-     ]},
-    {"type": "note", "title": "Note",
-     "text": "Aural identification is done from excerpts your teacher selects in class. The Canvas quiz for this topic tests the terminology and the effect of each device."}
+      [
+       "Ostinato",
+       "A short pattern repeated through a passage.",
+       "A riff or rhythm that keeps coming back unchanged."
+      ],
+      [
+       "Syncopation",
+       "Accents placed off the main beat.",
+       "The push or surprise when a note lands between beats."
+      ],
+      [
+       "Riff",
+       "A short, catchy repeated melodic or rhythmic idea.",
+       "A guitar or keyboard hook that anchors the song."
+      ],
+      [
+       "Sequence",
+       "A melodic idea repeated higher or lower.",
+       "The same shape moving up or down in steps."
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "title": "Note",
+     "text": "Aural identification is done from excerpts your teacher selects in class. The Canvas quiz for this topic tests the terminology and the effect of each device."
+    }
    ]
   },
-
   {
    "number": 3,
    "slug": "tonality-by-ear",
    "title": "Tonality by ear: pentatonic, major, minor, Aeolian",
    "week": "Week 3",
    "contentGroup": "Theoretical language",
-   "outcomes": ["MU1-11L-02"],
+   "outcomes": [
+    "MU1-11L-02"
+   ],
    "intention": "Recognise pentatonic, major, minor and Aeolian tonality by ear, sing and play these scales on a keyboard, and describe what you hear that tells you the tonality.",
    "whatYouWillDo": "Hear major versus minor reliably, identify pentatonic and Aeolian, and say what you heard that told you.",
    "listening": 6,
@@ -125,28 +236,68 @@
     "Say what you heard that told you."
    ],
    "blocks": [
-    {"type": "table", "title": "Four tonalities to know this term",
-     "columns": ["Tonality", "How it is built", "How it tends to feel", "Listen for"],
+    {
+     "type": "media",
+     "embed": "Y3ywicffOj4",
+     "brief": "Fleetwood Mac's Dreams — verse and chorus sit in different tonalities; listen for the shift by ear before naming it."
+    },
+    {
+     "type": "table",
+     "title": "Four tonalities to know this term",
+     "columns": [
+      "Tonality",
+      "How it is built",
+      "How it tends to feel",
+      "Listen for"
+     ],
      "rows": [
-      ["Pentatonic", "Five notes, no semitone clashes (for example C D E G A).", "Open, folk-like, easy on the ear.", "Tunes that sound like they fit the black keys."],
-      ["Major", "Diatonic major scale (tone–tone–semitone pattern).", "Bright, settled.", "A confident, 'happy' resolution to the tonic."],
-      ["Minor", "Diatonic minor scale.", "Darker, more serious.", "A lowered third compared with major."],
-      ["Aeolian", "The natural minor mode (white notes A to A).", "Minor but plain, no raised leading note.", "A minor feel with a flat seventh, common in folk and pop."]
-     ]},
-    {"type": "prose", "title": "Tell major from minor first",
-     "text": "Start by deciding bright or dark. The clue is the third degree of the scale. A major third sounds bright and open; a minor third sounds darker. Once you hear minor, check the seventh: if the note below the tonic is a whole tone away (a flat seventh), you are likely hearing Aeolian rather than harmonic minor."},
-    {"type": "note", "title": "Where this fits",
-     "text": "This is the first step of the Year 11 aural progression. Contexts of music covers pentatonic, major, minor and Aeolian. Dorian, Lydian and Mixolydian come later, in the Creative practice unit."}
+      [
+       "Pentatonic",
+       "Five notes, no semitone clashes (for example C D E G A).",
+       "Open, folk-like, easy on the ear.",
+       "Tunes that sound like they fit the black keys."
+      ],
+      [
+       "Major",
+       "Diatonic major scale (tone–tone–semitone pattern).",
+       "Bright, settled.",
+       "A confident, 'happy' resolution to the tonic."
+      ],
+      [
+       "Minor",
+       "Diatonic minor scale.",
+       "Darker, more serious.",
+       "A lowered third compared with major."
+      ],
+      [
+       "Aeolian",
+       "The natural minor mode (white notes A to A).",
+       "Minor but plain, no raised leading note.",
+       "A minor feel with a flat seventh, common in folk and pop."
+      ]
+     ]
+    },
+    {
+     "type": "prose",
+     "title": "Tell major from minor first",
+     "text": "Start by deciding bright or dark. The clue is the third degree of the scale. A major third sounds bright and open; a minor third sounds darker. Once you hear minor, check the seventh: if the note below the tonic is a whole tone away (a flat seventh), you are likely hearing Aeolian rather than harmonic minor."
+    },
+    {
+     "type": "note",
+     "title": "Where this fits",
+     "text": "This is the first step of the Year 11 aural progression. Contexts of music covers pentatonic, major, minor and Aeolian. Dorian, Lydian and Mixolydian come later, in the Creative practice unit."
+    }
    ]
   },
-
   {
    "number": 4,
    "slug": "harmony-by-ear",
    "title": "Harmony by ear: chords I, IV, V and vi",
    "week": "Week 4",
    "contentGroup": "Theoretical language",
-   "outcomes": ["MU1-11L-02"],
+   "outcomes": [
+    "MU1-11L-02"
+   ],
    "intention": "Identify chords I, IV, V and vi by ear in songs, play simple progressions on keyboard or guitar, and explain how the chords support the melody and mood.",
    "whatYouWillDo": "Find the tonic, hear a move to IV, V or vi, and play a I–V–vi–IV progression.",
    "listening": null,
@@ -163,26 +314,59 @@
     "Play a I–V–vi–IV progression."
    ],
    "blocks": [
-    {"type": "table", "title": "The four chords that power most songs",
-     "columns": ["Chord", "Name", "In C major", "Quality"],
+    {
+     "type": "table",
+     "title": "The four chords that power most songs",
+     "columns": [
+      "Chord",
+      "Name",
+      "In C major",
+      "Quality"
+     ],
      "rows": [
-      ["I", "Tonic", "C", "Major: home, stable."],
-      ["IV", "Subdominant", "F", "Major: a step away from home."],
-      ["V", "Dominant", "G", "Major: wants to pull back to I."],
-      ["vi", "Submediant", "A minor", "Minor: the relative minor, adds colour."]
-     ]},
-    {"type": "note", "title": "Where this fits",
-     "text": "Chords ii and V7 belong to the next focus area (Creative practice). Stay with I, IV, V and vi for now."}
+      [
+       "I",
+       "Tonic",
+       "C",
+       "Major: home, stable."
+      ],
+      [
+       "IV",
+       "Subdominant",
+       "F",
+       "Major: a step away from home."
+      ],
+      [
+       "V",
+       "Dominant",
+       "G",
+       "Major: wants to pull back to I."
+      ],
+      [
+       "vi",
+       "Submediant",
+       "A minor",
+       "Minor: the relative minor, adds colour."
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "title": "Where this fits",
+     "text": "Chords ii and V7 belong to the next focus area (Creative practice). Stay with I, IV, V and vi for now."
+    }
    ]
   },
-
   {
    "number": 5,
    "slug": "motifs-and-development-in-the-daw",
    "title": "Motifs and development in the DAW",
    "week": "Weeks 2, 4, 8 & 10",
    "contentGroup": "Creating and composing",
-   "outcomes": ["MU1-11C-01", "MU1-11C-02"],
+   "outcomes": [
+    "MU1-11C-01",
+    "MU1-11C-02"
+   ],
    "intention": "Create a short motif using Compositional language, develop it with rhythmic, melodic and harmonic devices, and document each stage of your idea in the DAW.",
    "whatYouWillDo": "Create a short motif, develop it with at least one named device, and document the change in your DAW.",
    "listening": null,
@@ -199,28 +383,54 @@
     "Document the change in your DAW."
    ],
    "blocks": [
-    {"type": "table", "title": "Ways to develop a motif",
-     "columns": ["Approach", "What to try"],
+    {
+     "type": "table",
+     "title": "Ways to develop a motif",
+     "columns": [
+      "Approach",
+      "What to try"
+     ],
      "rows": [
-      ["Rhythmic", "Add syncopation, turn it into an ostinato, or augment the note values."],
-      ["Melodic", "Move it up or down as a sequence, invert it, or turn it into a riff."],
-      ["Textural", "Add a countermelody, double it an octave up, or loop it."],
-      ["Harmonic", "Place it over I, IV, V or vi and hear how the mood changes."]
-     ]},
-    {"type": "prose", "title": "Documenting is assessable practice",
-     "text": "For each sketch, save a new version and write one or two lines: what the idea is, what device you used, and what you will try next. This habit feeds directly into the Year 11 composition development requirements."},
-    {"type": "note", "title": "ICIP protocol",
-     "text": "Aboriginal and Torres Strait Islander musical material must only be used following ICIP protocols and consultation. Do not imitate or reproduce restricted material in your sketches."}
+      [
+       "Rhythmic",
+       "Add syncopation, turn it into an ostinato, or augment the note values."
+      ],
+      [
+       "Melodic",
+       "Move it up or down as a sequence, invert it, or turn it into a riff."
+      ],
+      [
+       "Textural",
+       "Add a countermelody, double it an octave up, or loop it."
+      ],
+      [
+       "Harmonic",
+       "Place it over I, IV, V or vi and hear how the mood changes."
+      ]
+     ]
+    },
+    {
+     "type": "prose",
+     "title": "Documenting is assessable practice",
+     "text": "For each sketch, save a new version and write one or two lines: what the idea is, what device you used, and what you will try next. This habit feeds directly into the Year 11 composition development requirements."
+    },
+    {
+     "type": "note",
+     "title": "ICIP protocol",
+     "text": "Aboriginal and Torres Strait Islander musical material must only be used following ICIP protocols and consultation. Do not imitate or reproduce restricted material in your sketches."
+    }
    ]
   },
-
   {
    "number": 6,
    "slug": "interpreting-music-in-context",
    "title": "Interpreting music in context",
    "week": "Weeks 5 & 9",
    "contentGroup": "Listening, analysing and responding",
-   "outcomes": ["MU1-11L-01", "MU1-11L-02"],
+   "outcomes": [
+    "MU1-11L-01",
+    "MU1-11L-02"
+   ],
    "intention": "Explain how context influences the way a work is interpreted, compare two versions of the same work and account for the differences, and investigate how performance conventions carry stylistic identity.",
    "whatYouWillDo": "Compare two versions of a work, name what changed, and explain how context accounts for the difference, with musical evidence.",
    "listening": 7,
@@ -237,30 +447,74 @@
     "Explain how context accounts for the difference, with musical evidence."
    ],
    "blocks": [
-    {"type": "prose", "title": "From exploring to interpreting",
-     "text": "In the first half of the term you explored how context shapes music. Now you turn to interpretation: how performers and audiences make meaning from a work, and how that meaning shifts with context."},
-    {"type": "table", "title": "Original versus cover: the frame",
-     "columns": ["Feature", "Original", "Cover", "What changed and why"],
+    {
+     "type": "media",
+     "embed": "EA52bupg-BY",
+     "brief": "Archie Roach's Took the Children Away — taught with the ICIP protocol below."
+    },
+    {
+     "type": "prose",
+     "title": "From exploring to interpreting",
+     "text": "In the first half of the term you explored how context shapes music. Now you turn to interpretation: how performers and audiences make meaning from a work, and how that meaning shifts with context."
+    },
+    {
+     "type": "table",
+     "title": "Original versus cover: the frame",
+     "columns": [
+      "Feature",
+      "Original",
+      "Cover",
+      "What changed and why"
+     ],
      "rows": [
-      ["Tempo and feel", "", "", ""],
-      ["Instrumentation / timbre", "", "", ""],
-      ["Expressive choices", "", "", ""],
-      ["Overall mood or message", "", "", ""]
-     ]},
-    {"type": "note", "title": "Adjustment",
-     "text": "A paragraph scaffold and a reduced-language-load version are available for students who need them."},
-    {"type": "note", "title": "ICIP protocol",
-     "text": "Where any activity uses Aboriginal or Torres Strait Islander music or cultural material, follow NESA ICIP protocols. Work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG, and do not present sacred or restricted material."}
+      [
+       "Tempo and feel",
+       "",
+       "",
+       ""
+      ],
+      [
+       "Instrumentation / timbre",
+       "",
+       "",
+       ""
+      ],
+      [
+       "Expressive choices",
+       "",
+       "",
+       ""
+      ],
+      [
+       "Overall mood or message",
+       "",
+       "",
+       ""
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "title": "Adjustment",
+     "text": "A paragraph scaffold and a reduced-language-load version are available for students who need them."
+    },
+    {
+     "type": "note",
+     "title": "ICIP protocol",
+     "text": "Where any activity uses Aboriginal or Torres Strait Islander music or cultural material, follow NESA ICIP protocols. Work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG, and do not present sacred or restricted material."
+    }
    ]
   },
-
   {
    "number": 7,
    "slug": "performance-technique-and-expression",
    "title": "Performance: technique and expression for style",
    "week": "Weeks 2, 4, 6 & 10",
    "contentGroup": "Performing",
-   "outcomes": ["MU1-11P-01", "MU1-11P-02"],
+   "outcomes": [
+    "MU1-11P-01",
+    "MU1-11P-02"
+   ],
    "intention": "Perform using techniques appropriate to the style and genre, shape a performance with dynamics, articulation and phrasing, and adjust your playing in response to feedback.",
    "whatYouWillDo": "Perform a short piece with technique that suits the style, make one clear expressive choice, and act on feedback.",
    "listening": null,
@@ -277,24 +531,48 @@
     "Act on feedback."
    ],
    "blocks": [
-    {"type": "table", "title": "Expressive devices toolkit",
-     "columns": ["Device", "Meaning", "Try it"],
+    {
+     "type": "table",
+     "title": "Expressive devices toolkit",
+     "columns": [
+      "Device",
+      "Meaning",
+      "Try it"
+     ],
      "rows": [
-      ["Dynamics", "How loud or soft (p, f, crescendo, diminuendo).", "Grow louder into a phrase peak, then ease back."],
-      ["Articulation", "How notes are attacked and joined (staccato, legato, accent).", "Play a phrase staccato, then legato; hear the change."],
-      ["Phrasing", "Shaping notes into musical sentences.", "Breathe or lift at the end of each phrase."],
-      ["Vibrato / mute", "Colour added to a sustained note or timbre.", "Add a little vibrato on long notes where the style allows."]
-     ]}
+      [
+       "Dynamics",
+       "How loud or soft (p, f, crescendo, diminuendo).",
+       "Grow louder into a phrase peak, then ease back."
+      ],
+      [
+       "Articulation",
+       "How notes are attacked and joined (staccato, legato, accent).",
+       "Play a phrase staccato, then legato; hear the change."
+      ],
+      [
+       "Phrasing",
+       "Shaping notes into musical sentences.",
+       "Breathe or lift at the end of each phrase."
+      ],
+      [
+       "Vibrato / mute",
+       "Colour added to a sustained note or timbre.",
+       "Add a little vibrato on long notes where the style allows."
+      ]
+     ]
+    }
    ]
   },
-
   {
    "number": 8,
    "slug": "technologies-and-the-development-of-styles",
    "title": "Technologies and the development of styles",
    "week": "Week 7",
    "contentGroup": "Listening, analysing and responding",
-   "outcomes": ["MU1-11L-01"],
+   "outcomes": [
+    "MU1-11L-01"
+   ],
    "intention": "Explain how recording and production technologies shaped a style, compare contrasting eras of the same style, and use production terms accurately.",
    "whatYouWillDo": "Name a technology, point to where you hear its effect, and explain how it shaped the style.",
    "listening": null,
@@ -311,28 +589,59 @@
     "Explain how it shaped the style."
    ],
    "blocks": [
-    {"type": "prose", "title": "Technology is part of the story of a style",
-     "text": "Styles do not develop in a vacuum. The tools available to record, produce and distribute music have shaped how it sounds. Multitrack recording, electric instruments, sampling and the DAW each changed what was possible."},
-    {"type": "table", "title": "Technologies and what they allowed",
-     "columns": ["Technology", "What it allowed", "Heard in"],
+    {
+     "type": "prose",
+     "title": "Technology is part of the story of a style",
+     "text": "Styles do not develop in a vacuum. The tools available to record, produce and distribute music have shaped how it sounds. Multitrack recording, electric instruments, sampling and the DAW each changed what was possible."
+    },
+    {
+     "type": "table",
+     "title": "Technologies and what they allowed",
+     "columns": [
+      "Technology",
+      "What it allowed",
+      "Heard in"
+     ],
      "rows": [
-      ["Multitrack recording", "Layering parts recorded separately.", "Studio pop and rock from the 1960s on."],
-      ["Electric and electronic instruments", "New timbres and volume.", "Rock, funk, synth-pop."],
-      ["Sampling", "Reusing recorded sound as material.", "Hip hop, dance, electronic music."],
-      ["The DAW", "Composing, editing and producing on a computer.", "Most music made today."]
-     ]},
-    {"type": "prose", "title": "Production terms to use",
-     "text": "Looping, sampling, delay, echo, pitch shifting, digital reverb, electroacoustic, waveform, piano roll, beat grid."}
+      [
+       "Multitrack recording",
+       "Layering parts recorded separately.",
+       "Studio pop and rock from the 1960s on."
+      ],
+      [
+       "Electric and electronic instruments",
+       "New timbres and volume.",
+       "Rock, funk, synth-pop."
+      ],
+      [
+       "Sampling",
+       "Reusing recorded sound as material.",
+       "Hip hop, dance, electronic music."
+      ],
+      [
+       "The DAW",
+       "Composing, editing and producing on a computer.",
+       "Most music made today."
+      ]
+     ]
+    },
+    {
+     "type": "prose",
+     "title": "Production terms to use",
+     "text": "Looping, sampling, delay, echo, pitch shifting, digital reverb, electroacoustic, waveform, piano roll, beat grid."
+    }
    ]
   },
-
   {
    "number": 9,
    "slug": "notation-in-context",
    "title": "Notation in context: lead sheets, tab, drum and staff",
    "week": "Week 8",
    "contentGroup": "Notational language",
-   "outcomes": ["MU1-11L-02", "MU1-11L-01"],
+   "outcomes": [
+    "MU1-11L-02",
+    "MU1-11L-01"
+   ],
    "intention": "Read and interpret lead sheets, tablature, drum notation and staff notation, match the notation type to the repertoire and tradition, and transcribe a short idea into an appropriate notation.",
    "whatYouWillDo": "Read each notation type, say where it is used, and transcribe a short idea into a suitable form.",
    "listening": null,
@@ -348,27 +657,58 @@
     "Transcribe a short idea into a suitable form."
    ],
    "blocks": [
-    {"type": "table", "title": "Notation represents Music language in different ways",
-     "columns": ["Notation", "Shows", "Common in"],
+    {
+     "type": "table",
+     "title": "Notation represents Music language in different ways",
+     "columns": [
+      "Notation",
+      "Shows",
+      "Common in"
+     ],
      "rows": [
-      ["Lead sheet", "Melody, chord symbols and lyrics.", "Pop, jazz, songwriting."],
-      ["Guitar tablature", "Which fret and string to play.", "Guitar and bass repertoire."],
-      ["Drum notation", "Which drum or cymbal and when.", "Kit and percussion parts."],
-      ["Five-line staff", "Exact pitch and rhythm.", "Classical and cross-genre scores."],
-      ["DAW view", "Waveform, piano roll or beat grid.", "Produced and electronic music."]
-     ]},
-    {"type": "prose", "title": "Reading a lead sheet",
-     "text": "Read the chord symbols above the stave (for example C, F, G, Am) as you follow the melody. The symbols tell you the harmony; the notes give the tune; the lyrics align underneath."}
+      [
+       "Lead sheet",
+       "Melody, chord symbols and lyrics.",
+       "Pop, jazz, songwriting."
+      ],
+      [
+       "Guitar tablature",
+       "Which fret and string to play.",
+       "Guitar and bass repertoire."
+      ],
+      [
+       "Drum notation",
+       "Which drum or cymbal and when.",
+       "Kit and percussion parts."
+      ],
+      [
+       "Five-line staff",
+       "Exact pitch and rhythm.",
+       "Classical and cross-genre scores."
+      ],
+      [
+       "DAW view",
+       "Waveform, piano roll or beat grid.",
+       "Produced and electronic music."
+      ]
+     ]
+    },
+    {
+     "type": "prose",
+     "title": "Reading a lead sheet",
+     "text": "Read the chord symbols above the stave (for example C, F, G, Am) as you follow the melody. The symbols tell you the harmony; the notes give the tune; the lyrics align underneath."
+    }
    ]
   },
-
   {
    "number": 10,
    "slug": "aural-and-theory-drills",
    "title": "Aural and theory drills: metre, tempo and rhythm",
    "week": "Weeks 1, 6 & 10",
    "contentGroup": "Theoretical language",
-   "outcomes": ["MU1-11L-02"],
+   "outcomes": [
+    "MU1-11L-02"
+   ],
    "intention": "Hear and notate simple and compound metre, identify tempo and changes in tempo, and recognise and write down common rhythmic patterns.",
    "whatYouWillDo": "Tell simple from compound metre, name the tempo, and notate a short rhythm you hear.",
    "listening": null,
@@ -385,34 +725,79 @@
     "Notate a short rhythm you hear."
    ],
    "blocks": [
-    {"type": "table", "title": "Metre: simple versus compound",
-     "columns": ["", "Simple metre", "Compound metre"],
+    {
+     "type": "table",
+     "title": "Metre: simple versus compound",
+     "columns": [
+      "",
+      "Simple metre",
+      "Compound metre"
+     ],
      "rows": [
-      ["Beat divides into", "Two (e.g. crotchet into two quavers).", "Three (e.g. dotted crotchet into three quavers)."],
-      ["Common time signatures", "2/4, 3/4, 4/4", "6/8, 9/8, 12/8"],
-      ["Feel", "Straight, marching.", "Lilting, rolling."]
-     ]},
-    {"type": "table", "title": "Tempo words",
-     "columns": ["Term", "Meaning"],
+      [
+       "Beat divides into",
+       "Two (e.g. crotchet into two quavers).",
+       "Three (e.g. dotted crotchet into three quavers)."
+      ],
+      [
+       "Common time signatures",
+       "2/4, 3/4, 4/4",
+       "6/8, 9/8, 12/8"
+      ],
+      [
+       "Feel",
+       "Straight, marching.",
+       "Lilting, rolling."
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Tempo words",
+     "columns": [
+      "Term",
+      "Meaning"
+     ],
      "rows": [
-      ["Largo", "Very slow, broad."],
-      ["Andante", "Walking pace."],
-      ["Moderato", "Moderate."],
-      ["Allegro", "Fast, lively."],
-      ["Accelerando / Rallentando", "Getting faster / slowing down."]
-     ]},
-    {"type": "note", "title": "Where this fits",
-     "text": "Use this page across Weeks 1, 6 and 10. The Week 10 consolidation drill mixes all of the above."}
+      [
+       "Largo",
+       "Very slow, broad."
+      ],
+      [
+       "Andante",
+       "Walking pace."
+      ],
+      [
+       "Moderato",
+       "Moderate."
+      ],
+      [
+       "Allegro",
+       "Fast, lively."
+      ],
+      [
+       "Accelerando / Rallentando",
+       "Getting faster / slowing down."
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "title": "Where this fits",
+     "text": "Use this page across Weeks 1, 6 and 10. The Week 10 consolidation drill mixes all of the above."
+    }
    ]
   },
-
   {
    "number": 11,
    "slug": "unit-review-and-vocabulary",
    "title": "Unit review and vocabulary check",
    "week": "Weeks 9–10",
    "contentGroup": "Listening, analysing and responding",
-   "outcomes": ["MU1-11L-01", "MU1-11L-02"],
+   "outcomes": [
+    "MU1-11L-01",
+    "MU1-11L-02"
+   ],
    "intention": "Consolidate the term: revisit style, genre and conventions, the aural and theory content, and the term's vocabulary before Term 2 begins.",
    "whatYouWillDo": "Not yet built. The source Canvas page for this lesson is corrupted on disk and carries no usable content.",
    "listening": null,
@@ -420,10 +805,12 @@
    "steps": [],
    "criteria": [],
    "blocks": [
-    {"type": "note", "title": "Content pending",
-     "text": "Music1_Y11_T1_Canvas_11_UnitReview_Vocabulary.html, the source for this lesson, is corrupted in 'Year 11 Music Planning (New Syllabus)/09 Teaching Resources (Term 1)/Canvas Pages (HTML)/': it holds only the file header and a stray character, no real content. The Unit Home page describes this stretch as reflection, extended analysis, review and vocabulary for Weeks 9 to 10, which is the brief for a rebuild, not a substitute for one. Rebuild the source page before this lesson is taught."}
+    {
+     "type": "note",
+     "title": "Content pending",
+     "text": "Music1_Y11_T1_Canvas_11_UnitReview_Vocabulary.html, the source for this lesson, is corrupted in 'Year 11 Music Planning (New Syllabus)/09 Teaching Resources (Term 1)/Canvas Pages (HTML)/': it holds only the file header and a stray character, no real content. The Unit Home page describes this stretch as reflection, extended analysis, review and vocabulary for Weeks 9 to 10, which is the brief for a rebuild, not a substitute for one. Rebuild the source page before this lesson is taught."
+    }
    ]
   }
-
  ]
 }

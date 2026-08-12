@@ -39,6 +39,11 @@
       ],
       "blocks": [
         {
+          "type": "media",
+          "embed": "cCEwUFtjAr4",
+          "brief": "Ennio Morricone's The Ecstasy of Gold, from The Good, the Bad and the Ugly — how screen music works, unit launch."
+        },
+        {
           "type": "table",
           "title": "Screen music vocabulary",
           "columns": [
@@ -143,6 +148,11 @@
       ],
       "blocks": [
         {
+          "type": "media",
+          "embed": "CL_3mlOPnGI",
+          "brief": "Howard Shore's Concerning Hobbits, from The Fellowship of the Ring — leitmotif and thematic transformation."
+        },
+        {
           "type": "prose",
           "title": "Why this matters",
           "text": "A theme carries story by being transformed, not repeated. Orchestral screen scoring meets the mandatory Western art music repertoire category here, in a screen context, so this topic serves both the focus area and that requirement."
@@ -240,6 +250,14 @@
       ],
       "blocks": [
         {
+          "type": "media",
+          "embed": "lV8xJZST55g",
+          "brief": "Vangelis' Main Titles, from Blade Runner — electronic and hybrid screen scoring."
+        },
+        {
+          "type": "media"
+        },
+        {
           "type": "table",
           "title": "Four scoring approaches",
           "columns": [
@@ -327,6 +345,16 @@
         "Describe a feature and a convention of a non-Western screen tradition, in its own terms, without comparing it to orchestral scoring as the default."
       ],
       "blocks": [
+        {
+          "type": "media",
+          "embed": "T8JdWs3jtcs",
+          "brief": "Ryuichi Sakamoto's Merry Christmas, Mr Lawrence — screen music beyond Hollywood."
+        },
+        {
+          "type": "media",
+          "embed": "VdfgiEQeceM",
+          "brief": "Hildur Guðnadóttir's Bathroom Dance, from Joker — a second, contrasting beyond-Hollywood score."
+        },
         {
           "type": "prose",
           "title": "Why this matters",
@@ -420,6 +448,16 @@
         "Back it with specific musical evidence rather than a stated preference alone."
       ],
       "blocks": [
+        {
+          "type": "media",
+          "embed": "2rbvdXryVlI",
+          "brief": "Nigel Westlake's main theme from Babe — the same scene scored two ways, and an Australian work."
+        },
+        {
+          "type": "media",
+          "embed": "3vipdmXX8CI",
+          "brief": "Saint-Saëns' Organ Symphony finale — Westlake's Babe score quotes this at its climax; hear the source before the quotation."
+        },
         {
           "type": "prose",
           "title": "Why this matters",

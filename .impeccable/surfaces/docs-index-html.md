@@ -40,4 +40,4 @@ Everything the comp does not show gets built from this record.
 
 **Constraints carried in.** No school name anywhere in the repo. Twenty works shown, never twenty-two. No NESA past-paper content. Music 1 only, no Life Skills track. Live position marker. Global lesson numbering 1-50 is load-bearing.
 
-**Unresolved.** No audio or YouTube ids exist for any of the 50 lesson topics; every one needs the Apple explicitness check then oEmbed verification. Repo not yet created in the Edwards-Resources org. Lesson 11's source is corrupt and the page is an honest stub. Term 2 and Term 3 lessons are titles only.
+**Unresolved.** YouTube ids for 17 of the 20 works are sourced, verified (Apple explicitness check, then oEmbed) and wired into all three terms' listening slots (12 August 2026). M16 ("In Motion") is still an honest "Not sourced yet" stub; no authoritative-channel upload could be confirmed. Repo not yet created in the Edwards-Resources org. Lesson 11's source is corrupt and the page is an honest stub.
