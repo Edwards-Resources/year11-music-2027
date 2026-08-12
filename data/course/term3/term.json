@@ -7,10 +7,10 @@
   "built": true,
   "source": "Poured in from 18 lesson resources drafted as .docx by Tools/y11_term3_teaching_resources_builder.py, in 'Year 11 Music Planning (New Syllabus)/12 Teaching Resources (Term 3)/Lesson Content (docx)/'. The five weekly aural practice papers carry real HSC audio and NESA marking guidelines and are deliberately not represented here or anywhere on the site.",
   "assessment": {
-    "name": "AT3: Music in Focus Examination",
-    "when": "Term 3",
-    "weighting": null,
-    "detail": "The written aural examination. Task detail, the paper and marking guidelines are in Canvas."
+    "name": "AT3: Music in Focus",
+    "when": "Term 3, Weeks 6–7",
+    "weighting": "40%",
+    "detail": "Two parts: the written aural skills paper (20%) and a performance of your individual study piece (20%). Full task, the paper and the marking guidelines are in Canvas."
   },
   "lessonNumberStart": 33,
   "lessons": [
@@ -41,7 +41,7 @@
         {
           "type": "media",
           "embed": "cCEwUFtjAr4",
-          "brief": "Ennio Morricone's The Ecstasy of Gold, from The Good, the Bad and the Ugly — how screen music works, unit launch."
+          "brief": "Ennio Morricone's The Ecstasy of Gold, from The Good, the Bad and the Ugly: how screen music works, unit launch."
         },
         {
           "type": "table",
@@ -150,7 +150,7 @@
         {
           "type": "media",
           "embed": "CL_3mlOPnGI",
-          "brief": "Howard Shore's Concerning Hobbits, from The Fellowship of the Ring — leitmotif and thematic transformation."
+          "brief": "Howard Shore's Concerning Hobbits, from The Fellowship of the Ring: leitmotif and thematic transformation."
         },
         {
           "type": "prose",
@@ -252,7 +252,7 @@
         {
           "type": "media",
           "embed": "lV8xJZST55g",
-          "brief": "Vangelis' Main Titles, from Blade Runner — electronic and hybrid screen scoring."
+          "brief": "Vangelis' Main Titles, from Blade Runner: electronic and hybrid screen scoring."
         },
         {
           "type": "media"
@@ -348,12 +348,12 @@
         {
           "type": "media",
           "embed": "T8JdWs3jtcs",
-          "brief": "Ryuichi Sakamoto's Merry Christmas, Mr Lawrence — screen music beyond Hollywood."
+          "brief": "Ryuichi Sakamoto's Merry Christmas, Mr Lawrence: screen music beyond Hollywood."
         },
         {
           "type": "media",
           "embed": "VdfgiEQeceM",
-          "brief": "Hildur Guðnadóttir's Bathroom Dance, from Joker — a second, contrasting beyond-Hollywood score."
+          "brief": "Hildur Guðnadóttir's Bathroom Dance, from Joker: a second, contrasting beyond-Hollywood score."
         },
         {
           "type": "prose",
@@ -451,12 +451,12 @@
         {
           "type": "media",
           "embed": "2rbvdXryVlI",
-          "brief": "Nigel Westlake's main theme from Babe — the same scene scored two ways, and an Australian work."
+          "brief": "Nigel Westlake's main theme from Babe: the same scene scored two ways, and an Australian work."
         },
         {
           "type": "media",
           "embed": "3vipdmXX8CI",
-          "brief": "Saint-Saëns' Organ Symphony finale — Westlake's Babe score quotes this at its climax; hear the source before the quotation."
+          "brief": "Saint-Saëns' Organ Symphony finale: Westlake's Babe score quotes this at its climax; hear the source before the quotation."
         },
         {
           "type": "prose",

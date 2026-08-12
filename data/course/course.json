@@ -12,8 +12,5 @@
   "canvasNote": "Assessment, submissions and marks stay in Canvas.",
   "canvasUrl": null,
   "totalLessons": 50,
-  "currentLesson": 1,
-  "examLesson": null,
-  "examDate": null,
-  "examWhen": "The written aural examination sits in Term 3, date to be confirmed once the 2027 timetable is set."
+  "currentLesson": 1
 }

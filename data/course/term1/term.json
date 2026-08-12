@@ -50,7 +50,7 @@
    "intention": "Define style, genre and musical conventions, and tell them apart. Name conventions you can hear in a work and say what era, place or culture they point to.",
    "whatYouWillDo": "Name the style and genre of a work, point to two conventions you can hear, and explain one way its context shapes the sound, using correct terminology.",
    "listening": 1,
-   "listeningNote": "Also meet M 02, Oye Como Va, this week: same frame, a contrasting global tradition.",
+   "listeningNote": "Also meet M 02 Oye Como Va, M 03 Libertango and M 04 Chan Chan across these two weeks: one frame held against three different global traditions.",
    "steps": [
     "Diagnostic listening: jot what you notice about a short excerpt, with no labels yet.",
     "Compare contrasting works, for example a 12-bar blues, an Australian pop song, and a work from a non-Western tradition chosen with cultural protocols.",
@@ -66,12 +66,22 @@
     {
      "type": "media",
      "embed": "UhPBT0dA_oA",
-     "brief": "Mozart's Eine kleine Nachtmusik, first movement — Classical-era serenade, sonata-form conventions on full display."
+     "brief": "Mozart's Eine kleine Nachtmusik, first movement: Classical-era serenade, sonata-form conventions on full display."
     },
     {
      "type": "media",
      "embed": "ka5coY5jYF8",
-     "brief": "Tito Puente's Oye Como Va — same three ideas (style, genre, convention), a completely different tradition."
+     "brief": "Tito Puente's Oye Como Va: same three ideas (style, genre, convention), a completely different tradition."
+    },
+    {
+     "type": "media",
+     "embed": "yvtpT1ARF1o",
+     "brief": "Astor Piazzolla's Libertango: tango nuevo from Argentina, a third tradition against the same frame. The driving ostinato and the bandoneón are the conventions to name."
+    },
+    {
+     "type": "media",
+     "embed": "o5cELP06Mik",
+     "brief": "Buena Vista Social Club's Chan Chan: Cuban son, and the fourth work in the set. Set its conventions beside the Argentinian tango above and say what separates them."
     },
     {
      "type": "table",
@@ -140,7 +150,7 @@
     {
      "type": "media",
      "embed": "YuKfiH0Scao",
-     "brief": "Bill Withers' Ain't No Sunshine — listen for the compositional devices (ostinato bass, the wordless \"I know\" repetitions as a built-in device, not an ad-lib)."
+     "brief": "Bill Withers' Ain't No Sunshine: listen for the compositional devices (ostinato bass, the wordless \"I know\" repetitions as a built-in device, not an ad-lib)."
     },
     {
      "type": "table",
@@ -239,7 +249,7 @@
     {
      "type": "media",
      "embed": "Y3ywicffOj4",
-     "brief": "Fleetwood Mac's Dreams — verse and chorus sit in different tonalities; listen for the shift by ear before naming it."
+     "brief": "Fleetwood Mac's Dreams: verse and chorus sit in different tonalities; listen for the shift by ear before naming it."
     },
     {
      "type": "table",
@@ -450,7 +460,7 @@
     {
      "type": "media",
      "embed": "EA52bupg-BY",
-     "brief": "Archie Roach's Took the Children Away — taught with the ICIP protocol below."
+     "brief": "Archie Roach's Took the Children Away: taught with the ICIP protocol below."
     },
     {
      "type": "prose",
@@ -798,17 +808,93 @@
     "MU1-11L-01",
     "MU1-11L-02"
    ],
-   "intention": "Consolidate the term: revisit style, genre and conventions, the aural and theory content, and the term's vocabulary before Term 2 begins.",
-   "whatYouWillDo": "Not yet built. The source Canvas page for this lesson is corrupted on disk and carries no usable content.",
+   "intention": "Pull the whole term together. Revisit Music context and Music language, check the term's vocabulary against your own glossary, and put those words into a well-formed dot point, which is the writing shape the rest of this course is built on.",
+   "whatYouWillDo": "Use this term's vocabulary correctly in the cumulative review quiz, and write a well-formed dot point about a work you have studied: the feature named, the evidence you heard, and the effect it has.",
    "listening": null,
-   "listeningNote": null,
-   "steps": [],
-   "criteria": [],
+   "listeningNote": "Excerpts are drawn from works already studied this term and chosen on the day. A review lesson introduces nothing new.",
+   "steps": [
+    "Cumulative review quiz, twelve questions across the whole term: Music context and Music language, rhythmic and melodic devices, tonality and harmony by ear, metre, notation types and production techniques.",
+    "Glossary audit. Work back through the unit glossary you have been building since Week 1. Any term you cannot define in your own words gets rewritten, in your own words, before Term 2.",
+    "Listening recall: short excerpts from works already studied, named cold. For each, give the style, one convention you can hear, and one Music language feature.",
+    "Write one well-formed dot point on a work from this term, then swap and check a partner's against the same three parts.",
+    "Name one thing from Contexts of music you expect to carry into Creative practice next term."
+   ],
+   "criteria": [
+    "Use this term's vocabulary correctly in the review quiz.",
+    "Name the style, one convention and one Music language feature in an excerpt you have already studied.",
+    "Write a well-formed dot point that names a feature, gives the evidence you heard, and states its effect."
+   ],
    "blocks": [
     {
+     "type": "table",
+     "title": "The term's vocabulary, and where you met it",
+     "columns": [
+      "Where it came from",
+      "Terms you should be able to define without help",
+      "Lesson"
+     ],
+     "rows": [
+      [
+       "Music context",
+       "Style, genre, musical conventions",
+       "L 01"
+      ],
+      [
+       "Music language: rhythmic devices",
+       "Syncopation, ostinato, swing",
+       "L 02"
+      ],
+      [
+       "Music language: melodic devices",
+       "Riff, hook, sequence",
+       "L 02"
+      ],
+      [
+       "Music language: textural devices",
+       "Doubling, layering",
+       "L 02"
+      ],
+      [
+       "Tonality by ear",
+       "Pentatonic, major, minor, Aeolian (the natural minor)",
+       "L 03"
+      ],
+      [
+       "Harmony by ear",
+       "Chords I, IV, V and vi; the I-V-vi-IV progression",
+       "L 04"
+      ],
+      [
+       "Technologies and production",
+       "Sampling, reverb, multitracking",
+       "L 08"
+      ],
+      [
+       "Notation types",
+       "Staff notation, lead sheet, tablature, drum notation",
+       "L 09"
+      ],
+      [
+       "Metre, tempo and rhythm",
+       "Simple metre, compound metre (6/8), tempo markings",
+       "L 10"
+      ]
+     ]
+    },
+    {
+     "type": "prose",
+     "title": "Worked example: a well-formed dot point",
+     "text": "A well-formed dot point has three parts and fits on one line: the feature you are talking about, the evidence you actually heard, and the effect it has. One element per dot point, and never a paragraph. Take Bill Withers' Ain't No Sunshine from Lesson 2. A weak answer says the song is sad, which names no feature and gives no evidence. A well-formed one says: the vocal line is built on one short repeated idea, and in the middle section the lyric drops away to a single phrase repeated over the same accompaniment, which holds the listener on one thought instead of moving the story on. Feature, evidence, effect. This is the shape every listening answer takes from here to the end of Year 12, so it is worth getting automatic now rather than in the week before an examination."
+    },
+    {
      "type": "note",
-     "title": "Content pending",
-     "text": "Music1_Y11_T1_Canvas_11_UnitReview_Vocabulary.html, the source for this lesson, is corrupted in 'Year 11 Music Planning (New Syllabus)/09 Teaching Resources (Term 1)/Canvas Pages (HTML)/': it holds only the file header and a stray character, no real content. The Unit Home page describes this stretch as reflection, extended analysis, review and vocabulary for Weeks 9 to 10, which is the brief for a rebuild, not a substitute for one. Rebuild the source page before this lesson is taught."
+     "title": "The review quiz",
+     "text": "Twelve questions, one mark each, covering the whole of Contexts of music. It is a check on where your vocabulary actually is, not an assessment task: Assessment Task 1 was Week 8 and nothing here is weighted. Use the result to decide what goes back into your glossary over the break."
+    },
+    {
+     "type": "note",
+     "title": "ICIP protocol",
+     "text": "Where any activity uses Aboriginal or Torres Strait Islander music or cultural material, follow NESA ICIP protocols. Work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG, and do not present sacred or restricted material."
     }
    ]
   }

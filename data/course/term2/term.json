@@ -7,10 +7,10 @@
   "built": true,
   "source": "Poured in from 21 lesson resources drafted as .docx by a builder script, in 'Year 11 Music Planning (New Syllabus)/11 Teaching Resources (Term 2)/Lesson Content (docx)/'.",
   "assessment": {
-    "name": "AT2",
-    "when": "Term 2",
-    "weighting": null,
-    "detail": "Task detail is in Canvas, not yet mirrored here."
+    "name": "AT2: Creative Practice",
+    "when": "Term 2, Week 7",
+    "weighting": "30%",
+    "detail": "Two parts: the composition log (15%) and one composition (15%). Full task and rubric are in Canvas."
   },
   "lessonNumberStart": 12,
   "lessons": [
@@ -230,12 +230,12 @@
         {
           "type": "media",
           "embed": "wpqm-05R2Jk",
-          "brief": "The Avalanches' Since I Left You — sample-based electronic music as repertoire."
+          "brief": "The Avalanches' Since I Left You: sample-based electronic music as repertoire."
         },
         {
           "type": "media",
           "embed": "-KPnyf8vwXI",
-          "brief": "Flume's Never Be Like You, featuring Kai — a second Australian electronic work, digital processes on timbre."
+          "brief": "Flume's Never Be Like You, featuring Kai: a second Australian electronic work, digital processes on timbre."
         },
         {
           "type": "table",
@@ -621,7 +621,7 @@
         {
           "type": "media",
           "embed": "ppJQKfqhFfE",
-          "brief": "Herbie Hancock's Watermelon Man — the set jazz example for this fortnight's style comparison."
+          "brief": "Herbie Hancock's Watermelon Man: the set jazz example for this fortnight's style comparison."
         },
         {
           "type": "prose",
@@ -663,7 +663,7 @@
         {
           "type": "media",
           "embed": "JGxQVxgacSI",
-          "brief": "Britten's Young Person's Guide to the Orchestra — the theme is Purcell's; each variation reassigns it to a different section."
+          "brief": "Britten's Young Person's Guide to the Orchestra: the theme is Purcell's; each variation reassigns it to a different section."
         },
         {
           "type": "prose",
@@ -700,7 +700,7 @@
         {
           "type": "media",
           "embed": "UStCXLNVtGY",
-          "brief": "Steve Reich's Electric Counterpoint, third movement — the electronic pairing for this fortnight's acoustic/electronic comparison."
+          "brief": "Steve Reich's Electric Counterpoint, third movement: the electronic pairing for this fortnight's acoustic/electronic comparison."
         },
         {
           "type": "table",
