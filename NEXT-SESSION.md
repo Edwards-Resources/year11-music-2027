@@ -43,6 +43,12 @@ A Term 1 lesson object is the template: `title`, `week`, `contentGroup`, `intent
 
 **Sonnet, medium.** The Term 2 and 3 pours are mechanical assembly against a settled, now-documented design: reading .docx into lesson objects that already have a proven shape. Opus is only warranted if a lesson's content will not fit the existing block types and the page composition has to change.
 
+## One thing deliberately left for a later pass
+
+**The small end of the type ramp is dense.** The site ships fourteen font-size steps, four of them at 11, 11.5, 12 and 12.5px, and those four do not separate four clearly different jobs. It shipped that way and passed the finish review, so `DESIGN.md` records it as built rather than tidying it in a documentation edit. Collapsing the small end to three steps is a reasonable future pass, but it is a visual change and needs its own review round, not a quiet edit during a content pour.
+
+Related, and worth knowing before the first CSS change: **the impeccable design hook only began checking this stylesheet once `DESIGN.md` existed.** It immediately found sixteen font sizes and one colour outside the recorded system, all of which were gaps in the record rather than faults in the CSS. The record is now complete, so a new finding from that hook is more likely to be real drift.
+
 ## Last commit
 
-`fb261a5` "Record DESIGN.md from the built world" (local repo, not pushed).
+`ba5e055` "Record the full type ramp and the print ground in DESIGN.md" (local repo, not pushed).
