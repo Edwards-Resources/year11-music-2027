@@ -1,39 +1,927 @@
 {
- "id": "term2",
- "number": 2,
- "name": "Term 2: Creative Practice",
- "focusArea": "Creative practice",
- "weeks": 10,
- "built": false,
- "source": "21 lesson resources drafted as .docx by Tools/y11_term2_teaching_resources_builder.py, not yet poured into this site.",
- "assessment": {
-  "name": "AT2",
-  "when": "Term 2",
-  "weighting": null,
-  "detail": "Task detail is in Canvas, not yet mirrored here."
- },
- "lessonNumberStart": 12,
- "lessons": [
-  {"number": 12, "title": "Model works: how a musical idea is built", "week": "Week 1"},
-  {"number": 13, "title": "Aural drill: melodic patterns and cadences", "week": "Week 1"},
-  {"number": 14, "title": "Improvisation as a way of generating material", "week": "Week 2"},
-  {"number": 15, "title": "Performance workshop: style, genre and convention", "week": "Week 2"},
-  {"number": 16, "title": "Electronic music as repertoire, and digital processes on timbre", "week": "Week 3"},
-  {"number": 17, "title": "DAWs, virtual instruments and effects as sound sources", "week": "Week 3"},
-  {"number": 18, "title": "Aural drill: Dorian, Lydian and Mixolydian", "week": "Week 3"},
-  {"number": 19, "title": "Songwriting: building a work from a hook", "week": "Week 4"},
-  {"number": 20, "title": "Performance workshop: expression through articulation, dynamics and phrasing", "week": "Week 4"},
-  {"number": 21, "title": "Timbre study: one idea across contrasting media", "week": "Week 5"},
-  {"number": 22, "title": "Aural drill: ii and V7 in progressions and cadences", "week": "Week 5"},
-  {"number": 23, "title": "Composition workshop: developing the draft", "week": "Week 5"},
-  {"number": 24, "title": "Conventions and variation", "week": "Week 6"},
-  {"number": 25, "title": "Theme and variations: a worked case in Western art music", "week": "Week 6"},
-  {"number": 26, "title": "Harmonic and textural devices, and expressive depth", "week": "Week 7"},
-  {"number": 27, "title": "Performance workshop: adjusting expression to the context", "week": "Week 7"},
-  {"number": 28, "title": "Graphic scores and DAW visualisations", "week": "Week 8"},
-  {"number": 29, "title": "Creating ideas that reflect a style", "week": "Week 8"},
-  {"number": 30, "title": "Aural consolidation: first taste of examination format", "week": "Week 8"},
-  {"number": 31, "title": "Loop-based against through-composed structures", "week": "Week 10"},
-  {"number": 32, "title": "Unit review and vocabulary check", "week": "Week 10"}
- ]
+  "id": "term2",
+  "number": 2,
+  "name": "Term 2: Creative Practice",
+  "focusArea": "Creative practice",
+  "weeks": 10,
+  "built": true,
+  "source": "Poured in from 21 lesson resources drafted as .docx by a builder script, in 'Year 11 Music Planning (New Syllabus)/11 Teaching Resources (Term 2)/Lesson Content (docx)/'.",
+  "assessment": {
+    "name": "AT2",
+    "when": "Term 2",
+    "weighting": null,
+    "detail": "Task detail is in Canvas, not yet mirrored here."
+  },
+  "lessonNumberStart": 12,
+  "lessons": [
+    {
+      "number": 12,
+      "slug": "model-works-how-an-idea-is-built",
+      "title": "Model works: how a musical idea is built",
+      "week": "Week 1",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11L-01"
+      ],
+      "intention": "Track how a small idea is developed, shaped and extended across a whole piece. Tell the difference between an idea being repeated and an idea being developed, and name the point where repetition turns into development.",
+      "whatYouWillDo": "Point to a bar in a work where an idea is developed rather than repeated, and say what specifically changed.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Diagnostic listening: two contrasting works, no labels yet. Note where the opening idea returns, and where the music feels different from the opening without being unrelated to it.",
+        "Track the idea by ear first, then check against a score or DAW view of the same passage.",
+        "Mark on paper the exact bar where repetition stops and development starts, and justify the choice in one sentence.",
+        "Log entry: name one development technique heard today that could be used on the student's own AT2 idea."
+      ],
+      "criteria": [
+        "Point to a bar in a work where an idea is developed rather than repeated.",
+        "Say what specifically changed."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Three things that can happen to an idea",
+          "columns": [
+            "Move",
+            "What it means",
+            "What to listen for"
+          ],
+          "rows": [
+            [
+              "Repetition",
+              "The idea returns unchanged, or close to it.",
+              "Does the ear recognise it instantly, with nothing new to notice?"
+            ],
+            [
+              "Variation",
+              "The idea returns changed in one dimension: rhythm, register, instrumentation, harmony.",
+              "What single thing is different? What stayed the same?"
+            ],
+            [
+              "Development",
+              "The idea is broken apart, extended, combined with other material, or taken somewhere new.",
+              "Can you still point to the fragment of the original idea inside it?"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "A short idea is not a piece. What turns four bars into a three-minute work is what a composer does to that idea afterwards. Composers plan for development from the start, which is why AT2 asks for a composition log rather than a finished file with no history."
+        },
+        {
+          "type": "prose",
+          "title": "Worked example",
+          "text": "Take a two-bar rhythmic motif on a single pitch. Repeated, it is a riff. Moved up a third with the same rhythm, it is a variation. Split into two one-bar fragments passed between instruments, with the gap between them filled by new material, it is development. The listener can still hear the original motif inside the development, which is what makes it development rather than a new idea replacing the old one."
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "slug": "aural-drill-melodic-patterns-cadences",
+      "title": "Aural drill: melodic patterns and cadences",
+      "week": "Week 1",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-02"
+      ],
+      "intention": "Recognise melodic patterns by shape and interval, by ear. Hear a cadence as arrival or continuation before it is named, then sing, play and notate a short melodic fragment.",
+      "whatYouWillDo": "Sing back a short melodic pattern, and say by ear whether a phrase has arrived or is continuing before you are told the cadence name.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Sing back a two- to four-note melodic shape (step, leap, repeated note) on a neutral syllable.",
+        "Play the same shape on keyboard, checking the interval by ear against the starting note.",
+        "Listen to a short phrase and decide by ear alone: does it feel finished, or does it want to continue? Name arrival or continuation before naming the cadence type.",
+        "Notate the phrase and its cadence in flat.io. Compare against the teacher's answer."
+      ],
+      "criteria": [
+        "Sing back a short melodic pattern.",
+        "Say by ear whether a phrase has arrived or is continuing, before being told the cadence name."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Two cadence feelings to name by ear",
+          "columns": [
+            "Feeling",
+            "What it sounds like",
+            "Common cadence"
+          ],
+          "rows": [
+            [
+              "Arrival, finished",
+              "The phrase lands and settles. Nothing is left hanging.",
+              "Perfect cadence (V–I)"
+            ],
+            [
+              "Continuation, unfinished",
+              "The phrase pauses but clearly wants to keep going.",
+              "Imperfect or half cadence (ending on V)"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "How the drill runs",
+          "text": "This continues the daily drill from Term 1 and adds this term's content on top, rather than replacing it. The order is always sound before symbol: sing the pattern, play it, only then notate it. Flat.io carries the drill so the notation step is instant and shareable."
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "slug": "improvisation-generating-material",
+      "title": "Improvisation as a way of generating material",
+      "week": "Week 2",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01"
+      ],
+      "intention": "Use improvisation to generate raw material for a composition, not to perform a finished idea. Record every attempt, including the ones that get rejected, and select material by listening back rather than judging while playing.",
+      "whatYouWillDo": "Record multiple improvised takes over a fixed frame, and explain in the log why one fragment was kept over the others.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Set a fixed harmonic or rhythmic frame (a two-chord loop, or a repeating rhythmic groove) for the class or small groups to improvise over.",
+        "Record every attempt, four to six takes minimum, without stopping to judge mid-take.",
+        "Listen back to all takes and select the strongest fragment, in writing, before moving on.",
+        "Log entry: the frame used, every take kept and rejected, and why the selected fragment was chosen."
+      ],
+      "criteria": [
+        "Record multiple improvised takes over a fixed frame.",
+        "Explain, in the log, why one fragment was kept over the others."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Composers who wait for the finished idea to arrive in their head rarely start. Improvising over a fixed frame turns composing into a physical, repeatable habit: play, listen back, keep or discard, play again. This builds directly on the Term 1 improvisation work and is the generating stage the AT2 composition log documents from the start."
+        },
+        {
+          "type": "prose",
+          "title": "What counts as evidence",
+          "text": "The takes a student rejects are as much evidence of process as the take they keep. A log that only shows the final choice looks like it arrived by luck; a log that shows what was tried and why it was dropped shows judgement, which is what the composition log criteria reward."
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "slug": "performance-workshop-style-genre-convention",
+      "title": "Performance workshop: style, genre and convention",
+      "week": "Week 2",
+      "contentGroup": "Performing",
+      "outcomes": [
+        "MU1-11P-01",
+        "MU1-11P-02"
+      ],
+      "intention": "Perform repertoire in a chosen style, applying that style's conventions, and tell apart a stylistic choice, required by the style, from a personal choice, the performer's own preference.",
+      "whatYouWillDo": "Perform a passage applying a named style's conventions, and separate those conventions from your own personal performance choices in the logbook.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Choose repertoire in a nominated style from the student's own performance program.",
+        "List two or three conventions of that style before playing: what has to be there for it to sound like the style, not what the performer prefers.",
+        "Perform, applying those conventions deliberately.",
+        "Logbook entry: which choices were stylistic, which were personal, and how the performer knows the difference."
+      ],
+      "criteria": [
+        "Perform a passage applying a named style's conventions.",
+        "Separate those conventions from your own personal performance choices, in the logbook."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Two performers can play the same notes and sound completely different in style, because style lives in choices the notation does not fix: swing feel, articulation weight, ornamentation, where the beat sits. Playing deliberately inside a style's conventions, rather than by instinct, is what MU1-11P-02 asks for."
+        },
+        {
+          "type": "prose",
+          "title": "Worked example",
+          "text": "A student playing a blues shuffle bends the third and seventh, delays notes slightly behind the beat, and keeps dynamics fairly even. Play the same melody straight, on the beat, without the bends, and it stops sounding like blues even though the pitches are unchanged. The bend and the delay are stylistic; how hard the student personally likes to hit a note is not."
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "slug": "electronic-music-repertoire-digital-processes",
+      "title": "Electronic music as repertoire, and digital processes on timbre",
+      "week": "Week 3",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11L-02"
+      ],
+      "intention": "Study electronic and electroacoustic works as repertoire in their own right, not as a variation on acoustic music. Hear how digital processes change timbre, and recognise where the same processes appear in acoustic playing as instrument-specific techniques.",
+      "whatYouWillDo": "Identify a digital process by ear in an electronic work, and name an acoustic technique that achieves a comparable timbral change.",
+      "listening": 8,
+      "listeningNote": "Also meet M 09, Never Be Like You by Flume, this week: a second Australian electronic work built from contrasting digital processes.",
+      "steps": [
+        "Listen to an electronic or electroacoustic work, including at least one Australian electronic artist, without visual reference first.",
+        "Identify by ear where looping, sampling, delay, pitch shifting or reverb is used, using the concept table.",
+        "For each process identified, name an acoustic technique that produces a comparable timbral effect.",
+        "Well-formed dot points: describe one process heard and the change in timbre it produced."
+      ],
+      "criteria": [
+        "Identify a digital process by ear in an electronic work.",
+        "Name an acoustic technique that achieves a comparable timbral change."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Digital processes on timbre",
+          "columns": [
+            "Process",
+            "What it does to timbre",
+            "Acoustic equivalent"
+          ],
+          "rows": [
+            [
+              "Looping",
+              "Repeats a fragment exactly, building texture through layering.",
+              "An ostinato played by hand"
+            ],
+            [
+              "Sampling",
+              "Reuses a captured sound as raw material, often recontextualised.",
+              "Quotation of another work"
+            ],
+            [
+              "Delay",
+              "Repeats a sound after a gap, thinning or thickening texture.",
+              "An echo effect, or a canon"
+            ],
+            [
+              "Pitch shifting",
+              "Changes pitch without changing the original timing.",
+              "A capo, or playing in a different register"
+            ],
+            [
+              "Reverb",
+              "Adds a sense of space around a sound.",
+              "Playing in a resonant room versus a dry one"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "This meets the mandatory repertoire category for electronic music (one of the seven NESA requires across Years 11 and 12). Digital processes are Compositional language here, the same way an articulation marking or a chord voicing is: a decision that shapes musical intent, not a production step applied after the music is finished."
+        },
+        {
+          "type": "prose",
+          "title": "Worked example",
+          "text": "A sampled vocal phrase, looped and pitch-shifted down an octave with increasing reverb across four repeats, is doing the same expressive job a composer does when they restate a theme lower, slower and more distantly voiced in an acoustic work: signalling that the material is being reframed, not just repeated."
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "slug": "daws-virtual-instruments-effects-as-sound-sources",
+      "title": "DAWs, virtual instruments and effects as sound sources",
+      "week": "Week 3",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11C-02"
+      ],
+      "intention": "Realise the same short idea in three different environments, and compare timbre and texture across an acoustic, a notated and a produced version of it.",
+      "whatYouWillDo": "Realise the same idea in three environments, and explain in the log one difference in timbre or texture each environment produced.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Compose or select a four-bar idea from Week 1 or Week 2 material.",
+        "Realise it acoustically (sung or played live), notated in flat.io, and produced in a DAW using virtual instruments and effects.",
+        "Compare the three versions for timbre and texture: what changed, and what the environment made easy or hard to do.",
+        "Log entry recording the comparison and which environment best served the student's musical intent for this idea."
+      ],
+      "criteria": [
+        "Realise the same idea in three environments.",
+        "Explain, in the log, one difference in timbre or texture each environment produced."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "The environment a piece is made in is a creative decision, not a neutral container. The same four bars sound and behave differently played live, notated and played back through flat.io, or built in a DAW with virtual instruments and effects, because each environment makes some choices easy and others hard."
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "slug": "aural-drill-dorian-lydian-mixolydian",
+      "title": "Aural drill: Dorian, Lydian and Mixolydian",
+      "week": "Week 3",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-02"
+      ],
+      "intention": "Hear the three modes as colours against the major scale they share notes with. Name a mode only after hearing it, then play each mode on keyboard and guitar.",
+      "whatYouWillDo": "Hear which single note has changed from a major scale, and name the resulting mode as Dorian, Lydian or Mixolydian.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Play a major scale, then the same scale with one note altered. Ask: which note moved, and what colour did that create?",
+        "Repeat for all three modes, naming each only after hearing it.",
+        "Play each mode on keyboard and guitar from the same starting pitch.",
+        "Find one example of each mode in repertoire studied this year and note where it occurs."
+      ],
+      "criteria": [
+        "Hear which single note has changed from a major scale.",
+        "Name the resulting mode as Dorian, Lydian or Mixolydian."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "The three modes, heard against their parent major scale",
+          "columns": [
+            "Mode",
+            "What changes from major",
+            "Colour to listen for"
+          ],
+          "rows": [
+            [
+              "Dorian",
+              "Lowered 3rd and 7th, raised 6th (compared to natural minor)",
+              "Minor but brighter, a lifted sixth degree"
+            ],
+            [
+              "Lydian",
+              "Raised 4th",
+              "Major but floating, an unresolved, dreamy fourth"
+            ],
+            [
+              "Mixolydian",
+              "Lowered 7th",
+              "Major but unresolved, a bluesy, flattened leading tone"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "How the drill runs",
+          "text": "Sound before symbol, same as every drill this year. Each mode is played against its parent major scale first so the ear locates the single note that changes, then the mode is named, then it is found in repertoire already studied so the colour is tied to something real rather than a rule."
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "slug": "songwriting-building-from-a-hook",
+      "title": "Songwriting: building a work from a hook",
+      "week": "Week 4",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11C-02"
+      ],
+      "intention": "Write a verse and chorus from a hook generated in Week 2. Tell apart a riff and a hook, and set lyrics to a rhythm deliberately, rather than by accident.",
+      "whatYouWillDo": "Write a verse and chorus from a Week 2 hook, and explain one specific decision that makes the chorus lift against the verse.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Select a hook generated during Week 2's improvisation session.",
+        "Set a verse lyric or vocalised idea to rhythm, deliberately choosing where stressed syllables fall against strong beats.",
+        "Build a chorus from the hook that lifts against the verse: register, harmonic rhythm, or dynamic.",
+        "Draft in flat.io or a DAW and log which songwriting decisions were made and why."
+      ],
+      "criteria": [
+        "Write a verse and chorus from a Week 2 hook.",
+        "Explain one specific decision that makes the chorus lift against the verse."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Riff versus hook",
+          "columns": [
+            "Term",
+            "What it is",
+            "Job it does"
+          ],
+          "rows": [
+            [
+              "Riff",
+              "A short repeated instrumental or rhythmic figure.",
+              "Drives the groove, often underneath other material."
+            ],
+            [
+              "Hook",
+              "The single most memorable moment in a song, vocal or instrumental.",
+              "Is what a listener remembers and hums back."
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Songwriting is a compositional process with its own conventions, distinct from writing an idea for its own sake. A chorus is not just louder; it is built to lift, usually through a rise in register, a simpler or more open harmonic rhythm, and a hook placed where it lands hardest."
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "slug": "performance-workshop-articulation-dynamics-phrasing",
+      "title": "Performance workshop: expression through articulation, dynamics and phrasing",
+      "week": "Week 4",
+      "contentGroup": "Performing",
+      "outcomes": [
+        "MU1-11P-01"
+      ],
+      "intention": "Change one expressive parameter at a time and hear its effect in isolation, then choose and justify an expressive interpretation rather than defaulting to one.",
+      "whatYouWillDo": "Record three isolated-variable versions of a passage, and justify in the logbook which version was kept and why.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Choose a short passage from current performance repertoire.",
+        "Rehearse and record it three times, changing only articulation (e.g. legato versus detached), then only dynamics, then only phrasing.",
+        "Compare all three recordings and choose the version that best serves the music's intent.",
+        "Logbook entry justifying the version kept, naming the specific parameter that made the difference."
+      ],
+      "criteria": [
+        "Record three isolated-variable versions of a passage.",
+        "Justify, in the logbook, which version was kept and why."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Expression is built from specific, controllable choices, not a vague sense of feeling. Isolating articulation, dynamics and phrasing one at a time makes each choice audible and comparable, rather than all three changing together and the cause of the difference getting lost."
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "slug": "timbre-study-one-idea-across-contrasting-media",
+      "title": "Timbre study: one idea across contrasting media",
+      "week": "Week 5",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11L-02"
+      ],
+      "intention": "Hear one melodic idea across contrasting instruments, vocal treatments and digital manipulations. Describe a change in timbre and texture in well-formed dot points, and name the technique responsible for each change.",
+      "whatYouWillDo": "Describe, in a well-formed dot point, a change in timbre between two versions of the same idea, and name the technique responsible.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Listen to the same melodic idea presented across at least three contrasting media: instrument, voice, digital manipulation.",
+        "For each version, describe the change in timbre and texture in a well-formed dot point (feature named, technique responsible, effect on the listener).",
+        "Compare all versions: which medium best suits which expressive intent, and why."
+      ],
+      "criteria": [
+        "Describe, in a well-formed dot point, a change in timbre between two versions of the same idea.",
+        "Name the technique responsible."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Timbre carries meaning as much as pitch and rhythm do. The same melody sung softly, played on a distorted electric guitar, or granular-synthesised into texture is not the same musical statement three times over; the choice of medium is part of what the music says."
+        },
+        {
+          "type": "prose",
+          "title": "Worked example",
+          "text": "A four-note melodic cell played first on solo flute, then on distorted electric guitar, then time-stretched into a pad texture: each version keeps the same pitches but the flute reads as intimate, the guitar as urgent, and the stretched pad as ambient or unresolved. The change is entirely timbral, since the pitch content is identical."
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "slug": "aural-drill-ii-v7-progressions-cadences",
+      "title": "Aural drill: ii and V7 in progressions and cadences",
+      "week": "Week 5",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-02"
+      ],
+      "intention": "Add the supertonic, ii and ii diminished, and the dominant seventh to the Term 1 chord vocabulary. Hear the pull of V7 resolving to I before naming it, then take short dictation of a four-chord progression.",
+      "whatYouWillDo": "Hear and play a ii-V-I progression, and correctly identify a short dictated four-chord progression using the chord vocabulary taught so far.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Play I, IV, V (Term 1 vocabulary) as a refresher, then introduce ii and V7 into the same key.",
+        "Play ii-V-I on keyboards and guitars, listening for the pull of V7 resolving to I.",
+        "Short dictation: a four-chord progression using this term's and last term's vocabulary, identified by ear.",
+        "Check answers and replay any progression the class missed as a group."
+      ],
+      "criteria": [
+        "Hear and play a ii-V-I progression.",
+        "Correctly identify a short dictated four-chord progression using the chord vocabulary taught so far."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "This week's additions to the chord vocabulary",
+          "columns": [
+            "Chord",
+            "Function",
+            "What to listen for"
+          ],
+          "rows": [
+            [
+              "ii / ii°",
+              "Supertonic, sets up the dominant",
+              "A step of tension before the pull toward V"
+            ],
+            [
+              "V7",
+              "Dominant seventh",
+              "A stronger pull to I than plain V, from the added dissonant 7th"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "slug": "composition-workshop-developing-the-draft",
+      "title": "Composition workshop: developing the draft",
+      "week": "Week 5",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11C-02"
+      ],
+      "intention": "Apply at least two ways to develop material, rather than just repeat it, and log which development technique was kept and why.",
+      "whatYouWillDo": "Apply at least two development techniques to your own draft, and log which one was kept and why.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Working session on the AT2 composition draft. Review the three development techniques in the concept table.",
+        "Apply at least two of the three techniques to the student's own draft material.",
+        "Compare the developed material against the original: does it still connect audibly to the source idea?",
+        "Log entry: which technique(s) were applied, and which was kept in the final draft."
+      ],
+      "criteria": [
+        "Apply at least two development techniques to your own draft.",
+        "Log which one was kept and why."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Three ways to develop rather than repeat",
+          "columns": [
+            "Technique",
+            "What changes",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Rhythmic variation",
+              "The rhythm of the idea, pitches may stay similar",
+              "Same notes, syncopated instead of on the beat"
+            ],
+            [
+              "Textural addition",
+              "Layers added around the idea",
+              "A counter-melody or harmony part added underneath"
+            ],
+            [
+              "Change of register or instrumentation",
+              "Where or on what the idea is heard",
+              "The same phrase an octave up, or on a different instrument"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "slug": "conventions-and-variation",
+      "title": "Conventions and variation",
+      "week": "Week 6",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01"
+      ],
+      "intention": "Explain how the conventions of a style govern how an idea is presented, developed and varied, and compare the same kind of variation across two different styles.",
+      "whatYouWillDo": "Explain, for two contrasting styles, what their conventions allow to change under variation and what they keep fixed.",
+      "listening": 11,
+      "listeningNote": "The set jazz example for this fortnight's style comparison; pair it against a pop verse-and-chorus work of the class's choice.",
+      "steps": [
+        "Compare two contrasting styles that both use a form of variation (for example a jazz head and solo against a pop verse and chorus).",
+        "For each, identify what specifically is allowed to change, and what usually stays fixed.",
+        "Account for the difference between the two styles from their conventions, not from a value judgement about which is 'more' developed.",
+        "Well-formed dot points: one convention per style, and how it shapes what development looks like."
+      ],
+      "criteria": [
+        "Explain, for two contrasting styles, what their conventions allow to change under variation.",
+        "Explain what those conventions keep fixed."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Conventions decide what counts as development in a style. A jazz solo developing a head and a pop song developing a verse into a chorus are both 'variation', but the moves available, and what a listener expects, are governed by completely different conventions."
+        },
+        {
+          "type": "prose",
+          "title": "Worked example",
+          "text": "A jazz head-and-solo form develops its material through improvisation over the same harmonic structure, so the convention allows (and expects) the melody itself to change substantially each chorus. A pop verse-and-chorus form develops mainly through arrangement and register, so the convention keeps the vocal melody largely fixed while the accompaniment thickens. Neither is more developed than the other; they are developing different things, because their conventions say so."
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "slug": "theme-and-variations-western-art-music",
+      "title": "Theme and variations: a worked case in Western art music",
+      "week": "Week 6",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11L-02"
+      ],
+      "intention": "Study one theme and variations for variation, extension and transformation. Track a single element through each variation, and describe what was changed and what was held constant.",
+      "whatYouWillDo": "Track one element of a theme through its variations, and describe for at least two variations what changed and what stayed constant.",
+      "listening": 10,
+      "listeningNote": "Britten's theme is Purcell's; each variation reassigns it to a different instrument family, the clearest available case of one element tracked through change.",
+      "steps": [
+        "Listen to the theme alone first, without any variations, and note its key features (melody, harmony, rhythm, texture).",
+        "Listen to each variation in turn, tracking one chosen element (for example melody, or texture) across all of them.",
+        "For each variation, note what changed and what was held constant against the theme.",
+        "Well-formed dot points summarising the overall shape of the set: does it escalate in complexity, or move in some other pattern?"
+      ],
+      "criteria": [
+        "Track one element of a theme through its variations.",
+        "Describe, for at least two variations, what changed and what stayed constant."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "This extends the Term 1 Western art music repertoire category. A theme and variations makes the logic of variation explicit and countable: the same theme is presented, then reworked a fixed number of times, which is why it is a useful worked case before applying the same thinking to freer forms."
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "slug": "harmonic-textural-devices-expressive-depth",
+      "title": "Harmonic and textural devices, and expressive depth",
+      "week": "Week 7",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11L-02"
+      ],
+      "intention": "Analyse how harmonic and textural devices create expressive depth, and compare the same devices heard in an acoustic and an electronic work.",
+      "whatYouWillDo": "Name a harmonic and a textural device in a work, and explain the expressive effect each creates.",
+      "listening": 12,
+      "listeningNote": "The electronic pairing for this fortnight's acoustic/electronic comparison; its layered guitar canon carries both a harmonic and a textural device at once.",
+      "steps": [
+        "Listen to two works, one acoustic and one electronic, chosen so the same devices can be heard in both.",
+        "Identify harmonic devices in each (modulation, dissonance, resolution, drone, pedal point) and describe the expressive effect each produces.",
+        "Identify textural devices in each (canon, doubling, layering, countermelody, looping) and describe their expressive effect.",
+        "Compare: does the same device create a similar or a different expressive effect across the acoustic and electronic work?"
+      ],
+      "criteria": [
+        "Name a harmonic and a textural device in a work.",
+        "Explain the expressive effect each creates."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Harmonic and textural devices",
+          "columns": [
+            "Harmonic devices",
+            "Textural devices"
+          ],
+          "rows": [
+            [
+              "Modulation, dissonance, resolution, drone, pedal point",
+              "Canon, doubling, layering, countermelody, looping"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Depth comes from how layers and harmony interact, not from volume. A dense, loud texture can feel shallow if every layer moves together; a quiet passage with a drone under a slowly shifting melody can feel deep because of the tension between what is static and what is moving."
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "slug": "performance-workshop-adjusting-expression-to-context",
+      "title": "Performance workshop: adjusting expression to the context",
+      "week": "Week 7",
+      "contentGroup": "Performing",
+      "outcomes": [
+        "MU1-11P-01",
+        "MU1-11P-02"
+      ],
+      "intention": "Perform the same piece in two different contexts, adjust the expressive approach for each, and explain the adjustment.",
+      "whatYouWillDo": "Perform the same piece in two contexts, and explain one specific expressive adjustment the second context required.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Perform a piece in its normal rehearsal context.",
+        "Perform the same piece in a contrasting context (for example the hall instead of the rehearsal room, or amplified instead of acoustic).",
+        "Identify at least one expressive adjustment made between the two contexts (dynamics, projection, pacing, articulation weight).",
+        "Logbook entry explaining the adjustment and why the context required it."
+      ],
+      "criteria": [
+        "Perform the same piece in two contexts.",
+        "Explain one specific expressive adjustment the second context required."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Expressive decisions depend on the room as well as the score. A performance that works in a small rehearsal room, unamplified, may need different dynamic range, projection or pacing in a hall, or with amplification. This is a performing skill, not just a technical one."
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "slug": "graphic-scores-daw-visualisations",
+      "title": "Graphic scores and DAW visualisations",
+      "week": "Week 8",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11L-01"
+      ],
+      "intention": "Read and interpret graphic scores and DAW representations as Notational language in their own right. Produce a graphic score of an electronic work, and compare it against the same work's DAW view.",
+      "whatYouWillDo": "Produce a graphic score of an electronic work, and compare what it captures against a DAW view of the same work.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Study the electronic work analysed in Week 3.",
+        "Produce a graphic score of the work: symbols invented or chosen to represent its timbral and textural features over time.",
+        "Compare the graphic score against the same work's DAW view (waveform, piano roll, or spectral view, whichever is available).",
+        "Well-formed dot points: what the graphic score captures well, and what the DAW view captures that the graphic score does not."
+      ],
+      "criteria": [
+        "Produce a graphic score of an electronic work.",
+        "Compare what it captures against a DAW view of the same work."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "DAW representations as notation",
+          "columns": [
+            "View",
+            "What it shows"
+          ],
+          "rows": [
+            [
+              "Waveform",
+              "Amplitude over time; loud and quiet, dense and sparse"
+            ],
+            [
+              "Piano roll",
+              "Pitch and duration of MIDI notes, like notation turned sideways"
+            ],
+            [
+              "Beat grid",
+              "Rhythmic subdivision and timing against a fixed pulse"
+            ],
+            [
+              "Spectral view",
+              "Frequency content over time; where the energy of a sound sits"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Notation is any system that shows how sound is organised, not only staff notation. A graphic score and a DAW's piano roll or spectral view are both notation, doing the same job with different symbols, which is why the Notational language content extends to them."
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "slug": "creating-ideas-that-reflect-a-style",
+      "title": "Creating ideas that reflect a style",
+      "week": "Week 8",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11C-02"
+      ],
+      "intention": "Write a short idea to the conventions of a nominated style, rewrite it to the conventions of a contrasting style, and log what had to change and why.",
+      "whatYouWillDo": "Write the same idea in two contrasting styles, and explain in the log what had to change between them.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Write a short idea (four to eight bars) to the conventions of a nominated style, using vocabulary and techniques studied this term.",
+        "Rewrite the same idea to the conventions of a contrasting style, changing only what the new style requires.",
+        "Log the pair together with a note on what had to change and why, and what stayed the same."
+      ],
+      "criteria": [
+        "Write the same idea in two contrasting styles.",
+        "Explain, in the log, what had to change between them."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Stylistic writing is a set of decisions that can be learned, not a talent a composer either has or does not. Rewriting the same idea in a contrasting style forces those decisions into view, because everything that stays the same reveals what was arbitrary, and everything that has to change reveals what the style actually requires."
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "slug": "aural-consolidation-first-taste-of-exam-format",
+      "title": "Aural consolidation: first taste of examination format",
+      "week": "Week 8",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-02"
+      ],
+      "intention": "Consolidate all Term 1 and Term 2 aural content in mixed drill, and experience the AT3 written paper format for the first time: a played excerpt, three playings, answers in well-formed dot points, self-checked against the AT3 marking scale.",
+      "whatYouWillDo": "Answer a question in the AT3 excerpt-and-three-playings format in well-formed dot points, and self-check your response against the marking scale.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Mixed drill covering melodic patterns and cadences, modes, ii-V7 progressions, and any other Term 1 content still needing consolidation.",
+        "Run one question in the AT3 format: excerpt played three times, structured writing time between playings, well-formed dot point answers.",
+        "Self-check the response against the AT3 marking scale (the same band language used in the examination's marking guidelines).",
+        "Identify the one element (rhythm, harmony, melody, texture, structure, expression) each student finds hardest to hear, to focus practice on before Term 3's weekly practice papers begin."
+      ],
+      "criteria": [
+        "Answer a question in the AT3 excerpt-and-three-playings format, in well-formed dot points.",
+        "Self-check your response against the marking scale."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "The examination is the routine drill under time pressure, not a different skill. This session is the first time the class meets the actual shape of AT3 Part A: an excerpt played exactly three times, with structured time to write between playings, answered in well-formed dot points rather than paragraphs."
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "slug": "loop-based-against-through-composed-structures",
+      "title": "Loop-based against through-composed structures",
+      "week": "Week 10",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11L-01"
+      ],
+      "intention": "Compare a loop-based work and a through-composed work side by side, and explain how each style's conventions govern its structure. Write a short idea in whichever structure was not used for AT2.",
+      "whatYouWillDo": "Explain how a work's structural convention, loop-based or through-composed, governs its structure, and write a short idea using the structure not used in AT2.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Listen to two works side by side, one built from loops and one through-composed.",
+        "For each, explain how the style's conventions govern its structure: what is the structure doing, and why does the style allow or require it?",
+        "Write a short idea in whichever structure was not used for the student's own AT2 composition, applying that structure's conventions deliberately.",
+        "Log entry connecting the new short idea back to the structural conventions studied today."
+      ],
+      "criteria": [
+        "Explain how a work's structural convention, loop-based or through-composed, governs its structure.",
+        "Write a short idea using the structure not used in AT2."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Two structural conventions",
+          "columns": [
+            "Structure",
+            "How it is built",
+            "What governs it"
+          ],
+          "rows": [
+            [
+              "Loop-based",
+              "A fixed unit repeats, with change layered on top over time.",
+              "The convention of the style (much electronic, hip-hop and dance music) treats repetition as the foundation, not a limitation."
+            ],
+            [
+              "Through-composed",
+              "Material continuously develops with no exact repeat of a whole section.",
+              "The convention (much art music, programmatic or narrative works) treats continuous change as the expected shape."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "slug": "unit-review-and-vocabulary-check",
+      "title": "Unit review and vocabulary check",
+      "week": "Week 10",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11C-01"
+      ],
+      "intention": "Consolidate the unit's vocabulary and the Compositional language lists, and trace how one idea travelled from Week 1 improvisation to the submitted AT2 piece.",
+      "whatYouWillDo": "Correctly use this term's vocabulary in the review quiz, and trace your own AT2 idea from its generating improvisation to the submitted piece.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Short quiz on the unit's vocabulary (development, variation, mode names, chord vocabulary, harmonic and textural devices) and the Compositional language lists.",
+        "Class review: each student, or a sample of students, traces how their AT2 idea travelled from its Week 1 or 2 improvised origin to the submitted piece.",
+        "Identify which development technique from the term (rhythmic variation, textural addition, change of register or instrumentation, structural convention) each student relied on most, and which they have not yet tried."
+      ],
+      "criteria": [
+        "Correctly use this term's vocabulary in the review quiz.",
+        "Trace your own AT2 idea from its generating improvisation to the submitted piece."
+      ],
+      "blocks": []
+    }
+  ]
 }
