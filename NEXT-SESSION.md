@@ -44,4 +44,4 @@
 
 ## Last commit
 
-`8de0318` "Pour Term 3 content: 18 lessons, sites 33-50" (local repo, not pushed).
+`ed8ef51` "Point next session at YouTube/audio ids and the Lesson 11 rebuild" (local repo, not pushed).
