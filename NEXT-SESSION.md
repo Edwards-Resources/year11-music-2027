@@ -1,26 +1,19 @@
 # Next session: Year 11 site
 
-**Where things stand (12 August 2026):** The **On Air** world is built, reviewed, documented, and now has Term 1 and Term 2 poured. Term 2 (21 lessons, site numbers 12 to 32) was poured this session from the drafted `.docx` sources into `data/course/term2/term.json`, matching Term 1's lesson shape. Built and verified in a real browser (`file://` renders as a CSS-less static snapshot in this environment — serve `docs/` with `http.server` behind a symlink matching the `/year11-music-2027` base path to see it properly). Four commits, local only, nothing pushed.
+**Where things stand (12 August 2026):** The **On Air** world is built, reviewed, documented, and all three terms are now poured — 50 lessons, real content, zero stubs. Term 3 (18 lessons, site numbers 33 to 50) was poured this session from the drafted `.docx` sources into `data/course/term3/term.json`, matching Term 1/2's lesson shape. The five weekly aural practice papers (real HSC content) were deliberately left off the site entirely — not referenced by any lesson, no stub page — per Matthew's call this session, overriding an earlier (wrong) note that said they'd get stub pages. Also assigned all eight remaining Term 3 works in `works.json` by content, not just week number: Concerning Hobbits to the leitmotif lesson, Blade Runner and The Social Network as two eras of electronic scoring, and the Saint-Saëns/Westlake pairing to the "Australian work" lesson (Westlake's Babe score quotes the Organ Symphony finale at its climax). Fixed a stale build.py diagnostic along the way (it was hardcoded to always report 39 unbuilt lessons regardless of actual pour state). Built and verified in a real browser (`file://` renders as a CSS-less static snapshot in this environment — serve `docs/` with `http.server` behind a symlink matching the `/year11-music-2027` base path to see it properly). Five commits, local only, nothing pushed.
 
 `DESIGN.md` and `.impeccable/design.json` are the system of record for how this site looks. Read `DESIGN.md` before changing anything visual; read `DIRECTION.md` for the contract and the six rules the world establishes.
 
-## The next task: pour Term 3
+**Do not touch any term's content accuracy.** Changes there should be visual or structural, never a rewrite of what was said.
 
-18 lessons, site numbers 33 to 50, from `Year 11 Music Planning (New Syllabus)/12 Teaching Resources (Term 3)/Lesson Content (docx)/`. `data/course/term3/term.json` holds the right titles and weeks as stubs. Same mechanical process as Term 2: the docx sources are structured for direct mapping (Learning intentions → `intention`, Check-for-understanding bullets split into `criteria` and merged into `whatYouWillDo`, numbered steps → `steps`, floating concept heading + table → a `table` block, Why this matters / Worked example → `prose` blocks).
-
-**Five of those 18 weeks are aural practice-paper weeks and get a stub page describing what the paper covers, never the paper itself** — those are real HSC-style questions and must not be published.
-
-**Do not touch Term 1 or Term 2's content accuracy.** Changes there should be visual or structural, never a rewrite of what was said.
-
-**Check `data/course/works.json` for any Term 3 works still carrying `"lesson": null`** and assign them by content, the same way this session assigned the five Term 2 works — read what each lesson's steps actually ask for, don't just match on week number.
-
-## Then, in order
+## The next task, in order
 
 1. **Audio and YouTube ids for every listening slot**, across all three terms now. None exist yet, on purpose. Apple catalogue explicitness check first (read `trackExplicitness`; `cleaned` is the one that matters), then oEmbed verification of the video id and its channel. Both checks have caught real faults on the sibling sites.
 2. **Rebuild the corrupted Lesson 11 source** (`Music1_Y11_T1_Canvas_11_UnitReview_Vocabulary.html` holds only a header comment and a stray character). The site currently shows an honest stub, not an invented lesson.
 3. **Create the GitHub repo** `year11-music-2027` under `Edwards-Resources` and push. **Ask Matthew before pushing.**
 4. **Wire the real Canvas course URL** once it exists (`course.json`'s `canvasUrl` is `null`).
 5. **A real 2027 exam date** (`course.json`'s `examLesson` and `examDate` are `null`).
+6. **Two works still carry `"lesson": null`** in `works.json` (M03 Libertango, M04 Chan Chan, both Term 1 Week 2) — a pre-existing gap from before this session, unrelated to the Term 3 pour. Assign them the same way if picked up.
 
 ## Watch out for
 
@@ -43,7 +36,7 @@
 
 ## Model and effort
 
-**Sonnet, medium.** The Term 3 pour is the same mechanical assembly as Term 2 against a settled, documented design: reading .docx into lesson objects that already have a proven shape. Opus is only warranted if a lesson's content will not fit the existing block types and the page composition has to change, or for the works.json assignment judgement calls if any are ambiguous.
+**Sonnet, medium** for the YouTube/audio id pass — mechanical, but each id needs real verification (explicitness check, oEmbed), so it is not zero-judgement. **Opus** if the Lesson 11 rebuild turns out to need real content invention rather than an honest stub, since that's a content-authorship call, not assembly.
 
 ## One thing deliberately left for a later pass
 
@@ -51,4 +44,4 @@
 
 ## Last commit
 
-`f7ce174` "Pour Term 2 content: 21 lessons, sites 12-32" (local repo, not pushed).
+`8de0318` "Pour Term 3 content: 18 lessons, sites 33-50" (local repo, not pushed).
