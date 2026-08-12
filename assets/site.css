@@ -101,7 +101,9 @@ a{color:inherit}
 .railhead a{text-decoration:none}
 .railhead a:hover .t{text-decoration:underline;text-underline-offset:3px}
 
-.rlist{list-style:none;overflow-y:auto;flex:1;min-height:0}
+/* positioned, so a row's offsetTop is measured from the scroller itself
+   and site.js does not overshoot the row it is scrolling to */
+.rlist{list-style:none;overflow-y:auto;flex:1;min-height:0;position:relative}
 .rl{display:grid;grid-template-columns:2.75rem 1fr;gap:.5rem;padding:.5rem 1.25rem .55rem;
   border-bottom:1px solid var(--hair);align-items:baseline;text-decoration:none;color:inherit}
 .rl .n{font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.08em;color:var(--ink-60)}
@@ -192,17 +194,18 @@ td:first-child{font-weight:650;font-stretch:88%}
    read alike in all three terms. The ink border keeps it distinct from the
    Term 2 strand fill, which is the same hue. */
 .note{background:var(--s2);border:1px solid var(--ink);padding:.7rem .8rem .8rem;margin-top:.9rem}
-.note p{font-size:.8125rem;line-height:1.45;margin-top:.35rem;max-width:none}
+.note p{font-size:.8125rem;line-height:1.45;margin-top:.35rem;max-width:none;
+  overflow-wrap:anywhere}
 
 .video{position:relative;padding-top:56.25%;margin-top:.5rem;background:var(--hair)}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.pending{font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.09em;
+.pending{overflow-wrap:anywhere;font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.09em;
   font-size:.6875rem;color:var(--ink-60);margin-top:.45rem;display:block}
 
 .prevnext{display:flex;justify-content:space-between;gap:1.25rem;flex-wrap:wrap;
   margin-top:1.4rem;padding-top:.8rem;border-top:1px solid var(--ink)}
 .pn{text-decoration:none;max-width:20rem}
-.pn .k{display:block;font-stretch:76%;font-weight:650;font-size:.625rem;letter-spacing:.1em;
+.pn .k{display:block;font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-60);margin-bottom:.2rem}
 .pn .t{font-stretch:88%;font-weight:650;font-size:.9375rem;line-height:1.2}
 .pn:hover .t{text-decoration:underline;text-underline-offset:3px}
@@ -270,8 +273,8 @@ a.chip.on:hover{background:var(--strand);text-decoration:underline;text-underlin
 .sched .ti{font-stretch:88%;font-weight:600;font-size:1rem;letter-spacing:-.006em}
 .sched .ti a{text-decoration:none}
 .sched .ti a:hover{text-decoration:underline;text-underline-offset:3px}
-.sched .wo{width:13.5rem;font-size:.8125rem;color:var(--ink-60)}
-.sched .oc{width:8rem;font-stretch:76%;font-weight:650;font-size:.6875rem;
+.sched .wo{width:13.25rem;font-size:.8125rem;color:var(--ink-60)}
+.sched .oc{width:9.5rem;white-space:nowrap;font-stretch:76%;font-weight:650;font-size:.6875rem;
   letter-spacing:.06em;color:var(--ink-60);line-height:1.5}
 .sched .st{width:7rem;text-align:right}
 .sched .st span{font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.1em;
@@ -308,13 +311,19 @@ a.chip.on:hover{background:var(--strand);text-decoration:underline;text-underlin
 .wtable .tin{width:22rem;font-size:.8125rem;line-height:1.3;color:var(--ink-60)}
 .wtable .tin a{text-decoration:none}
 .wtable .tin a:hover{text-decoration:underline;text-underline-offset:3px;color:var(--ink)}
-.wtable .cx{width:13rem;font-stretch:76%;font-weight:650;font-size:.65rem;
+.wtable .cx{width:13rem;font-stretch:76%;font-weight:650;font-size:.6875rem;
   letter-spacing:.08em;text-transform:uppercase;color:var(--ink-60)}
 .wtable .tw2{width:4rem;text-align:right;font-stretch:76%;font-weight:650;
   font-size:.71875rem;color:var(--ink-60)}
 .wtable tr.on td{background:var(--strand)}
+/* padded both sides, the same way a filled schedule row is */
+.wtable tr.on td:first-child{padding-left:.75rem}
+.wtable tr.on td:last-child{padding-right:.75rem}
 .wtable tr.on .no,.wtable tr.on .cx,.wtable tr.on .tw2,.wtable tr.on .tin{color:var(--ink)}
 .wtable tr.on .ti b{font-weight:750}
+.wnow{display:inline-flex;align-items:center;margin-left:.55rem;font-stretch:76%;
+  font-weight:650;font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;
+  white-space:nowrap}
 
 .strands{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:1.2rem;
   border-top:1px solid var(--ink)}
@@ -366,7 +375,9 @@ a.chip.on:hover{background:var(--strand);text-decoration:underline;text-underlin
      off the side is position carried by colour alone. Every cell keeps its
      own column name and the row reads top to bottom. */
   .tw{overflow-x:visible}
-  table,.sched{min-width:0}
+  /* .wtable and .sched set their own min-width one class deep, so a bare
+     `table` reset loses to them and the row runs off the phone */
+  table,.sched,.wtable{min-width:0}
   .sched thead,.sect thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
   .sect tbody tr,.sched tbody tr{display:block;padding:.6rem 0;
     border-bottom:1px solid var(--hair)}
@@ -405,6 +416,8 @@ a.chip.on:hover{background:var(--strand);text-decoration:underline;text-underlin
     content:attr(data-label);font-stretch:76%;font-weight:650;text-transform:uppercase;
     letter-spacing:.09em;font-size:.6875rem;color:var(--ink-60)}
   .wtable tbody .no{font-size:.6875rem}
+  .wtable tbody td,.wtable tbody td *{overflow-wrap:anywhere}
+  .wtable tbody .cx{line-height:1.35}
   .wtable tr.on{background:var(--strand)}
   .wtable tr.on td{background:none}
   .wtable tr.on .tin::before,.wtable tr.on .cx::before,.wtable tr.on .tw2::before{color:var(--ink)}

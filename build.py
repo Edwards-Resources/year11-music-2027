@@ -516,6 +516,8 @@ def build_works(site, course, works, current_no, current_work):
         on = " on" if w["no"] == current_work else ""
         cx = e(w["category"].replace("Music of the ", "").replace("Music of ", ""))
         title = f'<b>{e(w["title"])}</b> {e(w["composer"])}'
+        # the fill never carries the position on its own, here or anywhere else
+        now = f'<span class="wnow">{DOT}On air</span>' if on else ""
         taught = '<span class="muted">Not yet on the site</span>'
         if w.get("lesson"):
             t, l = lesson_by_no[w["lesson"]]
@@ -526,7 +528,7 @@ def build_works(site, course, works, current_no, current_work):
         rows.append(
             f'<tr class="{on.strip()}"{cur}>'
             f'<td class="no" data-label="No.">M {w["no"]:02d}</td>'
-            f'<td class="ti" data-label="Work">{title}</td>'
+            f'<td class="ti" data-label="Work">{title}{now}</td>'
             f'<td class="tin" data-label="Taught in">{taught}</td>'
             f'<td class="cx" data-label="Category">{cx}</td>'
             f'<td class="tw2" data-label="Term.week">{w["term"]}.{w["week"]}</td></tr>'
