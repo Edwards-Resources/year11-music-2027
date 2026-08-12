@@ -140,7 +140,7 @@
     "category": "Western art music",
     "term": 3,
     "week": 1,
-    "lesson": null
+    "lesson": 33
   },
   {
     "no": 14,
@@ -151,7 +151,7 @@
     "category": "Western art music",
     "term": 3,
     "week": 2,
-    "lesson": null
+    "lesson": 35
   },
   {
     "no": 15,
@@ -162,7 +162,7 @@
     "category": "Electronic music",
     "term": 3,
     "week": 3,
-    "lesson": null
+    "lesson": 37
   },
   {
     "no": 16,
@@ -173,7 +173,7 @@
     "category": "Electronic music",
     "term": 3,
     "week": 3,
-    "lesson": null
+    "lesson": 37
   },
   {
     "no": 17,
@@ -184,7 +184,7 @@
     "category": "Electronic music",
     "term": 3,
     "week": 4,
-    "lesson": null
+    "lesson": 39
   },
   {
     "no": 18,
@@ -195,7 +195,7 @@
     "category": "Western art music",
     "term": 3,
     "week": 4,
-    "lesson": null
+    "lesson": 39
   },
   {
     "no": 19,
@@ -206,7 +206,7 @@
     "category": "Western art music",
     "term": 3,
     "week": 5,
-    "lesson": null
+    "lesson": 42
   },
   {
     "no": 20,
@@ -217,6 +217,6 @@
     "category": "Western art music",
     "term": 3,
     "week": 5,
-    "lesson": null
+    "lesson": 42
   }
 ]

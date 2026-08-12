@@ -1,36 +1,711 @@
 {
- "id": "term3",
- "number": 3,
- "name": "Term 3: Music in Focus",
- "focusArea": "Music in focus (film and screen)",
- "weeks": 10,
- "built": false,
- "source": "18 lesson resources drafted as .docx by Tools/y11_term3_teaching_resources_builder.py, not yet poured into this site. The five weekly aural practice papers are deliberately not full lesson pages: they carry real HSC audio and NESA marking guidelines, so those weeks get a stub page describing what the paper covers, never the paper itself.",
- "assessment": {
-  "name": "AT3: Music in Focus Examination",
-  "when": "Term 3",
-  "weighting": null,
-  "detail": "The written aural examination. Task detail, the paper and marking guidelines are in Canvas."
- },
- "lessonNumberStart": 33,
- "lessons": [
-  {"number": 33, "title": "Unit launch: how screen music works", "week": "Week 1"},
-  {"number": 34, "title": "Performance: choosing from the screen literature", "week": "Week 1"},
-  {"number": 35, "title": "Leitmotif and thematic transformation", "week": "Week 2"},
-  {"number": 36, "title": "Notation for screen", "week": "Week 2"},
-  {"number": 37, "title": "Electronic and hybrid screen scoring", "week": "Week 3"},
-  {"number": 38, "title": "Composing: scoring a short scene", "week": "Week 3"},
-  {"number": 39, "title": "Screen music beyond Hollywood", "week": "Week 4"},
-  {"number": 40, "title": "Performance workshop: interpretative decisions", "week": "Week 4"},
-  {"number": 41, "title": "Improvising and experimenting on a cue", "week": "Week 4"},
-  {"number": 42, "title": "The same scene scored two ways, and an Australian work", "week": "Week 5"},
-  {"number": 43, "title": "Performance workshop: refining from recordings", "week": "Week 5"},
-  {"number": 44, "title": "Individual study: research and analysis", "week": "Week 6"},
-  {"number": 45, "title": "Documenting the individual study", "week": "Week 6"},
-  {"number": 46, "title": "Individual study share-back", "week": "Week 7"},
-  {"number": 47, "title": "Examination feedback and error analysis", "week": "Week 8"},
-  {"number": 48, "title": "The term's creative product: a short screen cue", "week": "Week 8"},
-  {"number": 49, "title": "Introducing the Year 12 course", "week": "Week 9"},
-  {"number": 50, "title": "Unit review, vocabulary check, and a first Year 12 listen", "week": "Week 10"}
- ]
+  "id": "term3",
+  "number": 3,
+  "name": "Term 3: Music in Focus",
+  "focusArea": "Music in focus (film and screen)",
+  "weeks": 10,
+  "built": true,
+  "source": "Poured in from 18 lesson resources drafted as .docx by Tools/y11_term3_teaching_resources_builder.py, in 'Year 11 Music Planning (New Syllabus)/12 Teaching Resources (Term 3)/Lesson Content (docx)/'. The five weekly aural practice papers carry real HSC audio and NESA marking guidelines and are deliberately not represented here or anywhere on the site.",
+  "assessment": {
+    "name": "AT3: Music in Focus Examination",
+    "when": "Term 3",
+    "weighting": null,
+    "detail": "The written aural examination. Task detail, the paper and marking guidelines are in Canvas."
+  },
+  "lessonNumberStart": 33,
+  "lessons": [
+    {
+      "number": 33,
+      "slug": "unit-launch-how-screen-music-works",
+      "title": "Unit launch: how screen music works",
+      "week": "Week 1",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01"
+      ],
+      "intention": "Define diegetic and non-diegetic music and tell them apart by ear. Explain the cue, spotting and sync points using two contrasting scenes, and understand the term's structure: taught core, individual study, examination.",
+      "whatYouWillDo": "Classify music in a scene as diegetic or non-diegetic and point to one spotting or sync decision the composer made.",
+      "listening": 13,
+      "listeningNote": null,
+      "steps": [
+        "Watch two contrasting scenes: one with clearly diegetic music (a source visible or implied in the world of the scene), one with clearly non-diegetic music.",
+        "Identify the cue's start and stop points in each scene and discuss why the composer chose those moments (spotting).",
+        "Find at least one sync point in each scene, where music and image line up precisely.",
+        "Well-formed dot points: diegetic or non-diegetic, and one spotting or sync decision, for each scene."
+      ],
+      "criteria": [
+        "Classify music in a scene as diegetic or non-diegetic.",
+        "Point to one spotting or sync decision the composer made."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Screen music vocabulary",
+          "columns": [
+            "Term",
+            "Meaning",
+            "A question to ask of a scene"
+          ],
+          "rows": [
+            [
+              "Diegetic",
+              "Music the characters in the scene can hear.",
+              "Is there a visible or implied source, like a radio or a band?"
+            ],
+            [
+              "Non-diegetic",
+              "Music the audience hears but the characters do not.",
+              "Is there no source in the world of the scene at all?"
+            ],
+            [
+              "Cue",
+              "A discrete piece of music written for a specific scene or moment.",
+              "Where does this piece of music start and stop?"
+            ],
+            [
+              "Spotting",
+              "The process of deciding where music starts and stops in a film.",
+              "Why does the music begin exactly here, not earlier or later?"
+            ],
+            [
+              "Sync point",
+              "A moment where music and image line up precisely.",
+              "Is there a hit, a cut or a gesture the music lands on exactly?"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Screen music is written to do a job for the image, which makes it a different kind of listening from concert music. Every choice, from whether music plays at all to where it starts and stops, is a decision about what the audience should feel or understand at that exact moment."
+        },
+        {
+          "type": "prose",
+          "title": "This term's structure",
+          "text": "Weeks 1 to 5 are the taught core (this document and its companions). Week 2 is where each student locks an individual study topic and a performance piece to represent it. Weeks 6 and 7 hold AT3, issued back in Term 2 Week 9. Weeks 8 to 10 are the planned handover into Year 12."
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "slug": "performance-choosing-from-the-screen-literature",
+      "title": "Performance: choosing from the screen literature",
+      "week": "Week 1",
+      "contentGroup": "Performing",
+      "outcomes": [
+        "MU1-11P-02"
+      ],
+      "intention": "Play through candidate AT3 pieces from the screen literature, and apply the vocal or instrumental techniques the style calls for.",
+      "whatYouWillDo": "Play through your candidate AT3 pieces and name the specific technique each one's style calls for.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Play through the pieces shortlisted in Term 2 Week 9.",
+        "For each, identify the vocal or instrumental technique the style calls for (for example legato bowing, a specific articulation, a vocal belt or head-voice choice, a particular strumming or picking pattern).",
+        "Teacher advises on what is achievable well in the nine weeks available.",
+        "Logbook entry recording the candidate pieces played and the technical demands of each."
+      ],
+      "criteria": [
+        "Play through your candidate AT3 pieces.",
+        "Name the specific technique each one's style calls for."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Screen repertoire spans a wide range of playing demands, from a single orchestral line to a fully produced song, and the technique a piece calls for is set by its style, not chosen by the performer. Playing through candidates now, with nine weeks of runway, means the technical demand of a piece is known before it is locked in."
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "slug": "leitmotif-and-thematic-transformation",
+      "title": "Leitmotif and thematic transformation",
+      "week": "Week 2",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11L-02"
+      ],
+      "intention": "Track one theme across a whole film and describe each transformation, and evaluate two appearances of the same theme, judging which one serves the scene better.",
+      "whatYouWillDo": "Describe what changed and what stayed constant in a theme's transformation, and back a judgement about which appearance serves its scene better with musical evidence.",
+      "listening": 14,
+      "listeningNote": null,
+      "steps": [
+        "Track one theme across a whole film, or a long excerpt, noting every appearance.",
+        "For each transformation, describe what changed, what stayed the same, and what the change tells the audience.",
+        "Compare two appearances of the same theme and judge, with evidence, which one better serves its scene.",
+        "Well-formed dot points recording the strongest transformation found and the judgement made about it."
+      ],
+      "criteria": [
+        "Describe what changed and what stayed constant in a theme's transformation.",
+        "Back a judgement about which appearance serves its scene better with musical evidence."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "A theme carries story by being transformed, not repeated. Orchestral screen scoring meets the mandatory Western art music repertoire category here, in a screen context, so this topic serves both the focus area and that requirement."
+        },
+        {
+          "type": "prose",
+          "title": "Worked example",
+          "text": "A character's theme first appears in a major key on solo horn, warm and open. Later, after that character is betrayed, the same melodic contour returns in a minor key, on strings, slower, with a dissonant accompaniment. The notes are recognisably the same shape; what changed (mode, instrumentation, tempo, harmony) tells the audience how the character or their situation has changed."
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "slug": "notation-for-screen",
+      "title": "Notation for screen",
+      "week": "Week 2",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11L-01"
+      ],
+      "intention": "Interpret the notation systems screen repertoire actually uses, and follow a cue in two notation systems at once.",
+      "whatYouWillDo": "Follow a cue in two different notation systems and explain what each one shows that the other does not.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Examine examples of each notation system in the concept table.",
+        "Follow a single cue in two of these systems at once (for example a lead sheet alongside a DAW piano roll), noting what each shows that the other does not.",
+        "Well-formed dot points: for the cue followed, one thing the first system showed and the second did not, and vice versa."
+      ],
+      "criteria": [
+        "Follow a cue in two different notation systems.",
+        "Explain what each one shows that the other does not."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Notation systems used in screen music",
+          "columns": [
+            "System",
+            "What it shows"
+          ],
+          "rows": [
+            [
+              "Cue sheet",
+              "Timing, instrumentation and cue titles against the film's timecode"
+            ],
+            [
+              "Lead sheet",
+              "Melody and chord symbols, for a quick read of the harmonic and melodic shape"
+            ],
+            [
+              "Full score reduction",
+              "A condensed version of the orchestral score, readable at a glance"
+            ],
+            [
+              "Click and tempo map",
+              "The exact tempo, and any tempo changes, locked to the film's timing"
+            ],
+            [
+              "DAW representations",
+              "Piano roll (pitch and duration), beat grid (rhythmic timing) and waveform (amplitude over time)"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Each notation system shows something the others hide. A cue sheet shows timing but not pitch; a lead sheet shows harmony but not exact orchestration; a click map shows tempo but nothing musical at all. Reading screen music fluently means knowing which system to reach for."
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "slug": "electronic-and-hybrid-screen-scoring",
+      "title": "Electronic and hybrid screen scoring",
+      "week": "Week 3",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11L-02"
+      ],
+      "intention": "Examine how technologies, context and performing media changed screen scoring, and account for the sound of a period from the technology available to it.",
+      "whatYouWillDo": "Identify features in a screen score that point to its scoring approach, and explain how the technology available shaped its sound.",
+      "listening": 15,
+      "listeningNote": null,
+      "steps": [
+        "Listen to excerpts representing at least two of the four approaches in the concept table, from different eras where possible.",
+        "For each, identify features that point to the technology or performing media used to make it.",
+        "Account for the sound of one excerpt's period from the technology available to it, in well-formed dot points."
+      ],
+      "criteria": [
+        "Identify features in a screen score that point to its scoring approach.",
+        "Explain how the technology available shaped its sound."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Four scoring approaches",
+          "columns": [
+            "Approach",
+            "What it uses"
+          ],
+          "rows": [
+            [
+              "Orchestral",
+              "Live orchestra, acoustic instruments"
+            ],
+            [
+              "Synthesiser",
+              "Electronic sound generation, often distinctively of its era"
+            ],
+            [
+              "Sampled orchestra",
+              "Recorded orchestral sounds played back and manipulated digitally"
+            ],
+            [
+              "Hybrid score",
+              "Orchestral and electronic elements combined deliberately"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "This reinforces the electronic music repertoire category met in Term 2, now in a screen context. What a score can sound like depends on what was available to make it: a synthesiser-heavy score from the 1980s sounds the way it does partly because of what technology existed then, not only because of the composer's taste."
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "slug": "composing-scoring-a-short-scene",
+      "title": "Composing: scoring a short scene",
+      "week": "Week 3",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11C-02"
+      ],
+      "intention": "Create original material or arrange existing repertoire to score a short scene, and set sync points deliberately, rather than by accident.",
+      "whatYouWillDo": "Score a short scene to sync points you set yourself, and explain in the log how the music serves those points.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Select a 30 to 60 second scene (silent, or with dialogue but no existing score).",
+        "Set the scene's sync points: the moments where music should land precisely on an action or a cut.",
+        "Create original material, or arrange existing repertoire, to score the scene, working to those sync points. flat.io or a DAW, whichever fits the intent.",
+        "Composition log entry, continuing from Term 2, documenting the sync points chosen and how the music serves them."
+      ],
+      "criteria": [
+        "Score a short scene to sync points you set yourself.",
+        "Explain, in the log, how the music serves those points."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Writing to picture is composing under someone else's constraints: the scene sets the timing, the mood and the moments that need a musical hit, and the composer's job is to serve those constraints, not override them."
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "slug": "screen-music-beyond-hollywood",
+      "title": "Screen music beyond Hollywood",
+      "week": "Week 4",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01"
+      ],
+      "intention": "Study at least one non-Western screen tradition on its own terms, and analyse its musical features and stylistic conventions without measuring it against orchestral scoring.",
+      "whatYouWillDo": "Describe a feature and a convention of a non-Western screen tradition in its own terms, without comparing it to orchestral scoring as the default.",
+      "listening": 17,
+      "listeningNote": null,
+      "steps": [
+        "Study at least one non-Western screen tradition, chosen with attention to cultural protocols where relevant.",
+        "Identify its musical features (instrumentation, scale or mode use, rhythmic approach, structure) on its own terms.",
+        "Identify its stylistic conventions: what a scene in that tradition is expected to sound like, and why.",
+        "Well-formed dot points describing one feature and one convention of the tradition studied."
+      ],
+      "criteria": [
+        "Describe a feature and a convention of a non-Western screen tradition, in its own terms, without comparing it to orchestral scoring as the default."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "This meets the mandatory global music culture repertoire category in a screen context. Every screen tradition has conventions of its own; judging a non-Western screen tradition by how closely it resembles orchestral Hollywood scoring misreads it rather than analyses it."
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "slug": "performance-workshop-interpretative-decisions",
+      "title": "Performance workshop: interpretative decisions",
+      "week": "Week 4",
+      "contentGroup": "Performing",
+      "outcomes": [
+        "MU1-11P-01"
+      ],
+      "intention": "Make and record interpretative decisions on the AT3 piece, and justify each decision from stylistic analysis, performance directions and the screen context.",
+      "whatYouWillDo": "Make and justify at least three interpretative decisions on your AT3 piece, each tied to stylistic analysis, performance directions or the screen context.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Identify the interpretative decisions available in the AT3 piece: tempo, dynamics, articulation, rubato, and any cuts.",
+        "Make a decision on each, and record the reasoning for each in writing: what in the style, the notation, or the screen context supports it.",
+        "Rehearse the piece with these decisions applied.",
+        "Logbook entry recording the decisions and their justification."
+      ],
+      "criteria": [
+        "Make and justify at least three interpretative decisions on your AT3 piece, each tied to stylistic analysis, performance directions or the screen context."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Interpretation is a set of decisions that can be defended, not a feeling that arrives unexplained. Tempo, dynamics, articulation, rubato and cuts each change what a performance says, and a strong performer can say why each choice was made."
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "slug": "improvising-and-experimenting-on-a-cue",
+      "title": "Improvising and experimenting on a cue",
+      "week": "Week 4",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01"
+      ],
+      "intention": "Generate and refine material by improvising over the Week 3 scene under changed conditions, and keep the takes that changed the meaning of the image, logging why.",
+      "whatYouWillDo": "Record improvised takes on the Week 3 scene under changed conditions, and explain in the log which take changed the scene's meaning and how.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Return to the Week 3 scene and its scored material.",
+        "Improvise over the scene under a changed condition: a different tempo, a different instrument, or a different emotional brief.",
+        "Record each take and compare against the Week 3 version: did the meaning of the scene change?",
+        "Keep the takes that changed the scene's meaning and log why, including takes that were rejected."
+      ],
+      "criteria": [
+        "Record improvised takes on the Week 3 scene under changed conditions.",
+        "Explain, in the log, which take changed the scene's meaning and how."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Experiment shows what a musical choice actually does to a scene. Changing tempo, instrument or emotional brief on the same scene reveals, by direct comparison, how much of a scene's meaning is being carried by the music rather than the image alone."
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "slug": "same-scene-scored-two-ways-and-an-australian-work",
+      "title": "The same scene scored two ways, and an Australian work",
+      "week": "Week 5",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11L-02"
+      ],
+      "intention": "Evaluate two treatments of the same material, including one Australian screen work, and judge which treatment better serves the scene's intent, backed with musical evidence.",
+      "whatYouWillDo": "State a judgement about which of two treatments better serves a scene, and back it with specific musical evidence rather than a stated preference alone.",
+      "listening": 20,
+      "listeningNote": null,
+      "steps": [
+        "Watch two treatments of the same scene or material, including at least one Australian screen work.",
+        "Identify specific musical differences between the two treatments (instrumentation, harmony, tempo, dynamics, use of theme).",
+        "Reach a judgement on which treatment better serves the scene's intent.",
+        "Back the judgement with musical evidence in well-formed dot points, using the evaluate rung's language: a stated judgement, then the evidence for it."
+      ],
+      "criteria": [
+        "State a judgement about which of two treatments better serves a scene.",
+        "Back it with specific musical evidence rather than a stated preference alone."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "This is the evaluate rung of the ALARM ladder, which Year 11 owns. A judgement is only worth the evidence behind it: 'better' has to be argued from specific musical features and what the scene needs, not asserted as a preference."
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "slug": "performance-workshop-refining-from-recordings",
+      "title": "Performance workshop: refining from recordings",
+      "week": "Week 5",
+      "contentGroup": "Performing",
+      "outcomes": [
+        "MU1-11P-01",
+        "MU1-11P-02"
+      ],
+      "intention": "Record the AT3 piece and analyse it against a professional recording, and expand the material where the piece calls for it.",
+      "whatYouWillDo": "Compare a recording of your AT3 piece against a professional recording, and make at least one specific adjustment as a result.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Record a full run-through of the AT3 piece.",
+        "Compare the recording against a professional recording of the same or a stylistically similar work, identifying specific differences.",
+        "Adjust the performance based on what the comparison reveals.",
+        "Where the piece calls for it, expand the material (an added introduction, an improvised link, or a repeat treated differently) and log the decision."
+      ],
+      "criteria": [
+        "Compare a recording of your AT3 piece against a professional recording.",
+        "Make at least one specific adjustment as a result."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Hearing yourself back is the fastest form of feedback available: a recording exposes gaps between what a performer intends and what actually happens that are hard to notice while playing."
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "slug": "individual-study-research-and-analysis",
+      "title": "Individual study: research and analysis",
+      "week": "Week 6",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11L-02"
+      ],
+      "intention": "Research the chosen screen composer, sub-genre or tradition, and analyse its repertoire against the taught core, justifying observations with musical evidence.",
+      "whatYouWillDo": "State an observation about your individual study topic and back it with a specific, named musical feature from the repertoire.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Research the composer, sub-genre or tradition confirmed in Week 2, using reliable sources.",
+        "Identify specific musical features of its repertoire and compare them against the term's taught core (leitmotif, notation, scoring technology, cultural tradition).",
+        "Draft interpretative observations, each backed by a named musical feature, ready for the teacher conference.",
+        "Teacher conference: check that each observation is defensible with evidence, not only asserted."
+      ],
+      "criteria": [
+        "State an observation about your individual study topic.",
+        "Back it with a specific, named musical feature from the repertoire."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "How the session runs",
+          "text": "Independent research is defended the same way class analysis is: an observation is only useful if it can be backed with a specific musical feature, named and located in the repertoire. This is a working session with a teacher conference for each student, not a free research period."
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "slug": "documenting-the-individual-study",
+      "title": "Documenting the individual study",
+      "week": "Week 6",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-02",
+        "MU1-11L-01"
+      ],
+      "intention": "Document the compositional and interpretative decisions behind the individual study in the composition log.",
+      "whatYouWillDo": "State, in your composition log entry, what your individual study found and what it specifically changed about how you play your piece.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Review the research and analysis from the previous session.",
+        "Identify at least one specific way the study changed an interpretative decision about the AT3 performance piece.",
+        "Write the composition log entry: what the study found, and what it changed about how the piece is played.",
+        "Peer check: can a classmate follow the connection between the finding and the change from the log entry alone?"
+      ],
+      "criteria": [
+        "State what your individual study found.",
+        "State what it specifically changed about how you play your piece."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Documentation makes a decision visible to somebody else. The log entry here is not a summary of what was found; it records what the study changed about how the student actually plays the piece."
+        }
+      ]
+    },
+    {
+      "number": 46,
+      "slug": "individual-study-share-back",
+      "title": "Individual study share-back",
+      "week": "Week 7",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01"
+      ],
+      "intention": "Present, informally, what the individual study found, and rehearse the spoken musicology the HSC viva voce elective asks for.",
+      "whatYouWillDo": "Present your individual study's finding and the interpretative decision it produced, in a way a classmate could follow.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Each student gives a short, informal presentation on what their individual study found.",
+        "Presentations connect a specific musical feature to the interpretative decision it produced, matching the composition log entry from Week 6.",
+        "Class discussion: what made the strongest presentations easy to follow?",
+        "Teacher notes evidence of each student's spoken musicology for the on-balance judgement."
+      ],
+      "criteria": [
+        "Present your individual study's finding and the interpretative decision it produced, in a way a classmate could follow."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Speaking about music is a skill that needs practice like any other. This is low stakes and unmarked, but it is the first rehearsal of exactly the spoken format the Year 12 musicology viva voce elective requires, so it is worth taking seriously even without a mark attached."
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "slug": "examination-feedback-and-error-analysis",
+      "title": "Examination feedback and error analysis",
+      "week": "Week 8",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-02"
+      ],
+      "intention": "Analyse errors from AT3 Part A by question and by element, and identify the two features most often missed.",
+      "whatYouWillDo": "Name the two features of aural analysis you most often miss, sorted from your own AT3 Part A error analysis.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Return AT3 Part A with rubric feedback through Canvas.",
+        "Sort personal errors by question and by musical element (rhythm, harmony, melody, texture, structure, expression).",
+        "Identify the two features most often missed, individually.",
+        "Class re-teaches the item most students missed, drawn from the whole cohort's error pattern."
+      ],
+      "criteria": [
+        "Name the two features of aural analysis you most often miss, sorted from your own AT3 Part A error analysis."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "An error analysis is worth more than a mark. Returning a mark alone tells a student how they did; sorting errors by question and by musical element tells them specifically what to fix, which is what actually improves the next attempt."
+        }
+      ]
+    },
+    {
+      "number": 48,
+      "slug": "terms-creative-product-a-short-screen-cue",
+      "title": "The term's creative product: a short screen cue",
+      "week": "Week 8",
+      "contentGroup": "Creating and composing",
+      "outcomes": [
+        "MU1-11C-01",
+        "MU1-11C-02"
+      ],
+      "intention": "Complete a short screen cue, composed or arranged, and link the compositional decisions made to the scene in a log entry.",
+      "whatYouWillDo": "Submit a complete short screen cue with a log entry that links specific compositional decisions to specific moments in the scene.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Return to the material developed across Weeks 3 and 4 (the scored scene and the improvised experiments).",
+        "Complete a short screen cue, composed or arranged, that resolves into a finished piece rather than a fragment.",
+        "Write a log entry linking specific compositional decisions to specific moments in the scene.",
+        "Submit the cue with its log entry."
+      ],
+      "criteria": [
+        "Submit a complete short screen cue with a log entry that links specific compositional decisions to specific moments in the scene."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "This completes the Creating and composing content for the focus area. A cue is a complete piece of writing, however short: it has to serve its scene from start to finish, not just demonstrate a technique in isolation."
+        }
+      ]
+    },
+    {
+      "number": 49,
+      "slug": "introducing-the-year-12-course",
+      "title": "Introducing the Year 12 course",
+      "week": "Week 9",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01"
+      ],
+      "intention": "Understand the three Year 12 focus areas. Understand the four HSC products and their marks, and map this year's work onto each of them.",
+      "whatYouWillDo": "Name the four HSC products and their marks, and identify one piece of your own Year 11 work that could feed into one of them.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Introduce the three Year 12 focus areas: Music of the last 25 years (Australian focus), Music across cultures, traditions and time, and Music for screen, stage and story.",
+        "Walk through the concept table: the four HSC products and their marks.",
+        "Each student maps this year's work (AT2 composition, AT3 performance and individual study, logbook evidence) onto the HSC product it could feed into.",
+        "Well-formed dot points: one HSC product, and the piece of this year's work that could grow into it."
+      ],
+      "criteria": [
+        "Name the four HSC products and their marks.",
+        "Identify one piece of your own Year 11 work that could feed into one of them."
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "title": "The HSC, 100 marks",
+          "columns": [
+            "Product",
+            "Marks",
+            "Comes from"
+          ],
+          "rows": [
+            [
+              "Written paper (Aural skills)",
+              "40",
+              "All three Year 11 and Year 12 focus areas"
+            ],
+            [
+              "Core Performance",
+              "20",
+              "Music across cultures, traditions and time, OR Music for screen, stage and story"
+            ],
+            [
+              "Core Submitted composition",
+              "20",
+              "Music of the last 25 years (Australian focus)"
+            ],
+            [
+              "Elective (performance, composition or viva voce)",
+              "20",
+              "A different focus area from the Core performance"
+            ]
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Year 12 is built on what Year 11 has already produced. The AT2 composition, the AT3 individual study and performance, and every logbook and log entry this year are not separate from the HSC; they are the raw material the four HSC products will be built from."
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "slug": "unit-review-vocabulary-check-and-a-first-year-12-listen",
+      "title": "Unit review, vocabulary check, and a first Year 12 listen",
+      "week": "Week 10",
+      "contentGroup": "Listening, analysing and responding",
+      "outcomes": [
+        "MU1-11L-01",
+        "MU1-11C-01"
+      ],
+      "intention": "Consolidate the unit's vocabulary and the year's Music language, and have a first listen to Music of the last 25 years (Australian focus).",
+      "whatYouWillDo": "Correctly use this unit's vocabulary in the review quiz, and name at least one feature you noticed in the first Year 12 listening excerpt.",
+      "listening": null,
+      "listeningNote": null,
+      "steps": [
+        "Short quiz on this unit's vocabulary (diegetic and non-diegetic, cue, spotting, sync point, leitmotif, notation systems) and the year's Music language.",
+        "First listen to a work from Music of the last 25 years (Australian focus), the Year 12 focus area taught first from Term 4, without formal analysis.",
+        "Class discussion: what do students already notice, using this year's vocabulary, without being asked to?"
+      ],
+      "criteria": [
+        "Correctly use this unit's vocabulary in the review quiz.",
+        "Name at least one feature you noticed in the first Year 12 listening excerpt."
+      ],
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Why this matters",
+          "text": "Accurate vocabulary is what makes analysis fast under examination conditions: naming a feature precisely, on the first attempt, saves time that a vague description costs. The first Year 12 listen, unmarked, previews the focus area taught first from Term 4."
+        }
+      ]
+    }
+  ]
 }

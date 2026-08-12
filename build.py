@@ -601,11 +601,11 @@ def main():
     shutil.copytree(ASSETS, os.path.join(OUT, "assets"))
     open(os.path.join(OUT, ".nojekyll"), "w").close()
 
-    unbuilt = sum(1 for t in terms[1:] for l in t["lessons"])
+    unbuilt = sum(1 for t in terms for l in t["lessons"] if "blocks" not in l)
     unlinked = sum(1 for w in works if not w.get("lesson"))
     print(f"built {pages} pages into docs/")
     print(f"  on air: lesson {current_no}, {current_term['name']}")
-    print(f"  {unbuilt} lesson slots in Term 2/3 are titles only, no page yet")
+    print(f"  {unbuilt} lesson slots are titles only, no page yet")
     print(f"  {unlinked} of {len(works)} works have no lesson page to link to yet")
 
 
