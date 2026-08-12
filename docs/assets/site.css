@@ -56,6 +56,8 @@ a{color:inherit}
 /* ------------------------------------------------------------- type roles */
 
 .stn{font-stretch:118%;font-weight:800;text-transform:uppercase;letter-spacing:-.012em;line-height:.94}
+/* 11px is the floor for tracked caps here, from the comp read. The page is
+   read off a projector in daylight before it is read on a desk. */
 .tag{font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.1em;
   font-size:.6875rem;line-height:1.15;display:inline-block}
 .tag-lg{font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.08em;
@@ -90,7 +92,6 @@ a{color:inherit}
    push their track wider than the viewport. Every track here may shrink. */
 .split{display:grid;grid-template-columns:var(--rail) 1fr;align-items:start}
 .split > *,.two > *{min-width:0}
-.tw{max-width:100%}
 .rail{border-right:1px solid var(--ink);position:sticky;top:var(--mast);
   max-height:calc(100vh - var(--mast));
   display:flex;flex-direction:column;padding-top:.9rem}
@@ -103,11 +104,13 @@ a{color:inherit}
 .rlist{list-style:none;overflow-y:auto;flex:1;min-height:0}
 .rl{display:grid;grid-template-columns:2.75rem 1fr;gap:.5rem;padding:.5rem 1.25rem .55rem;
   border-bottom:1px solid var(--hair);align-items:baseline;text-decoration:none;color:inherit}
-.rl .n{font-stretch:76%;font-weight:650;font-size:.65rem;letter-spacing:.08em;color:var(--ink-60)}
+.rl .n{font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.08em;color:var(--ink-60)}
 .rl .t{font-stretch:88%;font-weight:550;font-size:.84375rem;line-height:1.25}
-.rl .w{grid-column:2;font-stretch:76%;font-weight:650;font-size:.59375rem;letter-spacing:.1em;
+.rl .w{grid-column:2;font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.09em;
   text-transform:uppercase;color:var(--ink-60);margin-top:.2rem}
+/* ink-60 on the hover field is only 3.5:1, so the meta goes to full ink with it */
 a.rl:hover{background:var(--hair)}
+a.rl:hover .n,a.rl:hover .w,a.rl:hover .t{color:var(--ink)}
 .rl.done .t{color:var(--ink-60)}
 .rl.on{background:var(--strand);border-bottom-color:var(--ink)}
 .rl.on .n,.rl.on .w{color:var(--ink)}
@@ -167,10 +170,10 @@ a.rl[aria-current="page"]:not(.on):hover{background:var(--ink)}
   letter-spacing:-.005em;line-height:1.15}
 .sect p{font-size:.875rem;line-height:1.5;margin-top:.45rem;max-width:70ch}
 
-.tw{overflow-x:auto;margin-top:.5rem}
+.tw{overflow-x:auto;max-width:100%;margin-top:.5rem}
 table{width:100%;border-collapse:collapse;min-width:30rem}
 th{text-align:left;font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.09em;
-  font-size:.625rem;color:var(--ink-60);padding:0 .75rem .45rem 0;border-bottom:1px solid var(--ink)}
+  font-size:.6875rem;color:var(--ink-60);padding:0 .75rem .45rem 0;border-bottom:1px solid var(--ink)}
 td{padding:.5rem .75rem .5rem 0;border-bottom:1px solid var(--hair);
   font-size:.8125rem;line-height:1.4;vertical-align:top}
 td:first-child{font-weight:650;font-stretch:88%}
@@ -220,7 +223,7 @@ td:first-child{font-weight:650;font-stretch:88%}
 .chips{display:flex;flex-wrap:wrap;gap:.3125rem;list-style:none}
 .chip{display:flex;align-items:baseline;gap:.375rem;border:1px solid var(--hair);
   padding:.2rem .5rem .25rem;text-decoration:none;color:inherit}
-.chip b{font-stretch:76%;font-weight:650;font-size:.625rem;letter-spacing:.08em;color:var(--ink-60)}
+.chip b{font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.08em;color:var(--ink-60)}
 .chip .t{font-stretch:88%;font-weight:550;font-size:.78125rem}
 a.chip:hover{border-color:var(--ink);background:var(--hair)}
 .chip.on{background:var(--strand);border-color:var(--ink)}
@@ -231,16 +234,33 @@ a.chip.on:hover{background:var(--strand);text-decoration:underline;text-underlin
 /* comp D: the schedule grid is the page. */
 
 .hub{padding:1.1rem 1.75rem 1.4rem}
+
+/* comp D opens on this band, not on the table. The strand fill is spent only
+   on the term that is actually on air; any other term gets the same geometry
+   on paper, so a filled field never means anything but the live position. */
+.hubband{display:grid;grid-template-columns:1fr 15rem;gap:1.25rem;align-items:start;
+  border:1px solid var(--ink);padding:.85rem 1.25rem 1rem;margin-bottom:1.1rem}
+.hubband.hb-live{background:var(--strand);border-color:var(--strand)}
+.hb-t{font-stretch:110%;font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.5rem,2.9vw,2.25rem);letter-spacing:-.02em;line-height:.98;
+  margin-top:.45rem;text-wrap:balance;overflow-wrap:break-word}
+.hb-t a{text-decoration:none}
+.hb-t a:hover{text-decoration:underline;text-underline-offset:4px}
+.hb-side{text-align:right;padding-top:.15rem}
+.hb-side .ln{display:block;font-stretch:88%;font-weight:700;font-size:1.0625rem;
+  line-height:1.2;margin-top:.35rem}
+.hb-side .lb{display:block;font-size:.8125rem;line-height:1.3;margin-top:.1rem}
+.hubband:not(.hb-live) .hb-side .lb{color:var(--ink-60)}
+
 .hubhead{display:flex;justify-content:space-between;align-items:flex-end;gap:1.25rem;
   flex-wrap:wrap;padding-bottom:.5rem;border-bottom:1px solid var(--ink)}
 .hubhead h1{font-stretch:112%;font-weight:800;text-transform:uppercase;
   font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.012em;line-height:1.02}
-.hubhead h1 .band{background:var(--strand);padding:0 .25em .06em;margin-left:-.25em;
-  display:inline-block}
+.hubnote{font-size:.875rem;line-height:1.45;color:var(--ink-60);margin-top:.6rem;max-width:60ch}
 
-.sched{width:100%;border-collapse:collapse;min-width:44rem}
+.sched{width:100%;border-collapse:collapse;min-width:46rem}
 .sched th{padding:.55rem .75rem .55rem 0;border-bottom:1px solid var(--hair);
-  border-top:0;font-size:.625rem}
+  border-top:0;font-size:.6875rem}
 .sched td{padding:0;border-bottom:1px solid var(--hair);height:2.75rem;vertical-align:middle}
 .sched td .c{padding-right:.75rem}
 .sched .wk{width:7rem;font-stretch:76%;font-weight:650;font-size:.71875rem;
@@ -250,20 +270,24 @@ a.chip.on:hover{background:var(--strand);text-decoration:underline;text-underlin
 .sched .ti{font-stretch:88%;font-weight:600;font-size:1rem;letter-spacing:-.006em}
 .sched .ti a{text-decoration:none}
 .sched .ti a:hover{text-decoration:underline;text-underline-offset:3px}
-.sched .wo{width:15rem;font-size:.8125rem;color:var(--ink-60)}
-.sched .st{width:6.5rem;text-align:right}
-.sched .st .c{padding-right:0}
-.sched .st span{font-stretch:76%;font-weight:650;font-size:.625rem;letter-spacing:.1em;
+.sched .wo{width:13.5rem;font-size:.8125rem;color:var(--ink-60)}
+.sched .oc{width:8rem;font-stretch:76%;font-weight:650;font-size:.6875rem;
+  letter-spacing:.06em;color:var(--ink-60);line-height:1.5}
+.sched .st{width:7rem;text-align:right}
+.sched .st span{font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-60);display:inline-flex;align-items:center}
 .sched tr.done .ti{color:var(--ink-60);font-weight:500}
 .sched tr.on td{background:var(--strand)}
-.sched tr.on .wk,.sched tr.on .no,.sched tr.on .wo,.sched tr.on .st span{color:var(--ink)}
+.sched tr.on .wk,.sched tr.on .no,.sched tr.on .wo,.sched tr.on .oc,
+.sched tr.on .st span{color:var(--ink)}
 .sched tr.on .ti{font-weight:750}
-.sched tr.on td:first-child .c{padding-left:.75rem}
 .sched tr.at td{background:var(--s2)}
-.sched tr.at .wk,.sched tr.at .no,.sched tr.at .wo,.sched tr.at .st span{color:var(--ink)}
+.sched tr.at .wk,.sched tr.at .no,.sched tr.at .wo,.sched tr.at .oc,
+.sched tr.at .st span{color:var(--ink)}
 .sched tr.at .ti{font-weight:700}
-.sched tr.at td:first-child .c{padding-left:.75rem}
+/* A filled row is padded on both sides, or the status label sits hard against
+   the edge of its own field while the week label sits well inside it. */
+.sched tr.on td:first-child .c,.sched tr.at td:first-child .c{padding-left:.75rem}
 .sched tr.stub .ti{color:var(--ink-60);font-weight:500}
 
 /* ---------------------------------------------------------------- works */
@@ -312,13 +336,16 @@ a.chip.on:hover{background:var(--strand);text-decoration:underline;text-underlin
     border-bottom:1px solid var(--ink);padding-top:0}
   .railhead{padding:.7rem 1.25rem .55rem}
   .railhead .t{font-size:1rem}
-  .rlist{max-height:11.5rem;overflow-y:auto;overscroll-behavior:contain;
+  .rlist{max-height:14.5rem;overflow-y:auto;overscroll-behavior:contain;
     border-top:1px solid var(--hair)}
   .railfoot{display:none}
   .main{padding:1rem 1.25rem 0}
   .two{grid-template-columns:1fr;gap:1.1rem}
   .arch,.hub,.works,.foot{padding-left:1.25rem;padding-right:1.25rem}
   .masthead{padding:0 1.25rem;position:static}
+  .hubband{grid-template-columns:1fr;gap:.7rem}
+  .hb-side{text-align:left;border-top:1px solid currentColor;padding-top:.6rem}
+  .hubband:not(.hb-live) .hb-side{border-top-color:var(--hair)}
 }
 
 @media (max-width:46rem){
@@ -333,6 +360,54 @@ a.chip.on:hover{background:var(--strand);text-decoration:underline;text-underlin
   .st-c + .st-c{padding-left:0;border-left:0;border-top:1px solid var(--hair)}
   .prevnext{gap:.9rem}
   .pn-next{text-align:left;margin-left:0}
+
+  /* Tables stop being tables. A horizontal scroller on a phone hides the two
+     columns that carry the state, and a filled row with its status scrolled
+     off the side is position carried by colour alone. Every cell keeps its
+     own column name and the row reads top to bottom. */
+  .tw{overflow-x:visible}
+  table,.sched{min-width:0}
+  .sched thead,.sect thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .sect tbody tr,.sched tbody tr{display:block;padding:.6rem 0;
+    border-bottom:1px solid var(--hair)}
+  .sect tbody td,.sched tbody td{display:grid;grid-template-columns:5.25rem 1fr;
+    gap:.6rem;align-items:baseline;border:0;height:auto;padding:.15rem 0}
+  .sect tbody td:empty,.sched tbody td:empty{display:none}
+  .sect tbody td::before,.sched tbody td::before{content:attr(data-label);
+    font-stretch:76%;font-weight:650;text-transform:uppercase;letter-spacing:.09em;
+    font-size:.6875rem;color:var(--ink-60)}
+  .sect tbody td:first-child{font-stretch:100%}
+
+  .sched tbody tr{padding:.7rem .75rem}
+  .sched tbody td .c{padding:0}
+  .sched .ti{font-size:.9375rem}
+  /* the column widths above are two classes deep and would otherwise beat the
+     stacked layout, leaving each value a sliver to wrap inside */
+  .sched tbody .wk,.sched tbody .no,.sched tbody .wo,
+  .sched tbody .oc,.sched tbody .st{width:auto;text-align:left}
+  .sched tbody .oc{line-height:1.35}
+  .sched tbody .st span{font-size:.6875rem}
+  /* the fill moves to the row block, so the row's own padding is inside the
+     field rather than a paper gutter around it */
+  .sched tr.on{background:var(--strand)}
+  .sched tr.at{background:var(--s2)}
+  .sched tr.on td,.sched tr.at td{background:none}
+  .sched tr.on td::before,.sched tr.at td::before{color:var(--ink)}
+  .sched tr.on td:first-child .c,.sched tr.at td:first-child .c{padding-left:0}
+
+  .wtable tbody tr{display:block;padding:.65rem .75rem;border-bottom:1px solid var(--hair)}
+  .wtable tbody td{display:block;height:auto;padding:.1rem 0;width:auto;border:0}
+  .wtable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .wtable .tin,.wtable .cx,.wtable .tw2{width:auto;text-align:left}
+  .wtable tbody .tin,.wtable tbody .cx,.wtable tbody .tw2{display:grid;
+    grid-template-columns:6.5rem 1fr;gap:.5rem;align-items:baseline}
+  .wtable tbody .tin::before,.wtable tbody .cx::before,.wtable tbody .tw2::before{
+    content:attr(data-label);font-stretch:76%;font-weight:650;text-transform:uppercase;
+    letter-spacing:.09em;font-size:.6875rem;color:var(--ink-60)}
+  .wtable tbody .no{font-size:.6875rem}
+  .wtable tr.on{background:var(--strand)}
+  .wtable tr.on td{background:none}
+  .wtable tr.on .tin::before,.wtable tr.on .cx::before,.wtable tr.on .tw2::before{color:var(--ink)}
 }
 
 @media print{

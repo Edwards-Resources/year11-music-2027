@@ -5,5 +5,7 @@
   "surface": "docs/index.html (home), lesson pages, term hubs, The Works",
   "frame": "1280x900 desktop landscape",
   "medium": "hand-authored HTML/CSS rendered headless at 2x, not generated imagery",
-  "approved": false
+  "approved": true,
+  "approvedBy": "Matthew, 11 August 2026, in chat rather than on the decision page",
+  "approvalNote": "Approved for the term hub pages only, as the 'elements from D' half of 'F with elements from D'. Its schedule grid is the Term 1/2/3 page and its opening ON AIR band heads that page; its status wording folds into comp F's rail. Comp F governs the home and lesson surfaces. Sidecar corrected 12 August 2026 at the finish review, which found it still reading approved:false while the built term hubs were following it."
 }

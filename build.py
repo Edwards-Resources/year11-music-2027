@@ -57,6 +57,13 @@ def first_week(text):
 DOT = '<span class="live onair-dot" aria-hidden="true"></span>'
 
 
+def at_title(a):
+    """'AT3: Music in Focus Examination' names its task; 'AT2' does not yet.
+    The slot cell beside it already reads AT 2, so a bare repeat is no title."""
+    name = a["name"]
+    return name.split(": ", 1)[1] if ": " in name else "Assessment task"
+
+
 # --------------------------------------------------------------- page shell
 
 
@@ -141,6 +148,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <p>{e(site['course']['canvasNote'])}</p>
   <p>Updated {date.today().strftime('%-d %B %Y')}</p>
 </footer>
+<script src="{base}/assets/site.js" defer></script>
 </body>
 </html>
 """
@@ -157,16 +165,16 @@ def rail_rows(site, course, term, current_no, reading_no):
     base = site["base"]
     a = term["assessment"]
     a_week = first_week(a.get("when"))
-    rows, placed = [], a_week is None
+    rows, placed = [], False
 
     def at_row():
         bits = [b for b in (a.get("when"), a.get("weighting"), "in Canvas") if b]
         return (f'<li><span class="rl at"><span class="n">AT {term["id"][-1]}</span>'
-                f'<span class="t">{e(a["name"].split(": ")[-1])}</span>'
+                f'<span class="t">{e(at_title(a))}</span>'
                 f'<span class="w">{e(" · ".join(bits))}</span></span></li>')
 
     for l in term["lessons"]:
-        if not placed and (first_week(l["week"]) or 0) >= a_week:
+        if not placed and a_week is not None and (first_week(l["week"]) or 0) >= a_week:
             rows.append(at_row())
             placed = True
         built = "blocks" in l
@@ -229,9 +237,17 @@ def block_html(block):
     t = block["type"]
     title = e(block.get("title", ""))
     if t == "table":
-        head = "".join(f"<th>{e(c)}</th>" for c in block["columns"])
-        rows = "".join("<tr>" + "".join(f"<td>{e(c)}</td>" for c in r) + "</tr>"
-                       for r in block["rows"])
+        cols = block["columns"]
+        head = "".join(f"<th>{e(c)}</th>" for c in cols)
+        # data-label lets the phone stack each cell under its own column name
+        # instead of hiding two columns off the side of a scroller.
+        rows = "".join(
+            "<tr>" + "".join(
+                f'<td data-label="{e(cols[i]) if i < len(cols) else ""}">{e(c)}</td>'
+                for i, c in enumerate(r)
+            ) + "</tr>"
+            for r in block["rows"]
+        )
         return (f'<section class="sect"><h2>{title}</h2><div class="tw"><table>'
                 f"<thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table></div></section>")
     if t == "prose":
@@ -352,27 +368,83 @@ def build_lesson(site, course, term, lesson, works, current_no, is_home=False):
 # ---------------------------------------------------------------- term hubs
 
 
+def hub_band(site, course, term, current_no, works):
+    """comp-d's opening band: the largest element on that surface, and the only
+    thing on it that answers "what is on air". The strand fill is spent only on
+    the term that is actually on air; a term that is not gets the same geometry
+    on paper, or the fill would be teaching that a strand field means nothing."""
+    base = site["base"]
+    lessons = term["lessons"]
+    first, last = lessons[0]["number"], lessons[-1]["number"]
+    live = current_no is not None and first <= current_no <= last
+
+    if live:
+        l = next(x for x in lessons if x["number"] == current_no)
+        kicker = (f'{DOT}On air &nbsp;·&nbsp; {e(term["name"].split(": ")[0])} &nbsp;·&nbsp; '
+                  f'{e(l["week"])} &nbsp;·&nbsp; Lesson {l["number"]} of {course["totalLessons"]}')
+    else:
+        aired = current_no is not None and current_no > last
+        l = lessons[-1] if aired else lessons[0]
+        word = "Aired" if aired else "Coming up"
+        kicker = (f'{word} &nbsp;·&nbsp; {e(term["name"].split(": ")[0])} &nbsp;·&nbsp; '
+                  f'{e(term["focusArea"])} &nbsp;·&nbsp; Lessons {first} to {last}')
+
+    title = e(l["title"])
+    if "blocks" in l:
+        title = f'<a href="{base}/{term["id"]}/{l["number"]}/">{title}</a>'
+
+    aside = ""
+    if live and l.get("listening"):
+        w = next((x for x in works if x["no"] == l["listening"]), None)
+        if w:
+            aside = (f'<span class="tag">Now listening</span>'
+                     f'<span class="ln">M {w["no"]:02d} &nbsp;{e(w["short"])}</span>'
+                     f'<span class="lb">{e(w["composer"])}</span>')
+    if not aside:
+        a = term["assessment"]
+        aside = (f'<span class="tag">Assessment</span>'
+                 f'<span class="ln">{e(a["name"])}</span>'
+                 f'<span class="lb">{e(a["when"])} &nbsp;·&nbsp; in Canvas</span>')
+
+    return f"""<div class="hubband{' hb-live' if live else ''}">
+    <div class="hb-main"><p class="tag-lg">{kicker}</p><p class="hb-t">{title}</p></div>
+    <div class="hb-side">{aside}</div>
+  </div>"""
+
+
 def build_term(site, course, term, current_no, works):
-    """comp-d-schedule.html: the schedule grid is the page."""
+    """comp-d-schedule.html: the on-air band, then the schedule grid."""
     base = site["base"]
     a = term["assessment"]
     a_week = first_week(a.get("when"))
-    rows, placed = [], a_week is None
+    rows, placed = [], False
+
+    def cell(cls, label, inner):
+        # An empty cell stays genuinely empty, so the phone's stacked view can
+        # drop it with :empty instead of printing a label with nothing under it.
+        if not inner:
+            return f'<td class="{cls}" data-label="{label}"></td>'
+        return f'<td class="{cls}" data-label="{label}"><div class="c">{inner}</div></td>'
 
     def at_row():
         bits = [b for b in (a.get("weighting"), "task and rubric in Canvas") if b]
-        return (f'<tr class="at"><td class="wk"><div class="c">{e(a["when"].split(", ")[-1])}</div></td>'
-                f'<td class="no"><div class="c">AT {term["id"][-1]}</div></td>'
-                f'<td><div class="c ti">{e(a["name"].split(": ")[-1])}</div></td>'
-                f'<td class="wo"><div class="c">{e(" · ".join(bits))}</div></td>'
-                f'<td class="st"><div class="c"><span>Assessment</span></div></td></tr>')
+        return ('<tr class="at">'
+                + cell("wk", "Week", e(a["when"].split(", ")[-1]))
+                + cell("no", "Slot", f'AT {term["id"][-1]}')
+                + f'<td data-label="Lesson"><div class="c ti">{e(at_title(a))}</div></td>'
+                + cell("wo", "Set work", e(" · ".join(bits)))
+                + cell("oc", "Outcomes", "")
+                + cell("st", "Status", "<span>Assessment</span>")
+                + "</tr>")
 
     for l in term["lessons"]:
-        if not placed and (first_week(l["week"]) or 0) >= a_week:
+        if not placed and a_week is not None and (first_week(l["week"]) or 0) >= a_week:
             rows.append(at_row())
             placed = True
         built = "blocks" in l
-        work = "&mdash;"
+        # A stub row says nothing in three columns at once. The hub head says it
+        # once instead, so the status column stays as sparse as comp D's.
+        work, status = "", ""
         if l.get("listening"):
             w = next((x for x in works if x["no"] == l["listening"]), None)
             if w:
@@ -386,31 +458,45 @@ def build_term(site, course, term, current_no, works):
         elif built and current_no is not None and l["number"] == current_no + 1:
             cls, status = "", "Next"
         elif not built:
-            cls, status = "stub", "Not yet on the site"
+            cls = "stub"
         else:
-            cls, status = "", ""
+            cls = ""
         title = e(l["title"])
         if built:
             title = f'<a href="{base}/{term["id"]}/{l["number"]}/">{title}</a>'
         cur = ' aria-current="true"' if l["number"] == current_no else ""
+        outcomes = "<br>".join(e(c) for c in (l.get("outcomes") or []))
         rows.append(
-            f'<tr class="{cls}"{cur}><td class="wk"><div class="c">{e(l["week"])}</div></td>'
-            f'<td class="no"><div class="c">L {l["number"]:02d}</div></td>'
-            f'<td><div class="c ti">{title}</div></td>'
-            f'<td class="wo"><div class="c">{work}</div></td>'
-            f'<td class="st"><div class="c"><span>{status}</span></div></td></tr>'
+            f'<tr class="{cls}"{cur}>'
+            + cell("wk", "Week", e(l["week"]))
+            + cell("no", "Slot", f'L {l["number"]:02d}')
+            + f'<td data-label="Lesson"><div class="c ti">{title}</div></td>'
+            + cell("wo", "Set work", work)
+            + cell("oc", "Outcomes", outcomes)
+            + cell("st", "Status", f"<span>{status}</span>" if status else "")
+            + "</tr>"
         )
     if not placed:
         rows.append(at_row())
 
+    pending = sum(1 for l in term["lessons"] if "blocks" not in l)
+    note = ""
+    if pending == len(term["lessons"]):
+        note = (f'<p class="hubnote">{e(term["name"].split(": ")[0])} lessons are titles only '
+                "until the content pour. The weeks and the sequence below are the registered ones.</p>")
+    elif pending:
+        note = f'<p class="hubnote">The last {pending} lessons are titles only until the content pour.</p>'
+
     body = f"""<main class="hub" id="main">
+  {hub_band(site, course, term, current_no, works)}
   <div class="hubhead">
-    <h1>{e(term['name'].split(': ')[0])} schedule &nbsp;/&nbsp; <span class="band">{e(term['focusArea'])}</span></h1>
+    <h1>{e(term['name'].split(': ')[0])} schedule &nbsp;/&nbsp; {e(term['focusArea'])}</h1>
     <span class="tag muted">{len(term['lessons'])} lessons &nbsp;·&nbsp; {e(a['name'])}, {e(a['when'])}</span>
   </div>
+  {note}
   <div class="tw">
     <table class="sched">
-      <thead><tr><th>Week</th><th>Slot</th><th>Lesson</th><th>Set work</th><th style="text-align:right">Status</th></tr></thead>
+      <thead><tr><th>Week</th><th>Slot</th><th>Lesson</th><th>Set work</th><th>Outcomes</th><th style="text-align:right">Status</th></tr></thead>
       <tbody>{"".join(rows)}</tbody>
     </table>
   </div>
@@ -438,10 +524,12 @@ def build_works(site, course, works, current_no, current_work):
             taught = f'<a href="{href}">L {l["number"]:02d} &nbsp;{e(l["title"])}</a>'
         cur = ' aria-current="true"' if on else ""
         rows.append(
-            f'<tr class="{on.strip()}"{cur}><td class="no">M {w["no"]:02d}</td>'
-            f'<td class="ti">{title}</td><td class="tin">{taught}</td>'
-            f'<td class="cx">{cx}</td>'
-            f'<td class="tw2">{w["term"]}.{w["week"]}</td></tr>'
+            f'<tr class="{on.strip()}"{cur}>'
+            f'<td class="no" data-label="No.">M {w["no"]:02d}</td>'
+            f'<td class="ti" data-label="Work">{title}</td>'
+            f'<td class="tin" data-label="Taught in">{taught}</td>'
+            f'<td class="cx" data-label="Category">{cx}</td>'
+            f'<td class="tw2" data-label="Term.week">{w["term"]}.{w["week"]}</td></tr>'
         )
     strands = "".join(
         f'<div class="st-c"><span class="tag muted"><span class="sw" style="background:var(--s{i+1})"></span>'
@@ -456,7 +544,7 @@ def build_works(site, course, works, current_no, current_work):
   </div>
   <div class="tw">
     <table class="wtable">
-      <thead><tr><th>No.</th><th>Work</th><th>Taught in</th><th>Category</th><th style="text-align:right">Week</th></tr></thead>
+      <thead><tr><th>No.</th><th>Work</th><th>Taught in</th><th>Category</th><th style="text-align:right">Term.week</th></tr></thead>
       <tbody>{"".join(rows)}</tbody>
     </table>
   </div>
