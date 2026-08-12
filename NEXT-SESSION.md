@@ -7,7 +7,7 @@
 ## What the close-out actually resolved
 
 1. **M16's id ("In Motion", Reznor and Ross) is closed as unsourceable, not deferred.** Searched again and stopped: The Null Corporation's own channel carries no upload of it, the "Trent Reznor - Topic" channel carries the duo's later scores but not this album, SonySoundtracksVEVO carries Challengers and not The Social Network, and every candidate naming the track resolves through oEmbed to a fan channel. The "Not sourced yet" stub on Term 3 Lesson 37 is the permanent honest answer. **Do not reopen this without new information**, for example the album appearing on a Topic channel.
-2. **Lesson 11 is rewritten and is no longer a stub.** The corrupted source is genuinely gone and Matthew confirmed he has no other copy, so the lesson was authored from what survived: the twelve-question cumulative quiz and answer key already on disk for this exact lesson, the Unit Home page's Weeks 9 to 10 brief, and the vocabulary the other ten Term 1 lessons actually teach. **Matthew has not yet sanity-checked it** (see below). It is the first place in the whole course where "well-formed dot point" is named and worked, which Terms 2 and 3 had been using from Lesson 16 with no introduction.
+2. **Lesson 11 is rewritten, is no longer a stub, and Matthew has now read it and passed it** (12 August 2026, no changes asked for). The corrupted source is genuinely gone and he confirmed he has no other copy, so the lesson was authored from what survived: the twelve-question cumulative quiz and answer key already on disk for this exact lesson, the Unit Home page's Weeks 9 to 10 brief, and the vocabulary the other ten Term 1 lessons actually teach. It is the first place in the whole course where "well-formed dot point" is named and worked, which Terms 2 and 3 had been using from Lesson 16 with no introduction.
 3. **M03 and M04 are wired into Lesson 1.** Libertango and Chan Chan join Mozart and Puente, which is what that lesson's own comparison step asks for: one frame held against contrasting traditions. Both ids re-verified live on their label channels (Carosello Records, World Circuit Records). All twenty works now link to a lesson page.
 4. **Canvas URL: blocked on Matthew.** The 2027 course does not exist yet (confirmed with him 12 August 2026). `canvasUrl` stays null and the nav renders that honestly as "Canvas (course not yet built)". Nothing to do here until he creates the course.
 5. **The exam date fields were a false alarm and are gone.** `examLesson`, `examDate` and `examWhen` were dead fields, referenced by no template. There is also no 2027 HSC date to find: Year 11 is the Preliminary course and sits no HSC. The real date is the school's own AT3 examination, which the signed assessment schedule puts at Term 3 Weeks 6 to 7, and that is now carried in `term3/term.json`'s assessment block where the hub actually reads it.
@@ -20,9 +20,10 @@
 
 ## Left for Matthew
 
-- **Sanity-check Lesson 11** at `https://edwards-resources.github.io/year11-music-2027/term1/11/`. It is authored content, not migrated content, and it is the only page on the site that is.
+- ~~Sanity-check Lesson 11.~~ **Done 12 August 2026, passed as written.** It remains the only authored, rather than migrated, page on the site.
 - **Create the 2027 Canvas course**, then the `canvasUrl` can be wired in.
-- Standing admin, unchanged: import the Canvas blueprint into a fresh test course before the real blueprint, get Head Teacher and Deputy sign-off on the assessment bundle, then export the notification PDFs into Canvas Module 2.
+- **Re-import the Canvas blueprint** into the fresh test course. It was rebuilt on the night of 12 August with the course card image, the question board, course navigation and file locks on the Teacher Only documents, so the copy imported earlier that evening is superseded. Import as **Canvas Course Export Package** and **All content**, then walk it in **Student View**. Detail in `Year 11 Music Planning (New Syllabus)/13 Canvas Blueprint/Music1_Y11_CanvasBlueprint_BuildNotes.md`.
+- Standing admin, unchanged: get Head Teacher and Deputy sign-off on the assessment bundle, then export the notification PDFs into Canvas Module 2.
 
 ## Watch out for
 
