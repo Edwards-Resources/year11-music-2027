@@ -113,11 +113,6 @@
      "type": "prose",
      "title": "Worked example: hearing conventions",
      "text": "Take a 12-bar blues. The conventions you can point to include a repeating 12-bar chord pattern built on chords I, IV and V, a swung rhythmic feel, blue notes in the melody, and a call-and-response shape between voice and instrument. Those conventions are what make it recognisable as blues rather than, say, a march or a pop ballad."
-    },
-    {
-     "type": "note",
-     "title": "ICIP protocol",
-     "text": "Where any activity uses Aboriginal or Torres Strait Islander music or cultural material, follow NESA ICIP protocols. Work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG, and do not present sacred or restricted material."
     }
    ]
   },
@@ -426,8 +421,8 @@
     },
     {
      "type": "note",
-     "title": "ICIP protocol",
-     "text": "Aboriginal and Torres Strait Islander musical material must only be used following ICIP protocols and consultation. Do not imitate or reproduce restricted material in your sketches."
+     "title": "Using First Nations material in your work",
+     "text": "If you want to build on Aboriginal or Torres Strait Islander musical material in a sketch, talk to your teacher before you start. Some material is sacred or restricted and is not yours to sample, imitate or rework."
     }
    ]
   },
@@ -444,7 +439,7 @@
    "intention": "Explain how context influences the way a work is interpreted, compare two versions of the same work and account for the differences, and investigate how performance conventions carry stylistic identity.",
    "whatYouWillDo": "Compare two versions of a work, name what changed, and explain how context accounts for the difference, with musical evidence.",
    "listening": 7,
-   "listeningNote": "Taught with the ICIP protocol below: with its Community and context present, never played cold for marks. It is not used in the AT3 examination.",
+   "listeningNote": "Heard with its Community and its context present, never played cold for marks. It is not used in the AT3 examination.",
    "steps": [
     "Compare an original recording with a later cover of the same song, using the original-versus-cover frame.",
     "Investigate performance conventions across two traditions and note how their conventions reflect distinct contexts.",
@@ -460,7 +455,7 @@
     {
      "type": "media",
      "embed": "EA52bupg-BY",
-     "brief": "Archie Roach's Took the Children Away: taught with the ICIP protocol below."
+     "brief": "Archie Roach's Took the Children Away: heard with its context first, never played cold for marks."
     },
     {
      "type": "prose",
@@ -507,11 +502,6 @@
      "type": "note",
      "title": "Adjustment",
      "text": "A paragraph scaffold and a reduced-language-load version are available for students who need them."
-    },
-    {
-     "type": "note",
-     "title": "ICIP protocol",
-     "text": "Where any activity uses Aboriginal or Torres Strait Islander music or cultural material, follow NESA ICIP protocols. Work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG, and do not present sacred or restricted material."
     }
    ]
   },
@@ -890,11 +880,6 @@
      "type": "note",
      "title": "The review quiz",
      "text": "Twelve questions, one mark each, covering the whole of Contexts of music. It is a check on where your vocabulary actually is, not an assessment task: Assessment Task 1 was Week 8 and nothing here is weighted. Use the result to decide what goes back into your glossary over the break."
-    },
-    {
-     "type": "note",
-     "title": "ICIP protocol",
-     "text": "Where any activity uses Aboriginal or Torres Strait Islander music or cultural material, follow NESA ICIP protocols. Work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG, and do not present sacred or restricted material."
     }
    ]
   }
