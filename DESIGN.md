@@ -27,7 +27,7 @@ typography:
     fontVariation: "font-stretch 112%"
   title:
     fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
-    fontSize: "0.84375rem"
+    fontSize: "0.8125rem"
     fontWeight: 550
     lineHeight: 1.25
     fontVariation: "font-stretch 88%"
@@ -79,13 +79,13 @@ typography:
     fontVariation: "font-stretch 84%"
   row-title:
     fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
-    fontSize: "0.84375rem"
+    fontSize: "0.8125rem"
     fontWeight: 550
     lineHeight: 1.25
     fontVariation: "font-stretch 88%"
   chip-title:
     fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
-    fontSize: "0.78125rem"
+    fontSize: "0.8125rem"
     fontWeight: 550
     fontVariation: "font-stretch 88%"
   label-lg:
@@ -98,7 +98,7 @@ typography:
     textTransform: "uppercase"
   meta:
     fontFamily: "Archivo, system-ui, -apple-system, sans-serif"
-    fontSize: "0.75rem"
+    fontSize: "0.71875rem"
     fontWeight: 400
     lineHeight: 1.4
   meta-tabular:
@@ -197,14 +197,28 @@ A two-colour system (paper and ink) with exactly three interchangeable accents, 
 ### Hierarchy
 - **Display** (weight 800, `clamp(1.75rem, 3.4vw, 2.5625rem)`, line-height 0.96, font-stretch 110%): lesson `<h1>`s. The term-hub equivalent (`.hb-t`) uses the same weight and stretch at a smaller clamp (`clamp(1.5rem, 2.9vw, 2.25rem)`).
 - **Headline** (weight 800, 0.9375rem, line-height 1.15, font-stretch 112%, uppercase): section headings inside a lesson (`.sect h2`), and page-level headings on hub/works pages at a larger clamp (112% stretch throughout).
-- **Title** (weight 550–650, 0.78–1rem depending on context, font-stretch 88%): the recurring "what is this row" text, rail lesson titles, schedule/works-table lesson names, prev/next lesson names, archive chip titles. This is the system's real body-reading register even though it is bolder than prose.
+- **Title** (weight 550–650, 0.8125–1rem depending on context, font-stretch 88%): the recurring "what is this row" text, rail lesson titles, schedule/works-table lesson names, prev/next lesson names, archive chip titles. This is the system's real body-reading register even though it is bolder than prose.
 - **Body** (weight 400, 0.875rem, line-height 1.5, normal width): running prose in section paragraphs, capped at 70ch max-width.
 - **Label** (weight 650, 0.6875–0.8125rem, letter-spacing 0.08–0.1em, font-stretch 76%, uppercase): every tracked-caps utility string, nav links, "On air"/"Coming up"/"Aired" status words, table column headers, footer text, permalink text. This is the system's most-used register by instance count.
 - **Outcome code** (weight 650, 1rem, font-stretch 84%): NESA outcome codes (e.g. `MU1-11L-01`), a register of its own between Title and Label, used nowhere else.
 
-**The full shipped ramp**, in one place, because the six registers above overlap and a reader needs to know which steps actually exist: `0.6875` / `0.71875` / `0.75` / `0.78125` / `0.8125` / `0.84375` / `0.875` / `0.9375` / `1` / `1.0625` / `1.1875rem`, plus three display clamps (`1.75-2.5625`, `1.5-2.25`, `1.5-2rem`). Fourteen steps.
+**The full shipped ramp**, in one place, because the six registers above overlap and a reader needs to know which steps actually exist: `0.6875` / `0.71875` / `0.8125` / `0.875` / `0.9375` / `1` / `1.0625` / `1.1875rem`, plus three display clamps (`1.75-2.5625`, `1.5-2.25`, `1.5-2rem`). Eleven steps.
 
-That is a dense scale at the small end: `0.6875`, `0.71875`, `0.75` and `0.78125rem` are 11, 11.5, 12 and 12.5px, and the roles they separate are not four clearly different jobs. It shipped this way and passed the finish review, so it is recorded as built rather than quietly tidied. **Collapsing the small end to three steps is a reasonable future pass**, but it is a visual change and belongs in a reviewed one, not in a documentation edit.
+### The small end, and why it is three steps
+
+The ramp shipped in August 2026 with fourteen steps, four of them at 11, 11.5, 12 and 12.5px, and the finish review recorded that those four did not separate four different jobs. **The collapse pass ran on 16 August 2026** and reading the actual usage is what decided it, not arithmetic. Counted across the whole stylesheet, the four were not four roles competing evenly: 11px carried twenty declarations, 11.5px carried four, and 12px and 12.5px carried **exactly one each** (`.key div` and `.chip .t`). The same fault ran one step further up, at 13.5px with two declarations (`.acts li`, `.rl .t`), which the original note had not caught. What existed was two strong anchors, 11px and 13px, with four thin values scattered around them.
+
+The small end is now **three steps, and they are three genuinely different jobs**:
+
+- **11px (`0.6875rem`), 20 uses.** Tracked caps, the Label register. Protected by The 11px Floor Rule below; this is a floor, not a target.
+- **11.5px (`0.71875rem`), 5 uses.** Small non-caps secondary text: the numeric columns of a data table (`.sched .wk`, `.sched .no`, `.wtable .no`, `.wtable .tw2`) and the strand key in the rail foot (`.key div`, merged down from 12px).
+- **13px (`0.8125rem`), 12 uses.** Anything small that is read as words: table body cells, note prose, the success-criteria and in-class lists, rail lesson titles, archive chip titles.
+
+Four declarations moved: `.key div` 12 to 11.5, `.chip .t` 12.5 to 13, `.acts li` 13.5 to 13, `.rl .t` 13.5 to 13. Two of those, `.acts li` and `.crit li`, sit adjacent in the same lesson sidebar and had been differing by half a pixel, which is not a distinction a reader can perceive but is one a stylesheet has to carry. They now match.
+
+**Sizes may coincide across registers, and that is not a collision.** `.rl .t` is a Title-register item and `td` is a table cell, and both now sit at 13px. In this world character comes from the width axis and weight, not from size, so two registers sharing a step is consistent rather than a fault to design around.
+
+Verified by render before and after at 1280px desktop and a real 375px viewport: no new wrapping anywhere, the archive band holds at three chip rows with the same distribution, and total page height moved by 3px. At 375px the 13px rail title actually fits "Tonality by ear: pentatonic, major, minor, Aeolian" on one line where 13.5px did not.
 
 ### Named Rules
 **The One Family Rule.** Archivo, always. A second typeface anywhere in the system is a defect, and so is a monospace face standing in for a "catalogue" or "data" register, the width axis does that job instead.

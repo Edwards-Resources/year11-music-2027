@@ -107,7 +107,7 @@ a{color:inherit}
 .rl{display:grid;grid-template-columns:2.75rem 1fr;gap:.5rem;padding:.5rem 1.25rem .55rem;
   border-bottom:1px solid var(--hair);align-items:baseline;text-decoration:none;color:inherit}
 .rl .n{font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.08em;color:var(--ink-60)}
-.rl .t{font-stretch:88%;font-weight:550;font-size:.84375rem;line-height:1.25}
+.rl .t{font-stretch:88%;font-weight:550;font-size:.8125rem;line-height:1.25}
 .rl .w{grid-column:2;font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.09em;
   text-transform:uppercase;color:var(--ink-60);margin-top:.2rem}
 /* ink-60 on the hover field is only 3.5:1, so the meta goes to full ink with it */
@@ -134,7 +134,7 @@ a.rl[aria-current="page"]:not(.on):hover{background:var(--ink)}
 
 .railfoot{padding:.7rem 1.25rem 1rem;border-top:1px solid var(--ink)}
 .key{display:flex;flex-direction:column;gap:.35rem;margin-top:.5rem}
-.key div{display:flex;align-items:center;gap:.5rem;font-size:.75rem}
+.key div{display:flex;align-items:center;gap:.5rem;font-size:.71875rem}
 .key i{width:.8125rem;height:.8125rem;flex:none;display:block;font-style:normal;border:1px solid var(--ink)}
 
 /* the one moving part in this world */
@@ -182,7 +182,7 @@ td:first-child{font-weight:650;font-stretch:88%}
 
 .acts{list-style:none;margin-top:.5rem}
 .acts li{display:flex;gap:.55rem;padding:.35rem 0;border-bottom:1px solid var(--hair);
-  font-size:.84375rem;line-height:1.42}
+  font-size:.8125rem;line-height:1.42}
 .acts b{font-stretch:76%;font-weight:700;font-size:.6875rem;letter-spacing:.06em;
   flex:none;padding-top:.15rem;color:var(--ink-60)}
 
@@ -227,7 +227,7 @@ td:first-child{font-weight:650;font-stretch:88%}
 .chip{display:flex;align-items:baseline;gap:.375rem;border:1px solid var(--hair);
   padding:.2rem .5rem .25rem;text-decoration:none;color:inherit}
 .chip b{font-stretch:76%;font-weight:650;font-size:.6875rem;letter-spacing:.08em;color:var(--ink-60)}
-.chip .t{font-stretch:88%;font-weight:550;font-size:.78125rem}
+.chip .t{font-stretch:88%;font-weight:550;font-size:.8125rem}
 a.chip:hover{border-color:var(--ink);background:var(--hair)}
 .chip.on{background:var(--strand);border-color:var(--ink)}
 .chip.on b{color:var(--ink)}
