@@ -55,8 +55,24 @@
 
 Counting real usage is what decided it. The four sizes were not four roles competing evenly: 11px carried twenty declarations, 11.5px four, and 12px and 12.5px **exactly one each** (`.key div`, `.chip .t`). The same fault ran one step further up at 13.5px with two declarations (`.acts li`, `.rl .t`), which the original note had missed. Four declarations moved; the small end is now 11px for tracked caps, 11.5px for small non-caps secondary text, and 13px for anything small that is read as words.
 
-Verified by render before and after at 1280px and at a real 375px viewport: no new wrapping, the archive band holds at three chip rows with the same distribution, page height moved 3px. `DESIGN.md` and `.impeccable/design.json` were both updated to match the build. **Not pushed**, per the standing rule.
+Verified by render before and after at 1280px and at a real 375px viewport: no new wrapping, the archive band holds at three chip rows with the same distribution, page height moved 3px. `DESIGN.md` and `.impeccable/design.json` were both updated to match the build.
+
+## The ICIP boilerplate is off the student pages (16 August 2026)
+
+**Commit `400fa18`.** Term 1 carried four ICIP notes, three of them the same paragraph verbatim, and the text was written to the teacher rather than the student ("work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG"). On Lessons 1 and 11 its own trigger condition was not even met, Lesson 1 being Mozart, Puente, Piazzolla and Buena Vista Social Club and Lesson 11 a vocabulary review. Lesson 11's had no counterpart in the Canvas source; it was invented when that lesson was authored from scratch.
+
+Removed from Lessons 1, 6 and 11. **One kept, on Lesson 5**, reworded into student voice and retitled "Using First Nations material in your work", because that is the composing lesson and it is a real constraint on what a student may make.
+
+**Lesson 6 needed care**: its listening note and media brief both pointed at "the ICIP protocol below", so both were rewritten to carry the framing themselves. No First Nations content was removed anywhere; Archie Roach's Took the Children Away is still M07, still taught in Lesson 6, still excluded from AT3.
+
+**The teacher obligation is untouched** in `Year 11 Music Planning (New Syllabus)/CLAUDE.md` and the Term 1 resources README, so nothing was the only copy. And ICIP is **not assessed content in this course**: NESA's "Safe and ethical practices" group, where it sits, belongs to Music Life Skills and is stated to have no Music 1 equivalent. Do not reinstate it on student pages without that being revisited.
+
+The Canvas source files in `09 Teaching Resources (Term 1)/Canvas Pages (HTML)/` still carry their own ICIP blocks. Left deliberately, since teaching content no longer goes on Canvas. **Matthew may want the same pass run there.**
 
 ## Last commit
 
-See `git log`. The close-out commit is the most recent; it was **not pushed automatically** (standing rule).
+`400fa18`, **pushed 16 August 2026** on Matthew's say-so and verified live rather than assumed: the ICIP boilerplate is gone from every page, the one kept note is on Lesson 5 only, and the retired type steps are absent from the served CSS.
+
+Pushing still requires asking (standing rule); this one was asked for and granted.
+
+**One thing worth a decision:** `.impeccable/hook.cache.json` is tracked and carries absolute filesystem paths including the macOS username, and it grows a new session entry on every commit. It is already public in the history, so this is not an exposure to fix retroactively, but it is a reasonable candidate for `.gitignore` so it stops accreting.
