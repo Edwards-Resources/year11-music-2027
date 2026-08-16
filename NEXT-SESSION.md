@@ -49,9 +49,13 @@
 
 **Opus, medium-high** to open Phase 2. Year 9 starts with a world-choice conversation and a course design from almost nothing on disk, which is design judgement rather than assembly. Drop to Sonnet, medium once the world and the scaffold are locked and it becomes a content pour.
 
-## One thing deliberately left for a later pass
+## The deferred type-ramp pass is done (16 August 2026)
 
-**The small end of the type ramp is dense.** The site ships fourteen font-size steps, four of them at 11, 11.5, 12 and 12.5px, and those four do not separate four clearly different jobs. It shipped that way and passed the finish review, so `DESIGN.md` records it as built. Collapsing the small end to three steps is a reasonable future pass, but it is a visual change and needs its own review round.
+**Closed, commit `e65b4a8`.** The small end went from four steps to three and the ramp from fourteen steps to eleven.
+
+Counting real usage is what decided it. The four sizes were not four roles competing evenly: 11px carried twenty declarations, 11.5px four, and 12px and 12.5px **exactly one each** (`.key div`, `.chip .t`). The same fault ran one step further up at 13.5px with two declarations (`.acts li`, `.rl .t`), which the original note had missed. Four declarations moved; the small end is now 11px for tracked caps, 11.5px for small non-caps secondary text, and 13px for anything small that is read as words.
+
+Verified by render before and after at 1280px and at a real 375px viewport: no new wrapping, the archive band holds at three chip rows with the same distribution, page height moved 3px. `DESIGN.md` and `.impeccable/design.json` were both updated to match the build. **Not pushed**, per the standing rule.
 
 ## Last commit
 
