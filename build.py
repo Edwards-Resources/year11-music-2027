@@ -10,18 +10,17 @@ looking (see PRODUCT.md, Stack).
 Every page is generated. Never edit anything in docs/ by hand; it gets
 overwritten.
 
-World: On Air. The approved comps are .impeccable/mocks/comp-f-stationfront.html
-(home and lesson pages) and comp-d-schedule.html (term hub pages). The comp read
-as a design system lives in .impeccable/surfaces/docs-index-html.md.
+Every page is built by the shared music shell (shell.py, copied in from
+Sites/music-shell by its sync.py): direction B, Stage Card, chosen 19 October
+2026. This file only turns the site's data into the shell's pieces. The On Air
+world it replaced is recorded in DESIGN.md and .impeccable/.
 """
 
-import html
 import json
 import os
 import re
 import shutil
 import sys
-from datetime import date
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
@@ -34,13 +33,6 @@ ASSETS = os.path.join(ROOT, "assets")
 def load(*parts):
     with open(os.path.join(DATA, *parts), encoding="utf-8") as f:
         return json.load(f)
-
-
-def e(s):
-    # The source data mixes straight and curly apostrophes. Curl only the ones
-    # sitting inside a word, so contractions and possessives are typeset properly
-    # and a straight quotation mark round a word is left alone.
-    return re.sub(r"(?<=\w)&#x27;(?=\w)", "’", html.escape(str(s), quote=True))
 
 
 def write(path_parts, markup):
@@ -57,104 +49,11 @@ def first_week(text):
     return int(m.group(1)) if m else None
 
 
-DOT = '<span class="live onair-dot" aria-hidden="true"></span>'
-
-
 def at_title(a):
     """'AT3: Music in Focus Examination' names its task; 'AT2' does not yet.
     The slot cell beside it already reads AT 2, so a bare repeat is no title."""
     name = a["name"]
     return name.split(": ", 1)[1] if ": " in name else "Assessment task"
-
-
-# --------------------------------------------------------------- page shell
-
-
-def masthead(site, nav_active):
-    base = site["base"]
-    items = [
-        ("This week", "/", "home"),
-        ("Term 1", "/term1/", "term1"),
-        ("Term 2", "/term2/", "term2"),
-        ("Term 3", "/term3/", "term3"),
-        ("The Works", "/the-works/", "works"),
-    ]
-    links = []
-    for label, href, key in items:
-        cur = ' aria-current="page"' if key == nav_active else ""
-        links.append(f'<a href="{base}{href}"{cur}>{e(label)}</a>')
-    canvas_url = site.get("canvasUrl")
-    if canvas_url:
-        links.append(f'<a href="{e(canvas_url)}">Canvas</a>')
-    else:
-        links.append('<span class="off">Canvas <span class="vh">(course not yet built)</span></span>')
-    course = site["course"]
-    return f"""<header class="masthead">
-  <a class="wordmark" href="{base}/">{e(course['wordmark'])}<span class="yr">{e(course['year'])}</span></a>
-  <nav class="site-nav" aria-label="Site">{"".join(links)}</nav>
-</header>"""
-
-
-def archive(site, course, works, current_work):
-    """The twenty works, on the foot of every page. The course's spine, always visible."""
-    base = site["base"]
-    chips = []
-    for w in works:
-        on = " on" if w["no"] == current_work else ""
-        inner = f'<b>M{w["no"]:02d}</b><span class="t">{e(w["short"])}</span>'
-        if w.get("lesson"):
-            term = term_of(course, w["lesson"])
-            href = f'{base}/{term["id"]}/{w["lesson"]}/'
-            aria = ' aria-current="true"' if on else ""
-            chips.append(f'<li><a class="chip{on}" href="{href}"{aria}>{inner}</a></li>')
-        else:
-            chips.append(f'<li><span class="chip{on}">{inner}</span></li>')
-    return f"""<section class="arch" aria-labelledby="arch-h">
-  <div class="archhead">
-    <h2 class="tag-lg" id="arch-h">The archive &nbsp;/&nbsp; twenty works, every one of them a page</h2>
-    <span class="tag muted">Ordered by the week we meet them</span>
-  </div>
-  <ol class="chips">{"".join(chips)}</ol>
-</section>"""
-
-
-def layout(site, title, body, description="", nav_active=None, strand="term1", current_work=None,
-           course=None, works=None):
-    base = site["base"]
-    robots = '<meta name="robots" content="noindex, nofollow">' if site.get("noindex") else ""
-    full_title = e(title) if title == site["title"] else e(title) + " | " + e(site["title"])
-    return f"""<!doctype html>
-<html lang="en-AU">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-{robots}
-<title>{full_title}</title>
-<meta name="description" content="{e(description)}">
-<link rel="preload" href="{base}/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{base}/assets/legacy.css">
-</head>
-<body data-strand="{e(strand)}">
-<!--
-THESIS: The year is a music station's schedule and the class is what is on air right now. It refuses the course-site default of equal-weight lesson cards in a grid, where this week and week nine look identical, and it refuses the drenched display-type poster it replaces.
-OWN-WORLD: Near-white paper (#FAFAF7), black ink (#101014), one flat strand colour per term (#3DDC97, #FFD23F, #FF6B6B) always carrying black ink. One family, Archivo variable, character from the width axis, never a second face. Square corners, no shadows, no gradients, two line weights. State is a filled strand field plus the words "On air" plus a live dot.
-STORY: A student sees what is on air, what to listen to and what they must be able to do, never loses the whole term from the left rail, and reaches any of the twenty works from the archive at the foot of every page.
-FIRST VIEWPORT: Masthead, then a 19rem rail holding every lesson of the term with the current one filled and AT1 in its real week, and beside it the ON AIR line, the lesson title, a listening / by-the-end / outcomes strip, then the lesson's real content in two columns. The archive band runs across the foot.
-FORM: On Air, rendition "The Station Front". Candidate 5 of the grounded list, seed key 78a3d3a4, after one user re-roll steered "more fun and music inspired". Approved comp F with the term hub taken from comp D.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
--->
-<a class="skip" href="#main">Skip to content</a>
-{masthead(site, nav_active)}
-{body}
-{archive(site, course, works, current_work)}
-<footer class="foot">
-  <p>{e(site['course']['canvasNote'])}</p>
-  <p>Updated {date.today().strftime('%-d %B %Y')}</p>
-</footer>
-<script src="{base}/assets/legacy.js" defer></script>
-</body>
-</html>
-"""
 
 
 # ------------------------------------------------------------------ helpers
@@ -172,8 +71,8 @@ def term_of(course, lesson_no):
 #
 # Lessons and the home page (the current lesson) are built by the shared shell
 # (shell.py). Everything below only translates this site's data into the shell's
-# components; the markup and the look live in the shell. Only The Works still
-# uses the old layout(), until it moves across.
+# components; the markup and the look live in the shell. Every page is on the
+# shell since 19 October 2026.
 
 def shell_site(site, course):
     """The site dict the shell's page() needs."""
@@ -233,7 +132,7 @@ def works_card(site, course, works, current_work):
     chips = []
     for w in works:
         here = ' aria-current="true"' if w["no"] == current_work else ""
-        inner = f'<b>M{w["no"]:02d}</b><span>{e(w["short"])}</span>'
+        inner = f'<b>M{w["no"]:02d}</b><span>{S.e(w["short"])}</span>'
         if w.get("lesson"):
             href = f'{base}/{term_of(course, w["lesson"])["id"]}/{w["lesson"]}/'
             chips.append(f'<li><a class="wchip int" href="{href}"{here}>{inner}</a></li>')
@@ -411,53 +310,31 @@ def build_term(site, course, term, current_no, works):
 
 
 def build_works(site, course, works, current_no, current_work):
-    base = site["base"]
-    lesson_by_no = {l["number"]: (t, l) for t in course["terms_loaded"] for l in t["lessons"]}
-    rows = []
-    for w in works:
-        on = " on" if w["no"] == current_work else ""
-        cx = e(w["category"].replace("Music of the ", "").replace("Music of ", ""))
-        title = f'<b>{e(w["title"])}</b> {e(w["composer"])}'
-        # the fill never carries the position on its own, here or anywhere else
-        now = f'<span class="wnow">{DOT}On air</span>' if on else ""
-        taught = '<span class="muted">Not yet on the site</span>'
-        if w.get("lesson"):
-            t, l = lesson_by_no[w["lesson"]]
-            href = f'{base}/{t["id"]}/{w["lesson"]}/'
-            title = f'<a href="{href}">{title}</a>'
-            taught = f'<a href="{href}">L {l["number"]:02d} &nbsp;{e(l["title"])}</a>'
-        cur = ' aria-current="true"' if on else ""
-        rows.append(
-            f'<tr class="{on.strip()}"{cur}>'
-            f'<td class="no" data-label="No.">M {w["no"]:02d}</td>'
-            f'<td class="ti" data-label="Work">{title}{now}</td>'
-            f'<td class="tin" data-label="Taught in">{taught}</td>'
-            f'<td class="cx" data-label="Category">{cx}</td>'
-            f'<td class="tw2" data-label="Term.week">{w["term"]}.{w["week"]}</td></tr>'
-        )
-    strands = "".join(
-        f'<div class="st-c"><span class="tag muted"><span class="sw" style="background:var(--s{i+1})"></span>'
-        f'Term {i+1} &nbsp;·&nbsp; {len(t["lessons"])} lessons</span>'
-        f'<span class="n">{e(t["focusArea"])}</span></div>'
-        for i, t in enumerate(course["terms_loaded"])
-    )
-    body = f"""<main class="works" id="main">
-  <div class="wkhead">
-    <h1>Twenty works, one year</h1>
-    <span class="tag muted">The archive &nbsp;·&nbsp; ordered by the week it is taught</span>
-  </div>
-  <div class="tw">
-    <table class="wtable">
-      <thead><tr><th>No.</th><th>Work</th><th>Taught in</th><th>Category</th><th style="text-align:right">Term.week</th></tr></thead>
-      <tbody>{"".join(rows)}</tbody>
-    </table>
-  </div>
-  <div class="strands">{strands}</div>
-</main>"""
-    return layout(site, "The Works", body,
-                  "The twenty works studied across Year 11 Music 1, in the order they are taught.",
-                  nav_active="works", strand="term1", current_work=current_work,
-                  course=course, works=works)
+    """The twenty works, on the shell: a head card, then the works grouped by
+    the term that teaches them, in the order they are met. Each row goes to
+    the lesson that teaches the work. The works archive that sits at the foot
+    of every other page would only repeat this one, so it is left off here."""
+    by_no = {l["number"]: l for t in course["terms_loaded"] for l in t["lessons"]}
+    groups = []
+    for t in course["terms_loaded"]:
+        rows = []
+        for w in (x for x in works if x["term"] == t["number"]):
+            bits = [w["composer"]]
+            if w.get("lesson"):
+                bits.append(f'Lesson {w["lesson"]}: {by_no[w["lesson"]]["title"]}')
+            # "Music of global music culture" reads better as its last words.
+            cat = re.sub(r"^Music of (the )?", "", w["category"])
+            bits += [cat[:1].upper() + cat[1:], f'Term {w["term"]}, Week {w["week"]}']
+            rows.append({"n": f'M{w["no"]:02d}', "title": w["title"], "meta": " · ".join(bits),
+                         "state": "now" if w["no"] == current_work else None,
+                         "href": f'/{t["id"]}/{w["lesson"]}/' if w.get("lesson") else None})
+        groups.append((f'{term_short(t)}: {t["focusArea"]}', rows))
+    hd = S.head("Twenty works, one year", kicker="The Works",
+                meta="Ordered by the week each one is taught")
+    body = hd + S.schedule(groups, base=site["base"], label="The archive")
+    return S.page(shell_site(site, course), title="The Works", body=body,
+                  description="The twenty works studied across Year 11 Music 1, in the order they are taught.",
+                  crumbs=[("Home", "/"), ("The Works", None)], nav_current="works")
 
 
 # -------------------------------------------------------------------- main

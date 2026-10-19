@@ -1,4 +1,4 @@
-# Copied from music-shell bf192b7b69, body c26c8e95d6. Do not edit here: edit Sites/music-shell and run sync.py.
+# Copied from music-shell 3cf4f3fa6e, body c26c8e95d6. Do not edit here: edit Sites/music-shell and run sync.py.
 """The shared page shell for the music sites (Years 8, 9, 10 and 11).
 
 One look, one accent per year group: direction B, Stage Card, chosen 19 October

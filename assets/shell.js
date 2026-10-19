@@ -1,4 +1,4 @@
-/* Copied from music-shell bf192b7b69, body 95add456dc. Do not edit here: edit Sites/music-shell and run sync.py. */
+/* Copied from music-shell 3cf4f3fa6e, body 95add456dc. Do not edit here: edit Sites/music-shell and run sync.py. */
 /* The shared shell's only script. Every page works without it: a recording's
    name is a link to the recording, a cue time is a link to that second, a tick
    lasts the visit. This adds four things.

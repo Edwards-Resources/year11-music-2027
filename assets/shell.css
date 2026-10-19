@@ -1,4 +1,4 @@
-/* Copied from music-shell bf192b7b69, body b7fbefab0d. Do not edit here: edit Sites/music-shell and run sync.py. */
+/* Copied from music-shell 3cf4f3fa6e, body 3cd0b41af4. Do not edit here: edit Sites/music-shell and run sync.py. */
 /* The shared shell for the music sites. Direction B, Stage Card (19 October 2026).
    Warm grey ground, every section a white card with an icon-and-word label pill,
    one solid year-accent card for the title. Bricolage Grotesque for display,
@@ -302,8 +302,13 @@ a.clip-name:hover { text-decoration: underline; }
 .tcard:hover { border-color: var(--acc); }
 .tcard.open { background: var(--acc); color: #fff; border-color: var(--acc); padding: 1.75rem 1.5rem; }
 @media (min-width: 700px) {
-  .tcard:not(.open) { grid-template-columns: 9rem minmax(0, 1fr) auto; align-items: baseline; }
-  .tcard:not(.open) .tcard-m { text-align: right; }
+  .tcard:not(.open) { grid-template-columns: 9rem minmax(0, 1fr) minmax(0, 16rem); align-items: baseline; }
+  /* Placed, not flowed: a closed card may carry a line of text as well as its
+     meta, and flowing four pieces into three columns scrambles them. */
+  .tcard:not(.open) .tcard-k { grid-column: 1; grid-row: 1; }
+  .tcard:not(.open) .tcard-t { grid-column: 2; grid-row: 1; }
+  .tcard:not(.open) p:not(.tcard-m) { grid-column: 2; grid-row: 2; }
+  .tcard:not(.open) .tcard-m { grid-column: 3; grid-row: 1 / span 2; text-align: right; }
   .tcard.open { padding: 2rem 2.25rem; }
 }
 .tcard-k { font-size: .8125rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
