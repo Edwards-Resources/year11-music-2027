@@ -1,4 +1,4 @@
-/* Year 11 furniture only: the works archive, the folded term list. Everything else comes from shell.css. */
+/* Year 11 furniture only: the works archive. Everything else comes from shell.css. */
 
 /* The twenty works: a card of chips, two across on a phone, then wider. */
 .wchips { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
@@ -9,15 +9,6 @@
 a.wchip:hover { box-shadow: inset 0 0 0 2px var(--acc); }
 .wchip[aria-current] { background: var(--tint); box-shadow: inset 0 0 0 2px var(--acc); }
 .wchip[aria-current] b { color: var(--acc); }
-
-/* The term's lessons, folded at the foot of a lesson page. */
-.fold { margin-top: 1rem; }
-.fold > summary { cursor: pointer; list-style: none; background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1rem 1.25rem; font-weight: 700; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
-.fold > summary::-webkit-details-marker { display: none; }
-.fold > summary::after { content: "Show"; font-size: .8125rem; letter-spacing: .06em; text-transform: uppercase; color: var(--acc); }
-.fold[open] > summary::after { content: "Hide"; }
-.fold[open] > summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-.fold > * + * { margin-top: 0; border-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
 
 /* Home: the one quiet button under the lesson. */
 .permalink { justify-content: center; }

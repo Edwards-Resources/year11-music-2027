@@ -1,4 +1,4 @@
-/* Copied from music-shell 72f06a7216, body 07b44e0298. Do not edit here: edit Sites/music-shell and run sync.py. */
+/* Copied from music-shell 346ef17ed1, body a6ad74494b. Do not edit here: edit Sites/music-shell and run sync.py. */
 /* The shared shell for the music sites. Direction B, Stage Card (19 October 2026).
    Warm grey ground, every section a white card with an icon-and-word label pill,
    one solid year-accent card for the title. Bricolage Grotesque for display,
@@ -317,6 +317,14 @@ a.clip-name:hover { text-decoration: underline; }
 .pn span { display: block; font-family: var(--body); font-weight: 400; font-size: .8125rem; color: #d8d4cc; margin-bottom: .25rem; }
 .pn-next { text-align: right; }
 .extras { margin-top: 1rem; }
+/* A card folded shut (fold() in shell.py). */
+.fold { margin-top: 1rem; }
+.fold > summary { cursor: pointer; list-style: none; background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1rem 1.25rem; font-weight: 700; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::after { content: "Show"; font-size: .8125rem; letter-spacing: .06em; text-transform: uppercase; color: var(--acc); }
+.fold[open] > summary::after { content: "Hide"; }
+.fold[open] > summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.fold > * + * { margin-top: 0; border-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
 .foot { padding: 1.5rem 0 2.5rem; font-size: .875rem; color: var(--soft); }
 .foot p + p { margin-top: .25rem; }
 

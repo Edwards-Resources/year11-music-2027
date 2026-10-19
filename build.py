@@ -323,8 +323,8 @@ def build_lesson(site, course, term, lesson, works, current_no, is_home=False):
         body += (f'<p class="btns permalink"><a class="btn btn-quiet int" href="{base}/{term["id"]}/{n}/">'
                  f'Open Lesson {n} on its own page</a></p>')
 
-    extras = (f'<details class="fold"><summary>This term: {e(term["focusArea"])}, '
-              f'{len(term["lessons"])} lessons</summary>{term_card(site, term, current_no)}</details>')
+    extras = S.fold(f'This term: {term["focusArea"]}, {len(term["lessons"])} lessons',
+                    term_card(site, term, current_no))
     extras += works_card(site, course, works, lesson.get("listening"))
 
     all_l = term["lessons"]

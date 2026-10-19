@@ -1,4 +1,4 @@
-# Copied from music-shell 72f06a7216, body 8633c6229d. Do not edit here: edit Sites/music-shell and run sync.py.
+# Copied from music-shell 346ef17ed1, body 59892a10fc. Do not edit here: edit Sites/music-shell and run sync.py.
 """The shared page shell for the music sites (Years 8, 9, 10 and 11).
 
 One look, one accent per year group: direction B, Stage Card, chosen 19 October
@@ -17,7 +17,7 @@ What lives here:
 - head(), intent()   the two pieces every lesson opens with
 - the components     steps, listen, cues, learn, compare, book, task, worked,
                      check, help, further, exit_ticket, keep
-- hub pieces         schedule, assessment, upto, card_grid
+- hub pieces         schedule, assessment, upto, card_grid, fold
 - escape hatches     section() and side_card(), for a site's own furniture
 
 Rules the functions hold so the sites cannot break them:
@@ -509,6 +509,13 @@ def assessment(name, *, kind="", issued="", due="", weighting="", where="Task an
     dl = "".join(f"<div><dt>{e(k)}</dt><dd>{rich(v)}</dd></div>" for k, v in facts)
     return section("assess", "Assessment", "assess", name,
                    f'<dl class="facts">{dl}</dl><p class="fine">{e(where)}</p>')
+
+
+def fold(summary, inner):
+    """A card folded shut: a bar that opens on the card inside it. Standalone
+    furniture for a long list a student only sometimes needs (the term's lessons
+    at the foot of a lesson page). A <details>, so it works with scripting off."""
+    return f'<details class="fold"><summary>{e(summary)}</summary>{inner}</details>'
 
 
 def upto(title, *, base, href=None, kicker="", lead="", links=()):
