@@ -1,4 +1,4 @@
-/* Copied from music-shell 346ef17ed1, body a6ad74494b. Do not edit here: edit Sites/music-shell and run sync.py. */
+/* Copied from music-shell bf192b7b69, body b7fbefab0d. Do not edit here: edit Sites/music-shell and run sync.py. */
 /* The shared shell for the music sites. Direction B, Stage Card (19 October 2026).
    Warm grey ground, every section a white card with an icon-and-word label pill,
    one solid year-accent card for the title. Bricolage Grotesque for display,
@@ -283,6 +283,7 @@ a.clip-name:hover { text-decoration: underline; }
 }
 .sched-note { margin: 0 0 1rem; }
 
+.blk-assess .about { max-width: 42rem; margin-bottom: 1rem; }
 .facts { display: grid; gap: .75rem 1.5rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); }
 .facts dt { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--soft); }
 .facts dd { font-weight: 700; }

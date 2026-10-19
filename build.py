@@ -172,8 +172,8 @@ def term_of(course, lesson_no):
 #
 # Lessons and the home page (the current lesson) are built by the shared shell
 # (shell.py). Everything below only translates this site's data into the shell's
-# components; the markup and the look live in the shell. The term hubs and The
-# Works still use the old layout() until they move across.
+# components; the markup and the look live in the shell. Only The Works still
+# uses the old layout(), until it moves across.
 
 def shell_site(site, course):
     """The site dict the shell's page() needs."""
@@ -188,7 +188,7 @@ def term_short(term):
     return term["name"].split(": ")[0]
 
 
-def term_schedule(term, current_no):
+def term_schedule(term, current_no, works):
     """The term's lessons as one group for S.schedule, with the assessment task
     sitting in its real week. `now` is where the class is up to."""
     a = term["assessment"]
@@ -210,15 +210,19 @@ def term_schedule(term, current_no):
             st = "done"
         else:
             st = None
-        rows.append({"n": f'{l["number"]}', "title": l["title"], "meta": l["week"], "state": st,
+        meta = l["week"]
+        w = next((x for x in works if x["no"] == l.get("listening")), None)
+        if w:
+            meta += f' · M {w["no"]:02d} {w["short"]}'
+        rows.append({"n": f'{l["number"]}', "title": l["title"], "meta": meta, "state": st,
                      "href": f'/{term["id"]}/{l["number"]}/' if built else None})
     if not placed:
         rows.append(at_row())
     return [(None, rows)]
 
 
-def term_card(site, term, current_no):
-    return S.schedule(term_schedule(term, current_no), base=site["base"], label="This term",
+def term_card(site, term, current_no, works):
+    return S.schedule(term_schedule(term, current_no, works), base=site["base"], label="This term",
                       title=term["focusArea"])
 
 
@@ -324,7 +328,7 @@ def build_lesson(site, course, term, lesson, works, current_no, is_home=False):
                  f'Open Lesson {n} on its own page</a></p>')
 
     extras = S.fold(f'This term: {term["focusArea"]}, {len(term["lessons"])} lessons',
-                    term_card(site, term, current_no))
+                    term_card(site, term, current_no, works))
     extras += works_card(site, course, works, lesson.get("listening"))
 
     all_l = term["lessons"]
@@ -347,141 +351,60 @@ def build_lesson(site, course, term, lesson, works, current_no, is_home=False):
 # ---------------------------------------------------------------- term hubs
 
 
-def hub_band(site, course, term, current_no, works):
-    """comp-d's opening band: the largest element on that surface, and the only
-    thing on it that answers "what is on air". The strand fill is spent only on
-    the term that is actually on air; a term that is not gets the same geometry
-    on paper, or the fill would be teaching that a strand field means nothing."""
-    base = site["base"]
+def build_term(site, course, term, current_no, works):
+    """The term hub, on the shell: head card, where the class is up to, the
+    assessment, then every lesson of the term open. The archive of works sits
+    at the foot, as on every lesson page."""
+    sh = shell_site(site, course)
+    a = term["assessment"]
     lessons = term["lessons"]
     first, last = lessons[0]["number"], lessons[-1]["number"]
-    live = current_no is not None and first <= current_no <= last
+    short = term_short(term)
+    title = term["name"].split(": ", 1)[-1]
 
-    if live:
-        l = next(x for x in lessons if x["number"] == current_no)
-        kicker = (f'{DOT}On air &nbsp;·&nbsp; {e(term["name"].split(": ")[0])} &nbsp;·&nbsp; '
-                  f'{e(l["week"])} &nbsp;·&nbsp; Lesson {l["number"]} of {course["totalLessons"]}')
-    else:
-        aired = current_no is not None and current_no > last
-        l = lessons[-1] if aired else lessons[0]
-        word = "Aired" if aired else "Coming up"
-        kicker = (f'{word} &nbsp;·&nbsp; {e(term["name"].split(": ")[0])} &nbsp;·&nbsp; '
-                  f'{e(term["focusArea"])} &nbsp;·&nbsp; Lessons {first} to {last}')
+    hd = S.head(title, kicker=f"{short} · Lessons {first} to {last}",
+                meta=f'{len(lessons)} lessons across {term["weeks"]} weeks')
+    if term["focusArea"].lower() != title.lower():
+        # "Music in focus (film and screen)" says more than its title does.
+        hd = S.head(title, kicker=f"{short} · Lessons {first} to {last}",
+                    meta=f'{term["focusArea"]} · {len(lessons)} lessons across {term["weeks"]} weeks')
 
-    title = e(l["title"])
-    if "blocks" in l:
-        title = f'<a href="{base}/{term["id"]}/{l["number"]}/">{title}</a>'
-
-    aside = ""
-    if live and l.get("listening"):
-        w = next((x for x in works if x["no"] == l["listening"]), None)
-        if w:
-            aside = (f'<span class="tag">Now listening</span>'
-                     f'<span class="ln">M {w["no"]:02d} &nbsp;{e(w["short"])}</span>'
-                     f'<span class="lb">{e(w["composer"])}</span>')
-    if not aside:
-        a = term["assessment"]
-        aside = (f'<span class="tag">Assessment</span>'
-                 f'<span class="ln">{e(a["name"])}</span>'
-                 f'<span class="lb">{e(a["when"])} &nbsp;·&nbsp; in Canvas</span>')
-
-    return f"""<div class="hubband{' hb-live' if live else ''}">
-    <div class="hb-main"><p class="tag-lg">{kicker}</p><p class="hb-t">{title}</p></div>
-    <div class="hb-side">{aside}</div>
-  </div>"""
-
-
-def build_term(site, course, term, current_no, works):
-    """comp-d-schedule.html: the on-air band, then the schedule grid."""
-    base = site["base"]
-    a = term["assessment"]
-    a_week = first_week(a.get("when"))
-    rows, placed = [], False
-
-    def cell(cls, label, inner):
-        # An empty cell stays genuinely empty, so the phone's stacked view can
-        # drop it with :empty instead of printing a label with nothing under it.
-        if not inner:
-            return f'<td class="{cls}" data-label="{label}"></td>'
-        return f'<td class="{cls}" data-label="{label}"><div class="c">{inner}</div></td>'
-
-    def at_row():
-        bits = [b for b in (a.get("weighting"), "task and rubric in Canvas") if b]
-        return ('<tr class="at">'
-                + cell("wk", "Week", e(a["when"].split(", ")[-1]))
-                + cell("no", "Slot", f'AT {term["id"][-1]}')
-                + f'<td data-label="Lesson"><div class="c ti">{e(at_title(a))}</div></td>'
-                + cell("wo", "Set work", e(" · ".join(bits)))
-                + cell("oc", "Outcomes", "")
-                + cell("st", "Status", "<span>Assessment</span>")
-                + "</tr>")
-
-    for l in term["lessons"]:
-        if not placed and a_week is not None and (first_week(l["week"]) or 0) >= a_week:
-            rows.append(at_row())
-            placed = True
-        built = "blocks" in l
-        # A stub row says nothing in three columns at once. The hub head says it
-        # once instead, so the status column stays as sparse as comp D's.
-        work, status = "", ""
-        if l.get("listening"):
-            w = next((x for x in works if x["no"] == l["listening"]), None)
+    # Where the class is up to, said on every hub. On a term that is not the
+    # one being taught, the card says so and points across to the live term.
+    cur_t = term_of(course, current_no)
+    cur = next(l for l in cur_t["lessons"] if l["number"] == current_no)
+    k = f'Lesson {current_no} of {course["totalLessons"]} · {cur["week"]}'
+    if cur_t["id"] == term["id"]:
+        lead = ""
+        if cur.get("listening"):
+            w = next((x for x in works if x["no"] == cur["listening"]), None)
             if w:
-                work = f'M {w["no"]:02d} {e(w["short"])}'
-        elif built:
-            work = "Teacher&rsquo;s choice"
-        if l["number"] == current_no:
-            cls, status = "on", f"{DOT}On air"
-        elif built and current_no is not None and l["number"] < current_no:
-            cls, status = "done", "Aired"
-        elif built and current_no is not None and l["number"] == current_no + 1:
-            cls, status = "", "Next"
-        elif not built:
-            cls = "stub"
-        else:
-            cls = ""
-        title = e(l["title"])
-        if built:
-            title = f'<a href="{base}/{term["id"]}/{l["number"]}/">{title}</a>'
-        cur = ' aria-current="true"' if l["number"] == current_no else ""
-        outcomes = "<br>".join(e(c) for c in (l.get("outcomes") or []))
-        rows.append(
-            f'<tr class="{cls}"{cur}>'
-            + cell("wk", "Week", e(l["week"]))
-            + cell("no", "Slot", f'L {l["number"]:02d}')
-            + f'<td data-label="Lesson"><div class="c ti">{title}</div></td>'
-            + cell("wo", "Set work", work)
-            + cell("oc", "Outcomes", outcomes)
-            + cell("st", "Status", f"<span>{status}</span>" if status else "")
-            + "</tr>"
-        )
-    if not placed:
-        rows.append(at_row())
+                lead = f'Listening: M {w["no"]:02d} {w["short"]}, {w["composer"]}.'
+    else:
+        k = f'{term_short(cur_t)} · {k}'
+        lead = (f"{short} is done. The class has moved on to {term_short(cur_t)}." if current_no > last
+                else f"{short} has not started yet. The class is in {term_short(cur_t)}.")
+    up = S.upto(cur["title"], base=site["base"], kicker=k, lead=lead,
+                href=f'/{cur_t["id"]}/{current_no}/' if "blocks" in cur else None)
 
-    pending = sum(1 for l in term["lessons"] if "blocks" not in l)
+    # The detail ends by saying the task is in Canvas, which the card already says.
+    about = re.sub(r"\s*Full task[^.]*\.$", "", a.get("detail", ""))
+    at = S.assessment(a["name"], due=a["when"], weighting=a.get("weighting", ""), about=about)
+
+    pending = sum(1 for l in lessons if "blocks" not in l)
     note = ""
-    if pending == len(term["lessons"]):
-        note = (f'<p class="hubnote">{e(term["name"].split(": ")[0])} lessons are titles only '
-                "until the content pour. The weeks and the sequence below are the registered ones.</p>")
+    if pending == len(lessons):
+        note = (f"{short} lessons are titles only until the content pour. "
+                "The weeks and the sequence are the registered ones.")
     elif pending:
-        note = f'<p class="hubnote">The last {pending} lessons are titles only until the content pour.</p>'
+        note = f"The last {pending} lessons are titles only until the content pour."
+    sched = S.schedule(term_schedule(term, current_no, works), base=site["base"], label="Every lesson",
+                       note=note)
 
-    body = f"""<main class="hub" id="main">
-  {hub_band(site, course, term, current_no, works)}
-  <div class="hubhead">
-    <h1>{e(term['name'].split(': ')[0])} schedule &nbsp;/&nbsp; {e(term['focusArea'])}</h1>
-    <span class="tag muted">{len(term['lessons'])} lessons &nbsp;·&nbsp; {e(a['name'])}, {e(a['when'])}</span>
-  </div>
-  {note}
-  <div class="tw">
-    <table class="sched">
-      <thead><tr><th>Week</th><th>Slot</th><th>Lesson</th><th>Set work</th><th>Outcomes</th><th style="text-align:right">Status</th></tr></thead>
-      <tbody>{"".join(rows)}</tbody>
-    </table>
-  </div>
-</main>"""
-    return layout(site, term["name"], body, f"{term['name']}, lesson by lesson.",
-                  nav_active=term["id"], strand=term["id"], course=course, works=works)
+    return S.page(sh, title=term["name"], body=hd + up + at + sched,
+                  description=f"{term['name']}, lesson by lesson.",
+                  crumbs=[("Home", "/"), (short, None)], nav_current=term["id"],
+                  extras=works_card(site, course, works, None))
 
 
 # -------------------------------------------------------------- the works

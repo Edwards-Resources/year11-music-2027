@@ -1,4 +1,4 @@
-# Copied from music-shell 346ef17ed1, body 59892a10fc. Do not edit here: edit Sites/music-shell and run sync.py.
+# Copied from music-shell bf192b7b69, body c26c8e95d6. Do not edit here: edit Sites/music-shell and run sync.py.
 """The shared page shell for the music sites (Years 8, 9, 10 and 11).
 
 One look, one accent per year group: direction B, Stage Card, chosen 19 October
@@ -504,11 +504,15 @@ def schedule(groups, *, base, title=None, label="This term", note=""):
     return section("schedule", label, "list", title, f'{n}<div class="sched">{"".join(out)}</div>')
 
 
-def assessment(name, *, kind="", issued="", due="", weighting="", where="Task and rubric in Canvas"):
+def assessment(name, *, kind="", issued="", due="", weighting="", about="",
+               where="Task and rubric in Canvas"):
+    """The term's task, as facts. about is a sentence or two on what the task is,
+    in the words students were given; the task itself always lives in Canvas."""
     facts = [(k, v) for k, v in (("Type", kind), ("Issued", issued), ("Due", due), ("Weighting", weighting)) if v]
     dl = "".join(f"<div><dt>{e(k)}</dt><dd>{rich(v)}</dd></div>" for k, v in facts)
+    ab = f'<p class="about">{rich(about)}</p>' if about else ""
     return section("assess", "Assessment", "assess", name,
-                   f'<dl class="facts">{dl}</dl><p class="fine">{e(where)}</p>')
+                   f'{ab}<dl class="facts">{dl}</dl><p class="fine">{e(where)}</p>')
 
 
 def fold(summary, inner):
