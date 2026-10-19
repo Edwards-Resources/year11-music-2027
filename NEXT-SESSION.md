@@ -1,78 +1,44 @@
-# Next session: Year 11 is finished. Phase 2 (Year 9) opens.
+# Next session: Year 11 Music 1 (2027)
 
-**The close-out list is closed** (12 August 2026). Every item is either done or named below as genuinely blocked on Matthew, and none of them is a reason to open another Year 11 session. The next session starts Phase 2: Year 9 course design, from near-nothing on disk (one file, `Year 9 Music Term 4.docx`). See `00 Planner/Music 8-12 Master Build Plan.md`, Phase 2.
+## Where this stands, 20 October 2026
 
-**Where the site stands.** The **On Air** world is built, reviewed, documented, all three terms poured (50 lessons, zero stubs), and 19 of 20 works have verified YouTube ids across 15 listening slots. Public and live at `https://edwards-resources.github.io/year11-music-2027/`, confirmed working on Matthew's phone. `DESIGN.md` and `.impeccable/design.json` are the system of record for how it looks; `DIRECTION.md` carries the world's contract.
+**The site is finished and on the shared music shell.** All 50 lessons, the three term hubs, The Works and the home page are built by `shell.py` (direction B, Stage Card, berry accent). The On Air world is gone: no `legacy.css`, no old layout functions, no Archivo. Pushed 19 October 2026 at `80c121f`, live at `https://edwards-resources.github.io/year11-music-2027/`.
 
-## What the close-out actually resolved
+- 54 pages. Parity 0 missing, sweep 0 hits, `sync.py --check` clean, no sideways scroll at 375.
+- `DESIGN.md` says how the data reaches the shell and what is still this site's own (the works archive, twenty works, the assessment row in its real week). The look itself is documented in `../music-shell/README.md` and `../.serve/proto/redesign/SHELL-PLAN.md`.
+- 19 of 20 works have verified YouTube ids. M16 ("In Motion", Reznor and Ross) is closed as unsourceable, not deferred: no official upload exists on the artists' channels, a Topic channel or the label's. **Do not reopen it without new information**, for example the album appearing on a Topic channel.
 
-1. **M16's id ("In Motion", Reznor and Ross) is closed as unsourceable, not deferred.** Searched again and stopped: The Null Corporation's own channel carries no upload of it, the "Trent Reznor - Topic" channel carries the duo's later scores but not this album, SonySoundtracksVEVO carries Challengers and not The Social Network, and every candidate naming the track resolves through oEmbed to a fan channel. The "Not sourced yet" stub on Term 3 Lesson 37 is the permanent honest answer. **Do not reopen this without new information**, for example the album appearing on a Topic channel.
-2. **Lesson 11 is rewritten, is no longer a stub, and Matthew has now read it and passed it** (12 August 2026, no changes asked for). The corrupted source is genuinely gone and he confirmed he has no other copy, so the lesson was authored from what survived: the twelve-question cumulative quiz and answer key already on disk for this exact lesson, the Unit Home page's Weeks 9 to 10 brief, and the vocabulary the other ten Term 1 lessons actually teach. It is the first place in the whole course where "well-formed dot point" is named and worked, which Terms 2 and 3 had been using from Lesson 16 with no introduction.
-3. **M03 and M04 are wired into Lesson 1.** Libertango and Chan Chan join Mozart and Puente, which is what that lesson's own comparison step asks for: one frame held against contrasting traditions. Both ids re-verified live on their label channels (Carosello Records, World Circuit Records). All twenty works now link to a lesson page.
-4. **Canvas URL: blocked on Matthew.** The 2027 course does not exist yet (confirmed with him 12 August 2026). `canvasUrl` stays null and the nav renders that honestly as "Canvas (course not yet built)". Nothing to do here until he creates the course.
-5. **The exam date fields were a false alarm and are gone.** `examLesson`, `examDate` and `examWhen` were dead fields, referenced by no template. There is also no 2027 HSC date to find: Year 11 is the Preliminary course and sits no HSC. The real date is the school's own AT3 examination, which the signed assessment schedule puts at Term 3 Weeks 6 to 7, and that is now carried in `term3/term.json`'s assessment block where the hub actually reads it.
+## Next task
 
-## Three fixes taken beyond the list, all defects rather than scope
+Nothing is owed on the build. The next real work is 2027 teaching:
 
-- **AT2 and AT3 carried null weightings and a bare "Term 2" / "Term 3" for when.** That put both assessment rows at the bottom of their term hubs instead of in their real week, because `first_week()` returns `None` for a label with no week number. Filled from `Music1_Y11_AssessmentSchedule.docx`, the signed compliance document: AT2 Week 7 at 30%, AT3 Weeks 6 to 7 at 40%, with the real two-part splits. Both rows now land in the right week.
-- **Seventeen em dashes across all three terms**, every one in a media block's `brief`, against `PRODUCT.md`'s own rule. All converted to colons. The built site now has none. These were almost certainly agent-written, which is the watch-out below proving itself.
-- **The corrupted source file** in `09 Teaching Resources (Term 1)/Canvas Pages (HTML)/` was replaced with a marker pointing at the site page, rather than rebuilt as a Canvas page, because teaching content does not go on Canvas any more. The Term 1 README records why. **Matthew may prefer the full content written back into that file instead; his call.**
+- **Turn `currentLesson`** in `data/course/course.json` as the class moves. That one field drives "Up to here" everywhere, the schedules, the archive's current work and the home page.
+- **Wire `canvasUrl`** once Matthew creates the 2027 Canvas course. Until then it stays `null`.
 
 ## Left for Matthew
 
-- ~~Sanity-check Lesson 11.~~ **Done 12 August 2026, passed as written.** It remains the only authored, rather than migrated, page on the site.
-- **Create the 2027 Canvas course**, then the `canvasUrl` can be wired in.
-- **Re-import the Canvas blueprint** into the fresh test course. It was rebuilt on the night of 12 August with the course card image, the question board, course navigation and file locks on the Teacher Only documents, so the copy imported earlier that evening is superseded. Import as **Canvas Course Export Package** and **All content**, then walk it in **Student View**. Detail in `Year 11 Music Planning (New Syllabus)/13 Canvas Blueprint/Music1_Y11_CanvasBlueprint_BuildNotes.md`.
-- Standing admin, unchanged: get Head Teacher and Deputy sign-off on the assessment bundle, then export the notification PDFs into Canvas Module 2.
+- **Create the 2027 Canvas course**, then `canvasUrl` can be filled in.
+- **Re-import the Canvas blueprint** into the test course and walk it in Student View, if not done since 12 August 2026. Detail in `Year 11 Music Planning (New Syllabus)/13 Canvas Blueprint/Music1_Y11_CanvasBlueprint_BuildNotes.md`.
+- **Sign-off on the assessment bundle** from the Head Teacher and Deputy, then the notification PDFs into Canvas Module 2.
+- **The Term 1 Canvas source pages still carry their own ICIP blocks.** Left deliberately, since teaching content no longer goes on Canvas. Matthew may want the same pass run there.
 
 ## Watch out for
 
-- **`file://` previews of `docs/` render as a static snapshot with no CSS or JS in this environment.** Serve properly, and note the site's asset paths assume the GitHub Pages base (`/year11-music-2027/...`): make a symlink named `year11-music-2027` pointing at `docs/` inside a scratch directory, serve *that* directory, and load `http://localhost:<port>/year11-music-2027/...`. The `year11-music` entry in `School Master/.claude/launch.json` does this on port 8805; repoint its `--directory` at the current session's scratchpad.
-- **Headless Chrome on this Mac clamps its window to a 500px minimum**, so `--headless --window-size=390,844 --screenshot` lays out at 500px and crops to 390, manufacturing clipping that is not there. Use the in-app browser's `resize_window` instead, which resizes a real viewport.
-- **A bare element selector cannot reset a property set one class deep.** This bit twice: `table{min-width:0}` lost to `.wtable{min-width:40rem}`, and `.sched tbody td{width:auto}` lost to `.sched .wk{width:7rem}`. Match specificity when overriding inside the mobile block.
-- **`first_week()` returns `None` for any label without a week number**, and that has now caused three separate silent failures. Anything branching on it must be checked against a label carrying no week.
-- **The mobile rail is its own scroll container**, so a screenshot can clip the top row of it and look like missing content. Check geometry with `getBoundingClientRect()` before believing a capture.
-- **Two different states, easy to conflate.** `.rl.on` (strand fill + dot + the words "On air") is where the class is up to. `aria-current="page"` (ink inversion) is the page being read. They are usually different lessons and must stay visually distinct.
-- **A filled strand field never carries position on its own.** The words and the dot travel with it on every surface. The one documented exception is the archive chips, which mark the current work by fill alone because the approved comp draws them that way and they carry `aria-current`.
-- **The strand fill is spent only on what is live.** A term hub is strand-filled only when that term is on air; any other term gets the same band geometry on paper with a 1px ink border.
-- **`--strand` comes from `data-strand` on `<body>`** and is the term's colour. Black ink on every strand colour, never white text on a fill, never coloured text on paper. A fourth hue is a defect.
-- **"On air" is reserved for the current lesson only.** Every other lesson page says *Aired* or *Coming up*.
-- **The live position is one field**: `currentLesson` in `data/course/course.json`, default 1. That is the knob the debrief cascade turns once 2027 teaching starts.
-- **`site.js` is an enhancement only** and the site must keep working without it.
-- **The shipped subagents do not inherit the no-em-dash rule.** Check anything an agent writes before committing it. Seventeen got through into shipped content.
-- **Global lesson numbering is load-bearing** (Term 1 = 1-11, Term 2 = 12-32, Term 3 = 33-50, via `lessonNumberStart` in each `term.json`).
-- Same standing rules as the sibling sites: no school name anywhere in the repo, no student names or work, twenty works never twenty-two, verify every YouTube id before shipping, each year group keeps its own visual world.
-- `.impeccable/mocks/superseded/` is the dead Liner Notes world. Anti-reference, alongside Year 10's Marker Zine and Year 8's Tour Tee. Do not mine it for parts.
-- **A pinned world pins the world, not its softest rendition.** This applies to Year 9 next. The first sketch of the Year 11 world was warm cream board and an editorial serif, which is the look every model defaults to. The fix was to spread the comps across three colour strategies and hold the type voice fixed. Do not let Year 9's world arrive as cream plus a serif either.
+- **Never edit this repo's copy of the shell** (`shell.py`, `assets/shell.css`, `assets/shell.js`, the fonts). Edit `music-shell/` and run `python3 music-shell/sync.py year11-music-2027` from `Sites/`. Run `sync.py --check` at the start of any session that touches the site.
+- **`site.css` styles furniture only** (the works archive). Never restyle a shell class here.
+- **URLs stay exactly as they are.** Canvas frames point at them, and the repo name is compiled into every link.
+- **Sweep before every commit**: `python3 music-shell/tools/sweep.py year11-music-2027` from `Sites/`, then parity after every build: `python3 music-shell/tools/parity.py year11-music-2027`. The sweep never prints what it matched; keep notes the same.
+- **Build with `/usr/bin/python3`** (3.9). The shell has to import on it.
+- **Preview** through the `course-sites` launch config, which serves all the sites from `Sites/.serve/` on port 8820. A `file://` preview has no CSS.
+- **`first_week()` returns `None` for any label without a week number**, which has caused three silent failures. Check anything that branches on it against a label with no week.
+- **Global lesson numbering is load-bearing** (Term 1 is 1 to 11, Term 2 is 12 to 32, Term 3 is 33 to 50, via `lessonNumberStart` in each `term.json`).
+- **Twenty works, never twenty-two.** No school name, no student names or work anywhere in the repo. Verify every YouTube id before shipping.
+- **Subagents do not inherit the no-em-dash rule.** Seventeen got through into shipped content once. Check anything an agent writes before committing it.
 
 ## Model and effort
 
-**Opus, medium-high** to open Phase 2. Year 9 starts with a world-choice conversation and a course design from almost nothing on disk, which is design judgement rather than assembly. Drop to Sonnet, medium once the world and the scaffold are locked and it becomes a content pour.
-
-## The deferred type-ramp pass is done (16 August 2026)
-
-**Closed, commit `e65b4a8`.** The small end went from four steps to three and the ramp from fourteen steps to eleven.
-
-Counting real usage is what decided it. The four sizes were not four roles competing evenly: 11px carried twenty declarations, 11.5px four, and 12px and 12.5px **exactly one each** (`.key div`, `.chip .t`). The same fault ran one step further up at 13.5px with two declarations (`.acts li`, `.rl .t`), which the original note had missed. Four declarations moved; the small end is now 11px for tracked caps, 11.5px for small non-caps secondary text, and 13px for anything small that is read as words.
-
-Verified by render before and after at 1280px and at a real 375px viewport: no new wrapping, the archive band holds at three chip rows with the same distribution, page height moved 3px. `DESIGN.md` and `.impeccable/design.json` were both updated to match the build.
-
-## The ICIP boilerplate is off the student pages (16 August 2026)
-
-**Commit `400fa18`.** Term 1 carried four ICIP notes, three of them the same paragraph verbatim, and the text was written to the teacher rather than the student ("work in partnership with Elders, Community members, Cultural Knowledge Holders or your local AECG"). On Lessons 1 and 11 its own trigger condition was not even met, Lesson 1 being Mozart, Puente, Piazzolla and Buena Vista Social Club and Lesson 11 a vocabulary review. Lesson 11's had no counterpart in the Canvas source; it was invented when that lesson was authored from scratch.
-
-Removed from Lessons 1, 6 and 11. **One kept, on Lesson 5**, reworded into student voice and retitled "Using First Nations material in your work", because that is the composing lesson and it is a real constraint on what a student may make.
-
-**Lesson 6 needed care**: its listening note and media brief both pointed at "the ICIP protocol below", so both were rewritten to carry the framing themselves. No First Nations content was removed anywhere; Archie Roach's Took the Children Away is still M07, still taught in Lesson 6, still excluded from AT3.
-
-**The teacher obligation is untouched** in `Year 11 Music Planning (New Syllabus)/CLAUDE.md` and the Term 1 resources README, so nothing was the only copy. And ICIP is **not assessed content in this course**: NESA's "Safe and ethical practices" group, where it sits, belongs to Music Life Skills and is stated to have no Music 1 equivalent. Do not reinstate it on student pages without that being revisited.
-
-The Canvas source files in `09 Teaching Resources (Term 1)/Canvas Pages (HTML)/` still carry their own ICIP blocks. Left deliberately, since teaching content no longer goes on Canvas. **Matthew may want the same pass run there.**
+**Haiku, low** for a `currentLesson` turn and rebuild. **Sonnet, medium** for content changes to a lesson. Anything that changes how a page looks is shell work, done in `music-shell/`, not here.
 
 ## Last commit
 
-`400fa18`, **pushed 16 August 2026** on Matthew's say-so and verified live rather than assumed: the ICIP boilerplate is gone from every page, the one kept note is on Lesson 5 only, and the retired type steps are absent from the served CSS.
-
-Pushing still requires asking (standing rule); this one was asked for and granted.
-
-**One thing worth a decision:** `.impeccable/hook.cache.json` is tracked and carries absolute filesystem paths including the macOS username, and it grows a new session entry on every commit. It is already public in the history, so this is not an exposure to fix retroactively, but it is a reasonable candidate for `.gitignore` so it stops accreting.
+`80c121f` The Works on the shared shell; the old On Air layout is gone (pushed). The docs rewrite for the shell follows it.
