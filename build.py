@@ -20,9 +20,12 @@ import json
 import os
 import re
 import shutil
+import sys
 from datetime import date
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, ROOT)
+import shell as S  # noqa: E402  the shared page shell, copied in by music-shell/sync.py
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "docs")
 ASSETS = os.path.join(ROOT, "assets")
@@ -129,7 +132,7 @@ def layout(site, title, body, description="", nav_active=None, strand="term1", c
 <title>{full_title}</title>
 <meta name="description" content="{e(description)}">
 <link rel="preload" href="{base}/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{base}/assets/site.css">
+<link rel="stylesheet" href="{base}/assets/legacy.css">
 </head>
 <body data-strand="{e(strand)}">
 <!--
@@ -148,75 +151,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <p>{e(site['course']['canvasNote'])}</p>
   <p>Updated {date.today().strftime('%-d %B %Y')}</p>
 </footer>
-<script src="{base}/assets/site.js" defer></script>
+<script src="{base}/assets/legacy.js" defer></script>
 </body>
 </html>
 """
-
-
-# ------------------------------------------------------------------ the rail
-
-
-def rail_rows(site, course, term, current_no, reading_no):
-    """Every lesson in the term, with the assessment sitting in its real week.
-    Status wording is comp D's, folded into comp F's rail on Matthew's call.
-    Two distinct states: `on` is where the class is up to, `aria-current` is the
-    page you are reading. They are usually different lessons."""
-    base = site["base"]
-    a = term["assessment"]
-    a_week = first_week(a.get("when"))
-    rows, placed = [], False
-
-    def at_row():
-        bits = [b for b in (a.get("when"), a.get("weighting"), "in Canvas") if b]
-        return (f'<li><span class="rl at"><span class="n">AT {term["id"][-1]}</span>'
-                f'<span class="t">{e(at_title(a))}</span>'
-                f'<span class="w">{e(" · ".join(bits))}</span></span></li>')
-
-    for l in term["lessons"]:
-        if not placed and a_week is not None and (first_week(l["week"]) or 0) >= a_week:
-            rows.append(at_row())
-            placed = True
-        built = "blocks" in l
-        if l["number"] == current_no:
-            state, meta = "on", f'{DOT}On air · {e(l["week"])}'
-        elif built and current_no is not None and l["number"] < current_no:
-            state, meta = "done", e(l["week"])
-        elif not built:
-            state, meta = "stub", f'{e(l["week"])} · not yet on the site'
-        else:
-            state, meta = "", e(l["week"])
-        inner = (f'<span class="n">L {l["number"]:02d}</span>'
-                 f'<span class="t">{e(l["title"])}</span>'
-                 f'<span class="w">{meta}</span>')
-        if built:
-            cur = ' aria-current="page"' if l["number"] == reading_no else ""
-            rows.append(f'<li><a class="rl {state}" href="{base}/{term["id"]}/{l["number"]}/"{cur}>{inner}</a></li>')
-        else:
-            rows.append(f'<li><span class="rl {state}">{inner}</span></li>')
-    if not placed:
-        rows.append(at_row())
-    return "".join(rows)
-
-
-def rail(site, course, term, current_no, reading_no):
-    base = site["base"]
-    n = len(term["lessons"])
-    strands = "".join(
-        f'<div><i style="background:var(--s{i+1})"></i>Term {i+1} &nbsp;{e(t["focusArea"])}</div>'
-        for i, t in enumerate(course["terms_loaded"])
-    )
-    return f"""<nav class="rail" aria-label="{e(term['name'])} schedule">
-  <div class="railhead">
-    <span class="tag muted">Strand {term['id'][-1]} &nbsp;·&nbsp; {n} lessons</span>
-    <a href="{base}/{term['id']}/"><span class="t">{e(term['focusArea'])}</span></a>
-  </div>
-  <ul class="rlist">{rail_rows(site, course, term, current_no, reading_no)}</ul>
-  <div class="railfoot">
-    <span class="tag muted">The three strands</span>
-    <div class="key">{strands}</div>
-  </div>
-</nav>"""
 
 
 # ------------------------------------------------------------------ helpers
@@ -230,139 +168,197 @@ def term_of(course, lesson_no):
     return course["terms_loaded"][0]
 
 
-# ------------------------------------------------------------------- blocks
+# ----------------------------------------------------- the lesson, on the shell
+#
+# Lessons and the home page (the current lesson) are built by the shared shell
+# (shell.py). Everything below only translates this site's data into the shell's
+# components; the markup and the look live in the shell. The term hubs and The
+# Works still use the old layout() until they move across.
+
+# Where the term's lesson list sits on a lesson page. "fold" is a folded card at
+# the foot; "left" is a sticky rail beside the lesson on wide screens. Chosen by
+# Matthew from screenshots; the default is the plan's recommendation.
+RAIL = os.environ.get("RAIL", "fold")
 
 
-def block_html(block):
-    t = block["type"]
-    title = e(block.get("title", ""))
-    if t == "table":
-        cols = block["columns"]
-        head = "".join(f"<th>{e(c)}</th>" for c in cols)
-        # data-label lets the phone stack each cell under its own column name
-        # instead of hiding two columns off the side of a scroller.
-        rows = "".join(
-            "<tr>" + "".join(
-                f'<td data-label="{e(cols[i]) if i < len(cols) else ""}">{e(c)}</td>'
-                for i, c in enumerate(r)
-            ) + "</tr>"
-            for r in block["rows"]
-        )
-        return (f'<section class="sect"><h2>{title}</h2><div class="tw"><table>'
-                f"<thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table></div></section>")
-    if t == "prose":
-        return f'<section class="sect"><h2>{title}</h2><p>{e(block["text"])}</p></section>'
-    if t == "note":
-        return f'<aside class="note"><span class="tag">{title}</span><p>{e(block["text"])}</p></aside>'
-    if t == "media":
-        if block.get("embed"):
-            brief = f'<p class="pending">{e(block["brief"])}</p>' if block.get("brief") else ""
-            return ('<section class="sect"><h2>Listen</h2>'
-                    f'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{e(block["embed"])}" '
-                    'title="Listening example" loading="lazy" allowfullscreen '
-                    'allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"></iframe></div>'
-                    f"{brief}</section>")
-        return ('<section class="sect"><h2>Listen</h2>'
-                f'<span class="pending">{e(block.get("brief") or "Not sourced yet.")}</span></section>')
-    return ""
+def shell_site(site, course):
+    """The site dict the shell's page() needs."""
+    nav = [("This week", "/", "home"), ("Term 1", "/term1/", "term1"),
+           ("Term 2", "/term2/", "term2"), ("Term 3", "/term3/", "term3"),
+           ("The Works", "/the-works/", "works")]
+    return {"base": site["base"], "title": site["title"], "year": 11, "key": "y11-2027",
+            "foot": course["canvasNote"], "nav": nav, "noindex": site.get("noindex")}
 
 
-# --------------------------------------------------------------- the lesson
+def term_short(term):
+    return term["name"].split(": ")[0]
 
 
-def lesson_main(site, course, term, lesson, works, is_home=False, current_no=None):
+def term_schedule(term, current_no):
+    """The term's lessons as one group for S.schedule, with the assessment task
+    sitting in its real week. `now` is where the class is up to."""
+    a = term["assessment"]
+    a_week = first_week(a.get("when"))
+    rows, placed = [], False
+
+    def at_row():
+        bits = [b for b in (a.get("when"), a.get("weighting"), "in Canvas") if b]
+        return {"n": f'AT{term["id"][-1]}', "title": at_title(a), "meta": " · ".join(bits), "at": True}
+
+    for l in term["lessons"]:
+        if not placed and a_week is not None and (first_week(l["week"]) or 0) >= a_week:
+            rows.append(at_row())
+            placed = True
+        built = "blocks" in l
+        if l["number"] == current_no:
+            st = "now"
+        elif built and current_no is not None and l["number"] < current_no:
+            st = "done"
+        else:
+            st = None
+        rows.append({"n": f'{l["number"]}', "title": l["title"], "meta": l["week"], "state": st,
+                     "href": f'/{term["id"]}/{l["number"]}/' if built else None})
+    if not placed:
+        rows.append(at_row())
+    return [(None, rows)]
+
+
+def term_card(site, term, current_no):
+    return S.schedule(term_schedule(term, current_no), base=site["base"], label="This term",
+                      title=term["focusArea"])
+
+
+def works_card(site, course, works, current_work):
+    """The twenty works, on the foot of every lesson page. Every chip is a link,
+    so it is standalone only (the shell hides extras inside Canvas)."""
     base = site["base"]
+    chips = []
+    for w in works:
+        here = ' aria-current="true"' if w["no"] == current_work else ""
+        inner = f'<b>M{w["no"]:02d}</b><span>{e(w["short"])}</span>'
+        if w.get("lesson"):
+            href = f'{base}/{term_of(course, w["lesson"])["id"]}/{w["lesson"]}/'
+            chips.append(f'<li><a class="wchip int" href="{href}"{here}>{inner}</a></li>')
+        else:
+            chips.append(f'<li><span class="wchip"{here}>{inner}</span></li>')
+    return S.section("works", "The archive", "works", "Twenty works, ordered by the week we meet them",
+                     f'<ol class="wchips">{"".join(chips)}</ol>')
 
-    # Only the lesson the class is actually up to may say "On air". Every other
-    # lesson page states its own position plainly.
-    pos = f'{e(term["name"].split(": ")[0])} &nbsp;·&nbsp; {e(lesson["week"])} &nbsp;·&nbsp; Lesson {lesson["number"]} of {course["totalLessons"]}'
-    if lesson["number"] == current_no:
-        status = f'{DOT}On air &nbsp;·&nbsp; {pos}'
-    elif current_no is not None and lesson["number"] < current_no:
-        status = f'Aired &nbsp;·&nbsp; {pos}'
-    else:
-        status = f'Coming up &nbsp;·&nbsp; {pos}'
 
-    listening = '<span class="tag muted">Now listening</span>'
+def listening_card(site, course, works, lesson):
+    """Beside the steps. The work's name goes to the lesson that teaches it
+    (inert inside a Canvas frame, like every in-site link)."""
+    base = site["base"]
+    note = lesson.get("listeningNote")
     if lesson.get("listening"):
-        w = next(wk for wk in works if wk["no"] == lesson["listening"])
-        href = f'{base}/{term_of(course, w["lesson"])["id"]}/{w["lesson"]}/' if w.get("lesson") else None
-        name = f'<a href="{href}">{e(w["short"])}</a>' if href else e(w["short"])
-        listening += (f'<div class="work">{name}</div>'
-                      f'<div class="by">{e(w["composer"])} &nbsp;·&nbsp; M {w["no"]:02d}</div>')
-        if lesson.get("listeningNote"):
-            listening += f'<p>{e(lesson["listeningNote"])}</p>'
+        w = next(x for x in works if x["no"] == lesson["listening"])
+        name = S.e(w["short"])
+        if w.get("lesson") and w["lesson"] != lesson["number"]:
+            href = f'{base}/{term_of(course, w["lesson"])["id"]}/{w["lesson"]}/'
+            name = f'<a class="int" href="{href}">{name}</a>'
+        body = f'<p><strong>{name}</strong><br>{S.e(w["composer"])} · M {w["no"]:02d}</p>'
     else:
-        listening += ('<div class="work">Teacher&rsquo;s choice</div>'
-                      f'<p>{e(lesson.get("listeningNote") or "Confirmed in class.")}</p>')
+        body = "<p><strong>Teacher’s choice</strong></p>"
+        note = note or "Confirmed in class."
+    if note:
+        body += f"<p>{S.rich(note)}</p>"
+    return S.side_card("Listening", "listen", body)
 
-    outcomes = "<br>".join(e(c) for c in lesson["outcomes"])
 
-    acts = ""
-    if lesson["steps"]:
-        items = "".join(f'<li><b>{i+1:02d}</b>{e(s)}</li>' for i, s in enumerate(lesson["steps"]))
-        acts = f'<section class="sect"><h2>In class this fortnight</h2><ul class="acts">{items}</ul></section>'
+def clip_of(b):
+    """One media block as a clip. A media block has no title of its own, but its
+    brief opens with the recording's name ("Mozart's Eine kleine Nachtmusik,
+    first movement: ..."), so that is the name and the rest is the caption."""
+    brief = b.get("brief") or ""
+    if ": " in brief:
+        name, rest = brief.split(": ", 1)
+    else:
+        name, rest = "Listening example", brief
+    return {"title": name, "embed": b.get("embed"), "meta": rest[:1].upper() + rest[1:],
+            "pending": "Not sourced yet." if not brief else ""}
 
-    crit = ""
-    if lesson["criteria"]:
-        items = "".join(
-            f'<li><input type="checkbox" id="c{i}"><label for="c{i}">{e(c)}</label></li>'
-            for i, c in enumerate(lesson["criteria"])
-        )
-        crit = f'<section class="sect"><h2>Success criteria</h2><ul class="crit">{items}</ul></section>'
 
-    # Notes go in the narrow column beside the activities; everything else runs wide.
-    wide = "".join(block_html(b) for b in lesson["blocks"] if b["type"] != "note")
-    notes = "".join(block_html(b) for b in lesson["blocks"] if b["type"] == "note")
+def lesson_sections(blocks):
+    """The lesson's blocks in order, as shell components. Consecutive media
+    blocks share one Listen card; a note becomes the side card of the section
+    before it."""
+    secs, i = [], 0
+    while i < len(blocks):
+        b = blocks[i]
+        if b["type"] == "note":
+            i += 1
+            continue
+        j = i + 1
+        if b["type"] == "media":
+            while j < len(blocks) and blocks[j]["type"] == "media":
+                j += 1
+        nxt = blocks[j] if j < len(blocks) else None
+        side = S.note_card(nxt.get("title"), nxt["text"]) if nxt and nxt["type"] == "note" else ""
+        if b["type"] == "media":
+            secs.append(S.listen([clip_of(m) for m in blocks[i:j]], side=side))
+        elif b["type"] == "table":
+            form = len(b["columns"]) > 1 and all(not c for r in b["rows"] for c in r[1:])
+            secs.append(S.compare(b["columns"], b["rows"], title=b["title"], side=side, form=form))
+        elif b["type"] == "prose" and b["title"].startswith("Worked example"):
+            # "Worked example: hearing conventions" names its case; a bare
+            # "Worked example" is already said by the card's own label.
+            t = b["title"].split(": ", 1)[1] if ": " in b["title"] else ""
+            secs.append(S.worked(text=b["text"], title=t[:1].upper() + t[1:] if t else None, side=side))
+        elif b["type"] == "prose":
+            secs.append(S.learn([b["text"]], title=b["title"], side=side))
+        i = j
+    return secs
 
-    all_l = term["lessons"]
-    idx = next((i for i, l in enumerate(all_l) if l["number"] == lesson["number"]), 0)
-    prev_l = all_l[idx - 1] if idx else None
-    next_l = all_l[idx + 1] if idx + 1 < len(all_l) else None
-    nav = []
-    if prev_l and "blocks" in prev_l:
-        nav.append(f'<a class="pn" href="{base}/{term["id"]}/{prev_l["number"]}/">'
-                   f'<span class="k">Last aired</span><span class="t">{e(prev_l["title"])}</span></a>')
-    if next_l and "blocks" in next_l:
-        nav.append(f'<a class="pn pn-next" href="{base}/{term["id"]}/{next_l["number"]}/">'
-                   f'<span class="k">Next up</span><span class="t">{e(next_l["title"])}</span></a>')
-    prevnext = f'<nav class="prevnext" aria-label="Lessons">{"".join(nav)}</nav>' if nav else ""
 
-    permalink = ""
-    if is_home:
-        permalink = (f'<p class="permalink"><a href="{base}/{term["id"]}/{lesson["number"]}/">'
-                     f'Open Lesson {lesson["number"]} in full</a></p>')
-
-    return f"""<div class="main" id="main">
-  <div class="lead">
-    <p class="onair"><span class="tag-lg">{status}</span></p>
-    <h1>{e(lesson['title'])}</h1>
-  </div>
-  <div class="strip">
-    <div class="sc">{listening}</div>
-    <div class="sc"><span class="tag muted">By the end you can</span><p>{e(lesson['whatYouWillDo'])}</p></div>
-    <div class="sc"><span class="tag muted">Outcomes</span><div class="oc">{outcomes}</div></div>
-  </div>
-  <div class="two">
-    <div>{wide}</div>
-    <div>{acts}{crit}{notes}</div>
-  </div>
-  {permalink}
-  {prevnext}
-  <div class="mainfoot"></div>
-</div>"""
+def rail_body(site, term, current_no, lesson_html):
+    """RAIL=left: the lesson beside a sticky list of the term, wide screens only."""
+    rail = (f'<aside class="termrail" aria-label="{e(term_short(term))} lessons">'
+            f'{term_card(site, term, current_no)}</aside>')
+    return f'<div class="withrail">{rail}<div class="withrail-main">{lesson_html}</div></div>'
 
 
 def build_lesson(site, course, term, lesson, works, current_no, is_home=False):
-    body = f"""<div class="split">
-{rail(site, course, term, current_no, lesson["number"])}
-{lesson_main(site, course, term, lesson, works, is_home, current_no)}
-</div>"""
-    title = site["course"]["name"] if is_home else f"Lesson {lesson['number']}: {lesson['title']}"
-    desc = "What is on air this week." if is_home else lesson["intention"]
-    return layout(site, title, body, desc, nav_active=("home" if is_home else term["id"]),
-                  strand=term["id"], current_work=lesson.get("listening"),
-                  course=course, works=works)
+    sh = shell_site(site, course)
+    base = site["base"]
+    n = lesson["number"]
+    kicker = f'{term_short(term)} · {lesson["week"]}'
+    if n == current_no:
+        kicker = "Up to here · " + kicker
+    hd = S.head(lesson["title"], kicker=kicker, num=n,
+                meta=f'Lesson {n} of {course["totalLessons"]} · {lesson["contentGroup"]}')
+    it = S.intent(lesson["intention"], by_end=lesson["whatYouWillDo"], criteria=lesson["criteria"],
+                  outcomes=lesson["outcomes"])
+    secs = [S.steps(lesson["steps"], title="This fortnight",
+                    side=listening_card(site, course, works, lesson))]
+    secs += lesson_sections(lesson["blocks"])
+    body = S.lesson(hd, it, secs)
+    if is_home:
+        body += (f'<p class="btns permalink"><a class="btn btn-quiet int" href="{base}/{term["id"]}/{n}/">'
+                 f'Open Lesson {n} on its own page</a></p>')
+
+    extras = ""
+    if RAIL == "left":
+        body = rail_body(site, term, current_no, body)
+    else:
+        extras += (f'<details class="fold"><summary>This term: {e(term["focusArea"])}, '
+                   f'{len(term["lessons"])} lessons</summary>{term_card(site, term, current_no)}</details>')
+    extras += works_card(site, course, works, lesson.get("listening"))
+
+    all_l = term["lessons"]
+    idx = next((k for k, l in enumerate(all_l) if l["number"] == n), 0)
+    prev_l = all_l[idx - 1] if idx else None
+    next_l = all_l[idx + 1] if idx + 1 < len(all_l) else None
+    pn = (("Previous", prev_l["title"], f'/{term["id"]}/{prev_l["number"]}/') if prev_l and "blocks" in prev_l else None,
+          ("Next", next_l["title"], f'/{term["id"]}/{next_l["number"]}/') if next_l and "blocks" in next_l else None)
+
+    if is_home:
+        title, crumbs, current = course["name"], None, "home"
+    else:
+        title = f'Lesson {n}: {lesson["title"]}'
+        crumbs = [("Home", "/"), (term_short(term), f'/{term["id"]}/'), (f"Lesson {n}", None)]
+        current = term["id"]
+    return S.page(sh, title=title, body=body, description=lesson["intention"], crumbs=crumbs,
+                  nav_current=current, prevnext=pn, extras=extras)
 
 
 # ---------------------------------------------------------------- term hubs
