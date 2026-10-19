@@ -175,12 +175,6 @@ def term_of(course, lesson_no):
 # components; the markup and the look live in the shell. The term hubs and The
 # Works still use the old layout() until they move across.
 
-# Where the term's lesson list sits on a lesson page. "fold" is a folded card at
-# the foot; "left" is a sticky rail beside the lesson on wide screens. Chosen by
-# Matthew from screenshots; the default is the plan's recommendation.
-RAIL = os.environ.get("RAIL", "fold")
-
-
 def shell_site(site, course):
     """The site dict the shell's page() needs."""
     nav = [("This week", "/", "home"), ("Term 1", "/term1/", "term1"),
@@ -310,13 +304,6 @@ def lesson_sections(blocks):
     return secs
 
 
-def rail_body(site, term, current_no, lesson_html):
-    """RAIL=left: the lesson beside a sticky list of the term, wide screens only."""
-    rail = (f'<aside class="termrail" aria-label="{e(term_short(term))} lessons">'
-            f'{term_card(site, term, current_no)}</aside>')
-    return f'<div class="withrail">{rail}<div class="withrail-main">{lesson_html}</div></div>'
-
-
 def build_lesson(site, course, term, lesson, works, current_no, is_home=False):
     sh = shell_site(site, course)
     base = site["base"]
@@ -336,12 +323,8 @@ def build_lesson(site, course, term, lesson, works, current_no, is_home=False):
         body += (f'<p class="btns permalink"><a class="btn btn-quiet int" href="{base}/{term["id"]}/{n}/">'
                  f'Open Lesson {n} on its own page</a></p>')
 
-    extras = ""
-    if RAIL == "left":
-        body = rail_body(site, term, current_no, body)
-    else:
-        extras += (f'<details class="fold"><summary>This term: {e(term["focusArea"])}, '
-                   f'{len(term["lessons"])} lessons</summary>{term_card(site, term, current_no)}</details>')
+    extras = (f'<details class="fold"><summary>This term: {e(term["focusArea"])}, '
+              f'{len(term["lessons"])} lessons</summary>{term_card(site, term, current_no)}</details>')
     extras += works_card(site, course, works, lesson.get("listening"))
 
     all_l = term["lessons"]
