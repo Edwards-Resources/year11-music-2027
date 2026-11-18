@@ -1,4 +1,4 @@
-# Copied from music-shell 3cf4f3fa6e, body c26c8e95d6. Do not edit here: edit Sites/music-shell and run sync.py.
+# Copied from music-shell 86afd3d09b, body 2def44f587. Do not edit here: edit Sites/music-shell and run sync.py.
 """The shared page shell for the music sites (Years 8, 9, 10 and 11).
 
 One look, one accent per year group: direction B, Stage Card, chosen 19 October
@@ -15,8 +15,9 @@ What lives here:
 - page()             the frame: head, inside-Canvas mode, bar, crumbs, footer
 - lesson()           head card, learning intention, the sections, the end cards
 - head(), intent()   the two pieces every lesson opens with
-- the components     steps, listen, cues, learn, compare, book, task, worked,
-                     check, help, further, exit_ticket, keep
+- the components     steps, listen, cues, learn, compare, form, book, task,
+                     worked, check, reveal, rubric, help, further, exit_ticket,
+                     keep
 - hub pieces         schedule, assessment, upto, card_grid, fold
 - escape hatches     section() and side_card(), for a site's own furniture
 
@@ -45,10 +46,27 @@ def e(s):
     return re.sub(r"(?<=\w)&#x27;(?=\w)", "’", E(str(s), quote=True))
 
 
+# Where the site is served from, for links written inside data text. Set once
+# by a site's build (set_base) before it renders anything.
+LINK_BASE = ""
+
+# [label](/site/relative/path/). The path admits only a slash-led run of
+# letters, digits and hyphens, so data can never produce an external
+# destination or a javascript: URL.
+LINK_RE = re.compile(r"\[([^\[\]]+)\]\((/[A-Za-z0-9/-]*)\)")
+
+
+def set_base(base):
+    """Tell rich() where the site is served from, for in-text links."""
+    global LINK_BASE
+    LINK_BASE = base
+
+
 def rich(s):
-    """Escape, then the two inline marks the data uses: **bold** and _italic_.
-    Unbalanced marks are left alone rather than guessed at, so a stray
-    underscore never eats the rest of a paragraph."""
+    """Escape, then the inline marks the data uses: **bold**, _italic_ and
+    [label](/a/page/of/this/site/). Unbalanced marks are left alone rather
+    than guessed at, so a stray underscore never eats the rest of a paragraph.
+    A link is marked "int", so it goes inert inside a Canvas frame."""
     out = e(s)
     for mark, tag in (("**", "strong"), ("_", "em")):
         if mark == "_":
@@ -58,7 +76,7 @@ def rich(s):
         parts = out.split(mark)
         if len(parts) % 2 == 1:
             out = "".join(p if i % 2 == 0 else f"<{tag}>{p}</{tag}>" for i, p in enumerate(parts))
-    return out
+    return LINK_RE.sub(lambda m: f'<a class="int" href="{LINK_BASE}{m.group(2)}">{m.group(1)}</a>', out)
 
 
 def mmss(sec):
@@ -329,18 +347,32 @@ def listen(tracks, *, title=None, label="Listen", brief="", side=""):
     return section("listen", label, "listen", title, f'{b}<div class="clips{one}">{clips}</div>', side=side)
 
 
+def _cue_list(w, cues, cls="cue-list"):
+    """A cue is (seconds, text), or a dict with at, text and optionally sub, a
+    list of finer cues inside it (Year 10 breaks some moments down further)."""
+    rows = []
+    for c in cues:
+        if isinstance(c, dict):
+            at, text, sub = c["at"], c["text"], c.get("sub")
+        else:
+            (at, text), sub = c, None
+        inner = _cue_list(w, sub, "cue-list cue-sub") if sub else ""
+        rows.append(f'<li><a class="cue" data-at="{int(at)}" href="{_watch(w["embed"], at)}">'
+                    f'{mmss(at)}<span class="sr"> into {e(w["title"])}</span></a>'
+                    f'<div class="cue-w">{rich(text)}</div>{inner}</li>')
+    return f'<ol class="{cls}">{"".join(rows)}</ol>'
+
+
 def cues(works, *, brief="", title=None, label="Cue sheet"):
     """The moments in a recording worth stopping at. works: dicts with title,
-    embed, meta, and cues as a list of (seconds, text). Each time is a real
-    link to that second; shell.js turns it into a seek in the player above."""
+    embed, meta, cues (see _cue_list) and optionally note, a closing line under
+    the cues. Each time is a real link to that second; shell.js turns it into a
+    seek in the player beside it."""
     blocks = []
     for w in works:
-        rows = "".join(
-            f'<li><a class="cue" data-at="{int(at)}" href="{_watch(w["embed"], at)}">'
-            f'{mmss(at)}<span class="sr"> into {e(w["title"])}</span></a><span>{rich(text)}</span></li>'
-            for at, text in w["cues"])
+        note = f'<p class="fine cue-note">{rich(w["note"])}</p>' if w.get("note") else ""
         blocks.append(f'<div class="gw">{clip(w["title"], embed=w["embed"], meta=w.get("meta", ""))}'
-                      f'<ol class="cue-list">{rows}</ol></div>')
+                      f'<div class="gw-cues">{_cue_list(w, w["cues"])}{note}</div></div>')
     b = f'<p class="brief">{rich(brief)}</p>' if brief else ""
     return section("cues", label, "cues", title, f'{b}<div class="gws">{"".join(blocks)}</div>')
 
@@ -391,14 +423,30 @@ def table(headers, rows, *, form=False):
     return f'<div class="tbl-wrap"><table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{"".join(trs)}</tbody></table></div>'
 
 
-def compare(headers, rows, *, title=None, label="Compare", side="", form=False):
+def compare(headers, rows, *, title=None, label="Compare", side="", form=False, brief="", sid=None):
     """A table to read, or with form=True a frame to fill in: every empty cell
     becomes a box. A frame whose cells are all empty is a scaffold, and printed
-    as a bare grid it looks broken."""
-    body = table(headers, rows, form=form)
+    as a bare grid it looks broken. brief is a line above the table."""
+    body = (f'<p class="brief">{rich(brief)}</p>' if brief else "") + table(headers, rows, form=form)
     if form:
         body += '<p class="fine">Type straight into the boxes. Your answers stay on this device.</p>'
-    return section("compare", label, "compare", title, body, side=side)
+    return section("compare", label, "compare", title, body, side=side, sid=sid)
+
+
+def form(rows, *, title=None, brief="", label="Fill this in", sid=None, side=""):
+    """Questions to answer in boxes, one under another: a proposal, a plan, a
+    reflection. rows: (label, question, lines). lines sets the box's height;
+    every box is a textarea, so shell.js keeps what is typed on this device."""
+    lis = []
+    for i, (lab, q, lines) in enumerate(rows):
+        lis.append(f'<li><p class="form-lab">{rich(lab)}</p>'
+                   f'<p class="form-q">{rich(q)}</p>'
+                   f'<textarea class="field" rows="{max(1, int(lines or 1))}" '
+                   f'aria-label="{e(lab)}"></textarea></li>')
+    body = (f'<p class="brief">{rich(brief)}</p>' if brief else "")
+    body += f'<ol class="form-list">{"".join(lis)}</ol>'
+    body += '<p class="fine">Type straight into the boxes. Your answers stay on this device.</p>'
+    return section("form", label, "task", title, body, side=side, sid=sid)
 
 
 def book(items, *, title="Write this down", label="In your book"):
@@ -443,6 +491,34 @@ def worked(*, question=None, model=None, rungs=(), zero=None, marks=None, lead=N
     return section("worked", "Worked example", "worked", title, "".join(parts), side=side)
 
 
+def reveal(summary, items, *, ordered=False, title=None, label="Check yourself"):
+    """One fold holding a list: the answers to a task, or the notes from a
+    lesson a student missed. Shut until pressed, so a projected page never
+    shows the room the answers while the class is still working."""
+    tag = "ol" if ordered else "ul"
+    lis = "".join(f"<li>{rich(x)}</li>" for x in items)
+    return section("reveal", label, "check", title,
+                   f'<details class="reveal"><summary>{rich(summary)}</summary>'
+                   f'<{tag} class="reveal-list">{lis}</{tag}></details>')
+
+
+def rubric(criteria, *, bands=(), title=None, lead="", label="Marking criteria"):
+    """How a task is marked. criteria: (name, [(band, description)]). bands:
+    (band, mark range) pairs for the whole task, drawn once as a key rather
+    than repeated on every criterion. One card per criterion, not a wide
+    table, because a five-band table does not survive a phone."""
+    key = ""
+    if bands:
+        key = ('<ul class="band-key">' + "".join(
+            f'<li><span class="band">{e(b)}</span>{e(r)}</li>' for b, r in bands) + "</ul>")
+    cards = []
+    for name, rows in criteria:
+        lis = "".join(f'<li><span class="band">{e(b)}</span><span>{rich(t)}</span></li>' for b, t in rows)
+        cards.append(f'<li class="crit-card"><h3>{rich(name)}</h3><ul class="bands">{lis}</ul></li>')
+    ld = f'<p class="brief">{rich(lead)}</p>' if lead else ""
+    return section("rubric", label, "assess", title, f'{ld}{key}<ol class="crit-cards">{"".join(cards)}</ol>')
+
+
 def check(items, *, title=None, label="Check yourself"):
     """Questions with the answer folded away. items: (question, answer) pairs."""
     lis = "".join(f'<li><details><summary>{rich(q)}</summary><div class="ans">{rich(a)}</div></details></li>'
@@ -470,18 +546,28 @@ def keep(text, *, label="Worth keeping"):
 
 
 def state_pill(state):
-    words = {"now": "Up to here", "done": "Done", "at": "Assessment", "soon": "Not on the site yet"}
+    words = {"now": "Up to here", "next": "Next up", "done": "Done", "at": "Assessment",
+             "soon": "Not on the site yet"}
     return f'<span class="pill pill-{state}">{"<i></i>" if state == "now" else ""}{words[state]}</span>'
 
 
 def schedule(groups, *, base, title=None, label="This term", note=""):
     """Every lesson of a term, grouped (usually by week). groups: list of
-    (group label, rows). A row: dict with n (shown as given, e.g. "02"), title,
-    href (site-relative, or None when there is no page yet), meta, at (True
-    for an assessment lesson), and state: "now", "done" or None. "now" is where
-    the class is up to; it is said in words and marked, never marked alone."""
+    (group label, rows), or (group label, rows, intro) where intro is a line
+    under the group's label. A row: dict with n (shown as given, e.g. "02"),
+    title, href (site-relative, or None when there is no page yet), meta, at
+    (True for an assessment lesson), and state: "now", "next", "done" or None.
+    "now" is where the class is up to; it is said in words and marked, never
+    marked alone.
+
+    A row may also carry date (YYYY-MM-DD): a checkpoint everyone shares, like
+    a depth study's milestones. Its state is worked out from the build date and
+    worked out again by shell.js when the page is opened, because a page can sit
+    for weeks between builds and a stale "Next up" is worse than none."""
     out = []
-    for g, rows in groups:
+    for grp in groups:
+        g, rows = grp[0], grp[1]
+        intro = grp[2] if len(grp) > 2 else ""
         lis = []
         for r in rows:
             st = r.get("state")
@@ -490,16 +576,19 @@ def schedule(groups, *, base, title=None, label="This term", note=""):
             elif r.get("at"):
                 pill = state_pill("at")
             else:
-                pill = "" if r.get("href") else state_pill("soon")
+                # A dated checkpoint has no page of its own, and that is not news.
+                pill = "" if r.get("href") or r.get("date") else state_pill("soon")
             name = (f'<a class="int" href="{base}{r["href"]}">{rich(r["title"])}</a>' if r.get("href")
                     else f'<span>{rich(r["title"])}</span>')
             meta = f'<span class="row-meta">{rich(r["meta"])}</span>' if r.get("meta") else ""
             cur = ' aria-current="step"' if st == "now" else ""
             cls = "row" + (f" row-{st}" if st else "") + (" row-at" if r.get("at") else "")
-            lis.append(f'<li class="{cls}"{cur}><span class="row-n">{e(r["n"])}</span>'
+            dated = f' data-date="{e(r["date"])}"' if r.get("date") else ""
+            lis.append(f'<li class="{cls}"{cur}{dated}><span class="row-n">{e(r["n"])}</span>'
                        f'<span class="row-t">{name}{meta}</span>{pill}</li>')
         gh = f'<h3 class="grp">{e(g)}</h3>' if g else ""
-        out.append(f'<div class="grp-wrap">{gh}<ol class="rows">{"".join(lis)}</ol></div>')
+        gi = f'<p class="grp-intro">{rich(intro)}</p>' if intro else ""
+        out.append(f'<div class="grp-wrap">{gh}{gi}<ol class="rows">{"".join(lis)}</ol></div>')
     n = f'<p class="fine sched-note">{rich(note)}</p>' if note else ""
     return section("schedule", label, "list", title, f'{n}<div class="sched">{"".join(out)}</div>')
 

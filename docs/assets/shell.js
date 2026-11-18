@@ -1,7 +1,7 @@
-/* Copied from music-shell 3cf4f3fa6e, body 95add456dc. Do not edit here: edit Sites/music-shell and run sync.py. */
+/* Copied from music-shell 86afd3d09b, body 8bb5f29212. Do not edit here: edit Sites/music-shell and run sync.py. */
 /* The shared shell's only script. Every page works without it: a recording's
    name is a link to the recording, a cue time is a link to that second, a tick
-   lasts the visit. This adds four things.
+   lasts the visit. This adds five things.
 
    1. Players unfold in place. Pressing a recording's name or picture swaps the
       picture for the player, one player on the page at a time (two tracks
@@ -10,7 +10,9 @@
    2. Cue times seek. A cue remounts its work's player at that second with
       ?start=, which needs no player API and so no third-party script.
    3. Ticks and typed answers are kept on this device, per site and per page.
-   4. Inside a Canvas frame, links to other pages of the site go inert, because
+   4. Dated checkpoints (a depth study's milestones) work out done and next up
+      from today's date, not the build date.
+   5. Inside a Canvas frame, links to other pages of the site go inert, because
       the Canvas app hands any in-frame link to another page out to Safari.
 
    No framework, no build step, no dependency: nobody is going to be in a
@@ -70,7 +72,7 @@
       if (!fig) return;
       ev.preventDefault();
       mount(fig, parseInt(t.getAttribute("data-at"), 10) || 0);
-      Array.prototype.forEach.call(t.closest(".cue-list").querySelectorAll(".cue"), function (c) {
+      Array.prototype.forEach.call(t.closest(".gw").querySelectorAll(".cue"), function (c) {
         if (c === t) c.setAttribute("aria-current", "true"); else c.removeAttribute("aria-current");
       });
       if (fig.getBoundingClientRect().top < 0) fig.scrollIntoView({ block: "start" });
@@ -113,6 +115,33 @@
        function (el) { return el.checked; }, function (el, v) { el.checked = !!v; }, "change");
   keep("textarea.field", "answers",
        function (el) { return el.value; }, function (el, v) { el.value = v; }, "input");
+
+  /* --------------------------------------------- dated checkpoints */
+  /* A schedule row with data-date is a checkpoint everyone shares. Its state
+     was baked in at build time, and the page can sit for weeks between builds,
+     so work it out again from today's date: past ones are done, and the first
+     one still ahead is next up. */
+
+  var dated = document.querySelectorAll(".row[data-date]");
+  if (dated.length) {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var words = { done: "Done", next: "Next up", at: "Assessment" };
+    var found = false;
+    Array.prototype.forEach.call(dated, function (li) {
+      var due = new Date(li.getAttribute("data-date") + "T00:00:00");
+      var st = due < today ? "done" : (!found ? "next" : "");
+      if (st === "next") found = true;
+      li.classList.toggle("row-done", st === "done");
+      li.classList.toggle("row-next", st === "next");
+      var want = st || (li.classList.contains("row-at") ? "at" : "");
+      var pill = li.querySelector(".pill");
+      if (!want) { if (pill) pill.parentNode.removeChild(pill); return; }
+      if (!pill) { pill = document.createElement("span"); li.appendChild(pill); }
+      pill.className = "pill pill-" + want;
+      pill.textContent = words[want];
+    });
+  }
 
   /* ------------------------------------------------- inside a Canvas frame */
 
