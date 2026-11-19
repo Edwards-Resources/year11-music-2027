@@ -1,4 +1,4 @@
-# Copied from music-shell 86afd3d09b, body 2def44f587. Do not edit here: edit Sites/music-shell and run sync.py.
+# Copied from music-shell cff34be41f, body c54cb2fdec. Do not edit here: edit Sites/music-shell and run sync.py.
 """The shared page shell for the music sites (Years 8, 9, 10 and 11).
 
 One look, one accent per year group: direction B, Stage Card, chosen 19 October
@@ -70,8 +70,9 @@ def rich(s):
     out = e(s)
     for mark, tag in (("**", "strong"), ("_", "em")):
         if mark == "_":
-            # Only an underscore at a word edge is a mark; snake_case is not.
-            out = re.sub(r"(?<![\w])_(?=\S)(.+?)(?<=\S)_(?![\w])", r"<em>\1</em>", out)
+            # Only an underscore at a word edge is a mark; snake_case is not,
+            # and neither is a blank to write in ("sounds ___ because").
+            out = re.sub(r"(?<![\w])_(?=[^\s_])(.+?)(?<=[^\s_])_(?![\w])", r"<em>\1</em>", out)
             continue
         parts = out.split(mark)
         if len(parts) % 2 == 1:
@@ -410,12 +411,19 @@ def table(headers, rows, *, form=False):
     cell into a box a student can type in, kept on their device."""
     th = "".join(f'<th scope="col">{e(h)}</th>' for h in headers)
     trs = []
-    for r in rows:
-        cells = [f'<th scope="row">{rich(r[0])}</th>']
+    for ri, r in enumerate(rows, 1):
+        rowname = r[0] or f"row {ri}"
+        # A frame can leave the first column for the student too ("Moment",
+        # "Track by"), and an empty row head printed as a gap reads as broken.
+        if form and not r[0]:
+            cells = [f'<th scope="row" data-label="{e(headers[0])}"><textarea class="field" rows="2" '
+                     f'aria-label="{e(headers[0])}, {rowname}"></textarea></th>']
+        else:
+            cells = [f'<th scope="row">{rich(r[0])}</th>']
         for h, c in zip(list(headers[1:]) + [""] * len(r), r[1:]):
             if form and not c:
                 cells.append(f'<td data-label="{e(h)}"><textarea class="field" rows="2" '
-                             f'aria-label="{e(h)}: {e(r[0])}"></textarea></td>')
+                             f'aria-label="{e(h)}: {e(rowname)}"></textarea></td>')
             else:
                 cells.append(f'<td data-label="{e(h)}">{rich(c)}</td>')
         trs.append("<tr>" + "".join(cells) + "</tr>")

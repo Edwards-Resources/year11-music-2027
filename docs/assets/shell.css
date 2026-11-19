@@ -1,4 +1,4 @@
-/* Copied from music-shell 86afd3d09b, body 03acaad9c7. Do not edit here: edit Sites/music-shell and run sync.py. */
+/* Copied from music-shell cff34be41f, body f679321ab1. Do not edit here: edit Sites/music-shell and run sync.py. */
 /* The shared shell for the music sites. Direction B, Stage Card (19 October 2026).
    Warm grey ground, every section a white card with an icon-and-word label pill,
    one solid year-accent card for the title. Bricolage Grotesque for display,
@@ -57,6 +57,8 @@
 
 /* ---------------------------------------------------------------- reset */
 *, *::before, *::after { box-sizing: border-box; }
+/* Anything a script hides stays hidden, whatever display a component gives it. */
+[hidden] { display: none !important; }
 html { font-size: 100%; -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; }
 @media (min-width: 700px) { body { font-size: 1.125rem; } }
@@ -221,7 +223,7 @@ a.clip-name:hover { text-decoration: underline; }
   .tbl-form, .tbl-form tbody, .tbl-form tr, .tbl-form th, .tbl-form td { display: block; width: auto !important; }
   .tbl-form thead { display: none; }
   .tbl-form tr { padding: .75rem; border-radius: .75rem; }
-  .tbl-form td::before { content: attr(data-label); display: block; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #5a6470; margin: .4rem 0 .25rem; }
+  .tbl-form td::before, .tbl-form th[data-label]::before { content: attr(data-label); display: block; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #5a6470; margin: .4rem 0 .25rem; }
 }
 
 /* ------------------------------------------------------- book and task */
@@ -376,6 +378,8 @@ a.clip-name:hover { text-decoration: underline; }
 .framed .blk { padding-left: 1rem; padding-right: 1rem; }
 @media (min-width: 700px) { .framed .blk { padding: 2rem 2.25rem; } }
 .framed .blk-exit::before, .framed .blk-exit::after { background: #fff; }
+/* With no gutter in a frame, the notches would hang past the edge and scroll the page sideways. */
+.framed .blk-exit { overflow: hidden; }
 .inert { text-decoration: none; cursor: default; }
 
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
